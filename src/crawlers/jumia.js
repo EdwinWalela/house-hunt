@@ -23,6 +23,18 @@ const jumia = async(query,town,pages) =>{
     });
   }
 
+  let wordSearch = (s,word) =>{
+    return new RegExp('\\b'+word+'\\b','i').test(s);
+  }
+
+  let words = query.split(' ');
+  console.log(words);
+  words.forEach(word=>{
+    results = results.filter(listing=>{
+      return wordSearch(listing.name,word);
+    })
+  })
+
   return results;
 }
 
