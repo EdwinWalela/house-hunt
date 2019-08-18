@@ -23,18 +23,29 @@ const jumia = async(query,town,pages) =>{
     });
   }
 
+  // Word Filter
   let wordSearch = (s,word) =>{
     return new RegExp('\\b'+word+'\\b','i').test(s);
   }
 
   let words = query.split(' ');
-  console.log(words);
+
   words.forEach(word=>{
     results = results.filter(listing=>{
       return wordSearch(listing.name,word);
     })
   })
 
+  // Add URL
+  results = results.map(listing=>{
+    let name = listing.name.trim().replace(/ /g, '-');
+    listing.url = `https://deals.jumia.co.ke/${name}-pid${listing.id}`;
+    return listing
+  });
+
+  // 
+
+  // Return listrings
   return results;
 }
 
