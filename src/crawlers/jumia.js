@@ -16,10 +16,19 @@ const jumia = async(query,town,pages) =>{
     }
     let $ = cheerio.load(dom.data);
 
-    $('div#tab1').map((i,el)=>{
-      let data = $(el).find('div#search-results').attr('data-catalog-event');
+    $('div#search-results>article').map((i,el)=>{
+      let data = $(el).attr('data-event');
+      let location = $(el).find('span.address').text();
+      let url = $(el).find('a.post-link').attr('href');
+      url = `https://deals.jumia.co.ke${url}`;
       data = JSON.parse(data);
-      results.push(...data.impressions);
+      location = location.replace(/ /g, '').split(',')[1].trim();
+      data = {
+        ...data,
+        location,
+        url
+      }
+      results.push(data);
     });
   }
 
@@ -32,18 +41,27 @@ const jumia = async(query,town,pages) =>{
 
   words.forEach(word=>{
     results = results.filter(listing=>{
-      return wordSearch(listing.name,word);
+      return wordSearch(listing.title,word);
     })
   })
 
-  // Add URL
-  results = results.map(listing=>{
-    let name = listing.name.trim().replace(/ /g, '-');
-    listing.url = `https://deals.jumia.co.ke/${name}-pid${listing.id}`;
-    return listing
-  });
+const getMetrics = async(listing)=>{
+    const API_KEY = 'AIzaSyAx5bVVPhoquI4sJHpJUb4NTpTuVout3EA';
+    let url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=langata&destinations=${listing.location},kenya&key=${API_KEY}`;
 
-  // 
+    let res = await Axios.get(url);
+
+    let metrics = {
+      distance:res.data.rows[0].elements[0].distance.text,
+      duration:res.data.rows[0].elements[0].duration.text,
+    }
+    return metrics;
+}
+
+for(let i = 0; i < results.length; i ++){
+  let metrics = await getMetrics(results[i]);
+  results[i].metrics = metrics;
+}
 
   // Return listrings
   return results;
