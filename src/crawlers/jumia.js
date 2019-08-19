@@ -1,13 +1,12 @@
 const Axios = require('axios');
 const cheerio = require("cheerio");
+const getMetrics = require("./helpers/metrics");
 
-const jumia = async(query,town,clientLocation,pages) =>{
+const jumia = async(query,clientLocation,depth,offset) =>{
   let results = [];
-  for(let pageCount = 0; pageCount < pages;pageCount++){
-    const JUMIA_URL = `https://deals.jumia.co.ke/${town}/real-estate?search-keyword=${query}&page=${pageCount}`;
+  for(let pageCount = offset; pageCount <= depth;pageCount++){
+    const JUMIA_URL = `https://deals.jumia.co.ke/real-estate?search-keyword=${query}&page=${pageCount}`;
     let dom;
-    
-
     try {
       dom = await Axios.get(JUMIA_URL);
     } catch (err) {
@@ -45,21 +44,8 @@ const jumia = async(query,town,clientLocation,pages) =>{
     })
   })
 
-const getMetrics = async(listing)=>{
-    const API_KEY = 'AIzaSyAx5bVVPhoquI4sJHpJUb4NTpTuVout3EA';
-    let url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${clientLocation}&destinations=${listing.location},kenya&key=${API_KEY}`;
-
-    let res = await Axios.get(url);
-
-    let metrics = {
-      distance:res.data.rows[0].elements[0].distance.text,
-      duration:res.data.rows[0].elements[0].duration.text,
-    }
-    return metrics;
-}
-
 for(let i = 0; i < results.length; i ++){
-  let metrics = await getMetrics(results[i]);
+  let metrics = await getMetrics(results[i],clientLocation);
   results[i].metrics = metrics;
 }
 
