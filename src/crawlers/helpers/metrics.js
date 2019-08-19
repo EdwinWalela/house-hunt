@@ -5,13 +5,23 @@ const getMetrics = async(listing,clientLocation)=>{
     
     let url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${clientLocation}&destinations=${listing.location},kenya&key=${API_KEY}`;
 
-    let res = await Axios.get(url);
+    let res;
+    try {
+      res = await Axios.get(url);
 
-    let metrics = {
-      distance:res.data.rows[0].elements[0].distance.text,
-      duration:res.data.rows[0].elements[0].duration.text,
-    }
-    return metrics;
+      let metrics = {
+        distance:res.data.rows[0].elements[0].distance.text,
+        duration:res.data.rows[0].elements[0].duration.text,
+      }
+      return metrics;
+      
+    } catch (err) {
+      console.log(err)
+      return {
+        distance:'',
+        duration:''
+      }
+    } 
 }
 
 module.exports = getMetrics;
