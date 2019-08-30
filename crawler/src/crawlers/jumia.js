@@ -30,6 +30,7 @@ const jumia = async(query,clientLocation,depth,offset) =>{
         location,
         url
       }
+      console.log(data)
       results.push(data);
     });
   }

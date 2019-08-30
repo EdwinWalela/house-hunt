@@ -9,9 +9,14 @@ const getMetrics = async(listing,clientLocation)=>{
     try {
       res = await Axios.get(url);
 
+      // let metrics = {
+      //   distance:res.data.rows[0].elements[0].distance.text,
+      //   duration:res.data.rows[0].elements[0].duration.text,
+      // }
+
       let metrics = {
-        distance:res.data.rows[0].elements[0].distance.text,
-        duration:res.data.rows[0].elements[0].duration.text,
+        distance:'',
+        duration:''
       }
       return metrics;
       
