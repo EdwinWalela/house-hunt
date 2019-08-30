@@ -1,16 +1,26 @@
 require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 8080;
+const DB_URI = process.env.DB_URI;
 
-const userRoutes = require("./routes/users.js");
+const apiRoutes = require("./routes/api");
 
-app.use(cors);
-app.use('/public',express.static('public'));
+// DB connection
+(async()=>{
+  try{
+    await mongoose.connect(DB_URI,{useNewUrlParser:true});
+    console.log(`DB connection established`);
+  }catch(err){
+    console.log(`DB connection failed\n${err}`);
+  }
+})()
 
-// Routes
-app.use('/users',userRoutes);
+
+app.use(cors());
+app.use('/api',apiRoutes);
 
 app.get('/',(req,res)=>{
   res.send({

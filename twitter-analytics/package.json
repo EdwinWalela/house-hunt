@@ -4,7 +4,7 @@
   "description": "Express REST API Template",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "nodemon ./src/index.js"
   },
   "keywords": [
     "REST-Template"
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.6.11",
     "multer": "^1.4.2"
   }
 }
