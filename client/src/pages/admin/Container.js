@@ -1,10 +1,10 @@
 import React from 'react'
-import Listing from './Listing';
+import ListingContainer from './ListingContainer';
 
 function Container() {
     return (
         <div>
-           <Listing />
+          <ListingContainer />
         </div>
     )
 }

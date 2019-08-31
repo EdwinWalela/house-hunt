@@ -13,25 +13,28 @@ function Listing(props) {
 }
 
 const containerStyle = {
+    overflow:"hidden",
     padding:"20px",
     border:"solid 1px",
-    width:"90%",
-    maxWidth:"400px",
-    margin:"auto"
+    width:"95%",
+    minWidth:"300px",
+    maxWidth:"450px",
+    margin:"20px auto",
+    height:"150px"
 }
 
 const imageStyle = {
-    width:"100px",
-    height:"100px"
+    width:"30%",
+    height:"100%",
 }
 
 const textStyle = {
     fontSize:"0.8em",
     paddingLeft:"20px",
-    width:"72%",
+    width:"60%",
     display:"inline-block",
     position:"relative",
-    bottom:"30px"
+    bottom:"60px",
 
 }
 
