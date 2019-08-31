@@ -2,13 +2,13 @@ const Axios = require('axios');
 const cheerio = require("cheerio");
 const getMetrics = require("./helpers/metrics");
 
-const jumia = async(query,clientLocation,depth,offset) =>{
+const jumia = async(query,depth,offset) =>{
   let results = [];
   let crawlS,filterS,metricS,crawlE,filterE,metricE;
   // Page Crawler
   crawlS = new Date();
   for(let pageCount = offset; pageCount <= depth;pageCount++){
-    const JUMIA_URL = `https://deals.jumia.co.ke/real-estate?search-keyword=${query}&page=${pageCount}`;
+    const JUMIA_URL = `https://deals.jumia.co.ke/apartment-for-rent?search-keyword=${query}&page=${pageCount}`;
     let dom;
     try {
       dom = await Axios.get(JUMIA_URL);
@@ -22,15 +22,16 @@ const jumia = async(query,clientLocation,depth,offset) =>{
       let data = $(el).attr('data-event');
       let location = $(el).find('span.address').text();
       let url = $(el).find('a.post-link').attr('href');
+      let thumb = $(el).find('img').attr('data-src');
       url = `https://deals.jumia.co.ke${url}`;
       data = JSON.parse(data);
       location = location.replace(/ /g, '').split(',')[1].trim();
       data = {
         ...data,
+        thumb,
         location,
         url
       }
-      console.log(data)
       results.push(data);
     });
   }
@@ -49,15 +50,6 @@ const jumia = async(query,clientLocation,depth,offset) =>{
     })
   })
   filterE = new Date() - filterS;
-
-
-  // Get Metrics
-  metricS = new Date();
-  for(let i = 0; i < results.length; i ++){
-    let metrics = await getMetrics(results[i],clientLocation);
-    results[i].metrics = metrics;
-  }
-  metricE = new Date() - metricS;
 
 
   console.log(`crawler:${crawlE}ms\nfilter:${filterE}ms\nmetrics:${metricE}ms`);
