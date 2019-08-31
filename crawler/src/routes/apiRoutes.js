@@ -13,8 +13,9 @@ router.get('/crawl-jumia',async(req,res)=>{
   results = results.map(listing=>{
     delete listing.id
     delete listing.category
+    listing.location = listing.location.toLowerCase();
     listing.origin = 'jumia'
-    listing.beds = 4;
+    listing.beds = 3;
     return listing;
   })
 
@@ -31,5 +32,34 @@ router.get('/crawl-jumia',async(req,res)=>{
     // results
   });
 })
+
+router.get('/jumia',async(req,res)=>{
+  
+  let beds = Number(req.query.beds) || '';
+  let location = req.query.location;
+  let results = [];
+
+  try {
+    results = await Listing.find({
+      $and:[
+        {beds},
+        {location},
+      ]
+  });
+  } catch (err) {
+    console.log(err)
+    res.status(500).send({
+      msg:"error",
+      err
+    })
+    return;
+  }
+
+  res.send({
+    msg:"OK",
+    results
+  })
+});
+
 
 module.exports = router;
