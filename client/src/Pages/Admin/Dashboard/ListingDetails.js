@@ -16,7 +16,7 @@ function ListingDetails(props) {
                 <i class="fas fa-map-marker-alt"></i>
                 <p style={DetailTextStyle}>Riverside Drive</p>
             </div>
-            <span style={sourceStyle}>Jumia</span>
+            <img src="./images/jumia.png" style={sourceStyle}/>
         </div>
     )
 }
@@ -41,12 +41,11 @@ const DetailTextStyle = {
 }
 
 const sourceStyle = {
-    border:"solid 1px",
-    fontSize:"0.8em",
-    padding:"5px",
     position:"relative",
-    bottom:"7px",
-    left:"10px"
+    bottom:"-15px",
+    left:"20px",
+    width:"60px",
+    height:"40px",
 }
 
 ListingDetails.propTypes = {
