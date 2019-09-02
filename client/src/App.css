@@ -10,6 +10,11 @@ li{
     display: inline-block;
 }
 
+.nav-item:hover{
+    color:#FF7700 !important;
+    cursor: pointer;
+}
+
 a{
     color:inherit;
     text-decoration: none;

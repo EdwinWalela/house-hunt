@@ -6,10 +6,10 @@ export default function Header() {
             <h1 style={titleStyle}>Admin Dashboard</h1>
             <div style={navListStyle}>
                 <ul>
-                    <li style={listItemStyle}>Listings</li>
-                    <li style={listItemStyle}>Listings</li>
-                    <li style={listItemStyle}>Listings</li>
-                    <li style={listItemStyle}>Listings</li>
+                    <li className="nav-item" style={listItemStyle}>Listings</li>
+                    <li className="nav-item" style={listItemStyle}>Users</li>
+                    <li className="nav-item" style={listItemStyle}>Logout</li>
+                    <li style={listItemStyle}>(Edwin)</li>
                 </ul>
             </div>
         </nav>
@@ -17,12 +17,14 @@ export default function Header() {
 }
 
 const navStyle = {
-    border:"solid 1px",
+    borderBottom:"solid 1px #7FC29B",
     padding:"15px",
 }
 
 const titleStyle = {
     display:"inline",
+    fontSize:"0.9em",
+    color:"#7FC29B"
 }
 
 const navListStyle = {
@@ -32,5 +34,6 @@ const navListStyle = {
 }
 
 const listItemStyle = {
-    margin:"5px 10px"
+    margin:"5px 10px",
+    color:"#000"
 }

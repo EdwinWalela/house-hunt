@@ -20,15 +20,16 @@ class EditForm extends Component {
 
 const headingStyle = {
     fontSize:"1.3em",
+    color:"#7FC29B",
     margin:"10px auto",
 }
 
 const formStyle= {
-    border:"solid 1px",
-    margin:"50px auto",
+    boxShadow:"1px 10px 10px rgba(0,0,0,.2)",
+    margin:"80px auto",
     width:"90%",
-    maxWidth:"400px",
-    padding:"15px",
+    maxWidth:"370px",
+    padding:"50px 10px",
     textAlign:"center"
 }
 
@@ -52,6 +53,10 @@ const submitBtnStyle = {
     width:"80%",
     padding:"10px 5px",
     marginTop:"15px",
+    border:"none",
+    background:"#7FC29B",
+    color:"#fff",
+    fontSize:"0.95em",
 }
 
 export default EditForm
