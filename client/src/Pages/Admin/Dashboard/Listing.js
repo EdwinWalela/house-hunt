@@ -16,14 +16,14 @@ function Listing(props) {
 }
 
 const containerStyle = {
-    overflow:"hidden",
-    padding:"20px",
     border:"solid 1px",
-    width:"95%",
+    overflow:"hidden",
+    padding:"10px",
+    width:"100%",
     minWidth:"300px",
     maxWidth:"450px",
     margin:"20px auto",
-    height:"150px"
+    height:"170px"
 }
 
 const imageStyle = {
@@ -32,12 +32,13 @@ const imageStyle = {
 }
 
 const textStyle = {
-    fontSize:"0.8em",
+    // border:"solid 1px",
+    fontSize:"1em",
     paddingLeft:"20px",
-    width:"60%",
+    width:"70%",
     display:"inline-block",
     position:"relative",
-    bottom:"60px",
+    bottom:"90px",
 
 }
 

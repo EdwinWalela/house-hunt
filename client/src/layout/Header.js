@@ -20,12 +20,13 @@ export default function Header() {
 const navStyle = {
     borderBottom:"solid 1px #7FC29B",
     padding:"15px",
+    background:"#7FC29B"
 }
 
 const titleStyle = {
     display:"inline",
     fontSize:"0.9em",
-    color:"#7FC29B"
+    color:"#fff"
 }
 
 const navListStyle = {
@@ -36,5 +37,5 @@ const navListStyle = {
 
 const listItemStyle = {
     margin:"5px 10px",
-    color:"#000"
+    color:"#fff"
 }

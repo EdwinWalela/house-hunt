@@ -16,7 +16,7 @@ function ListingDetails(props) {
                 <i class="fas fa-map-marker-alt"></i>
                 <p style={DetailTextStyle}>Riverside Drive</p>
             </div>
-            <img src="./images/jumia.png" style={sourceStyle}/>
+            {/* <img src="./images/jumia.png" style={sourceStyle}/> */}
         </div>
     )
 }

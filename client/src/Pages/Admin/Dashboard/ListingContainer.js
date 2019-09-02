@@ -16,7 +16,9 @@ function Container() {
 
 
 const containerStyle = {
-    margin:"50px auto",
+    margin:"100px auto",
+    width:"90%",
+    maxWidth:"450px"
 }
 
 
