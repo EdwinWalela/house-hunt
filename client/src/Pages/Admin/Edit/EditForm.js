@@ -26,7 +26,7 @@ const headingStyle = {
 
 const formStyle= {
     boxShadow:"1px 10px 10px rgba(0,0,0,.2)",
-    margin:"80px auto",
+    margin:"120px auto 50px auto",
     width:"90%",
     maxWidth:"370px",
     padding:"50px 10px",

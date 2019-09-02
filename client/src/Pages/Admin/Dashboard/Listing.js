@@ -8,7 +8,7 @@ function Listing(props) {
         <Link to="admin/edit">
             <div style={containerStyle}>
                 <img style={imageStyle} src="https://picsum.photos/200" />
-                <p style={textStyle}>Newly Built 3 Bedroom Penthouse on Riverside Drive,Nairobi</p>
+                <p style={textStyle}>Newly Built 3 Bedroom Penthouse on Riverside Drive with balcony in Nairobi</p>
                 <ListingDetails />
             </div>
         </Link>
@@ -16,29 +16,31 @@ function Listing(props) {
 }
 
 const containerStyle = {
-    border:"solid 1px",
+    borderBottom:"solid 1px #7FC29B",
     overflow:"hidden",
-    padding:"10px",
+    padding:"10px 15px",
     width:"100%",
     minWidth:"300px",
-    maxWidth:"450px",
+    maxWidth:"650px",
     margin:"20px auto",
     height:"170px"
 }
 
 const imageStyle = {
     width:"30%",
-    height:"100%",
+    maxWidth:"150px",
+    height:"90%",
 }
 
 const textStyle = {
     // border:"solid 1px",
     fontSize:"1em",
+    paddingRight:"0",
     paddingLeft:"20px",
     width:"70%",
     display:"inline-block",
     position:"relative",
-    bottom:"90px",
+    bottom:"80px",
 
 }
 

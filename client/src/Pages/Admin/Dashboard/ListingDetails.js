@@ -22,12 +22,11 @@ function ListingDetails(props) {
 }
 
 const DetailsContainerStyle = {
+    // border:"solid 1px",
     padding:"10px",
     position:"relative",
     bottom:"60px",
-    width:"70%",
-    minWidth:"300px",
-    marginLeft:"30.5%"
+    marginLeft:"31.5%",
 }
 
 const DetailItemStyle = {
@@ -38,14 +37,6 @@ const DetailItemStyle = {
 
 const DetailTextStyle = {
     fontSize:"0.7em"
-}
-
-const sourceStyle = {
-    position:"relative",
-    bottom:"-15px",
-    left:"20px",
-    width:"60px",
-    height:"40px",
 }
 
 ListingDetails.propTypes = {
