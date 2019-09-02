@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import ListingDetails from './ListingDetails';
 
 function Listing(props) {
     return (
-        <div style={containerStyle}>
-            <img style={imageStyle} src="https://picsum.photos/200" />
-            <p style={textStyle}>Newly Built 3 Bedroom Penthouse on Riverside Drive,Nairobi</p>
-            <ListingDetails />
-        </div>
+        <Link to="admin/edit">
+            <div style={containerStyle}>
+                <img style={imageStyle} src="https://picsum.photos/200" />
+                <p style={textStyle}>Newly Built 3 Bedroom Penthouse on Riverside Drive,Nairobi</p>
+                <ListingDetails />
+            </div>
+        </Link>
     )
 }
 

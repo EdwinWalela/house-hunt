@@ -1,11 +1,13 @@
 import React from 'react'
+import Header from '../../../layout/Header';
 import ListingContainer from './ListingContainer';
 
 function Container() {
     return (
-        <div>
+        <React.Fragment>
+          <Header />
           <ListingContainer />
-        </div>
+        </React.Fragment>
     )
 }
 

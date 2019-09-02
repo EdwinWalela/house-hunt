@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -6,7 +7,7 @@ export default function Header() {
             <h1 style={titleStyle}>Admin Dashboard</h1>
             <div style={navListStyle}>
                 <ul>
-                    <li className="nav-item" style={listItemStyle}>Listings</li>
+                    <Link to="/admin"><li className="nav-item" style={listItemStyle}>Listings</li></Link>
                     <li className="nav-item" style={listItemStyle}>Users</li>
                     <li className="nav-item" style={listItemStyle}>Logout</li>
                     <li style={listItemStyle}>(Edwin)</li>
