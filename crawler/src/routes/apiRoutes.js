@@ -33,19 +33,24 @@ router.get('/crawl-jumia',async(req,res)=>{
   });
 })
 
-router.get('/jumia',async(req,res)=>{
+router.get('/listings',async(req,res)=>{
   
   let beds = Number(req.query.beds) || '';
-  let location = req.query.location;
+  let location = req.query.location || '';
+  let limit = Number(req.query.limit) || 20
   let results = [];
 
   try {
-    results = await Listing.find({
-      $and:[
-        {beds},
-        {location},
-      ]
-  });
+    if(beds !== '' && location !== ''){
+      results = await Listing.find({
+        $and:[
+          {beds},
+          {location},
+        ]
+      }).limit(limit);
+    }else{
+      results = await Listing.find({}).limit(limit);
+    }
   } catch (err) {
     console.log(err)
     res.status(500).send({
@@ -57,9 +62,11 @@ router.get('/jumia',async(req,res)=>{
 
   res.send({
     msg:"OK",
+    count:results.length,
     results
   })
 });
+
 
 
 module.exports = router;
