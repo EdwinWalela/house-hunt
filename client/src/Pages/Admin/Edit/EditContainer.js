@@ -6,8 +6,8 @@ import EditForm from "./EditForm";
 function EditContainer(props) {
     return (
         <div>
-            <Header />
-            <EditForm />
+            <Header title="Admin Dashboard"/>
+            <EditForm listing={props.listing}/>
         </div>
     )
 }

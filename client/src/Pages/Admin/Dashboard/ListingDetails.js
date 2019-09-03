@@ -6,15 +6,15 @@ function ListingDetails(props) {
         <div style={DetailsContainerStyle}>
             <div style={DetailItemStyle}>
                 <i class="fas fa-bed"></i>
-                <p style={DetailTextStyle}>3</p>
+                <p style={DetailTextStyle}>{props.data.beds}</p>
             </div>
             <div style={DetailItemStyle}>
                 <i class="fas fa-bath"></i>
-                <p style={DetailTextStyle}>3</p>
+                <p style={DetailTextStyle}>{props.data.baths}</p>
             </div>
             <div style={DetailItemStyle}>
                 <i class="fas fa-map-marker-alt"></i>
-                <p style={DetailTextStyle}>Riverside Drive</p>
+                <p style={DetailTextStyle}>{props.data.location}</p>
             </div>
             {/* <img src="./images/jumia.png" style={sourceStyle}/> */}
         </div>
@@ -25,7 +25,7 @@ const DetailsContainerStyle = {
     // border:"solid 1px",
     padding:"10px",
     position:"relative",
-    bottom:"60px",
+    bottom:"50px",
     marginLeft:"31.5%",
 }
 
@@ -36,7 +36,8 @@ const DetailItemStyle = {
 }
 
 const DetailTextStyle = {
-    fontSize:"0.7em"
+    fontSize:"0.7em",
+    textTransform:"capitalize"
 }
 
 ListingDetails.propTypes = {

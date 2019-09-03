@@ -1,17 +1,15 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 import Listing from './Listing';
 
-function Container() {
+function Container(props) {
     return (
         <div style={containerStyle}>
-           <Listing />
-           <Listing />
-           <Listing />
-           <Listing />
-           <Listing />
-           <Listing />
+           {props.listings.map((data,i)=>(
+               <Listing data={data} index={i} listingOnClick={props.listingOnClick}/>
+           ))}
            <div style={paginationWrapperStyle}>
-               <span style={numberStyle}>1</span>
+               <NavLink to="/admin"><span style={numberStyle}>1</span></NavLink>
                <span style={numberStyle}>2</span>
                <span style={numberStyle}>3</span>
                <span style={numberStyle}>4</span>

@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
     return (
         <nav style={navStyle}>
-            <h1 style={titleStyle}>Admin Dashboard</h1>
+            <h1 style={titleStyle}>{props.title}</h1>
             <div style={navListStyle}>
                 <ul>
                     <Link to="/admin"><li className="nav-item" style={listItemStyle}>Listings</li></Link>

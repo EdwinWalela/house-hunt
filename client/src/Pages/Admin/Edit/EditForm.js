@@ -2,16 +2,17 @@ import React, { Component } from 'react'
 
 class EditForm extends Component {
     render() {
+        let listing = this.props.listing
         return (
             <form style={formStyle}>
                 <h1 style={headingStyle}>Edit Listing</h1>
-                <input style={inputStyle} type="text" placeholder="Title" />
-                <input style={inputStyle} type="text" placeholder="Price" />
-                <input style={inputStyle} type="text" placeholder="Location" />
+                <textarea rows='5' style={inputStyle} type="text" placeholder="Title" value={listing.title}/>
+                <input style={inputStyle} type="text" placeholder="Price" value={listing.price}/>
+                <input style={inputStyle} type="text" placeholder="Location" value={listing.location}/>
                 <label for="beds">Beds</label>
-                <input id="beds" style={counterStyle} type="number" />
+                <input id="beds" style={counterStyle} type="number" value={listing.beds}/>
                 <label for="baths">Baths</label>
-                <input id="baths" style={counterStyle} type="number" />
+                <input id="baths" style={counterStyle} type="number" value={listing.baths}/>
                 <input style={submitBtnStyle} type="submit" value="Update"/>
             </form>
         )
@@ -25,11 +26,11 @@ const headingStyle = {
 }
 
 const formStyle= {
-    boxShadow:"1px 10px 10px rgba(0,0,0,.2)",
-    margin:"120px auto 50px auto",
+    boxShadow:"1px 1px 10px rgba(0,0,0,.2)",
+    margin:"100px auto 50px auto",
     width:"90%",
-    maxWidth:"370px",
-    padding:"50px 10px",
+    maxWidth:"400px",
+    padding:"30px 10px",
     textAlign:"center"
 }
 
