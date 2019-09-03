@@ -8,9 +8,9 @@ export default function Header() {
             <div style={navListStyle}>
                 <ul>
                     <Link to="/admin"><li className="nav-item" style={listItemStyle}>Listings</li></Link>
-                    <li className="nav-item" style={listItemStyle}>Users</li>
-                    <li className="nav-item" style={listItemStyle}>Logout</li>
-                    <li style={listItemStyle}>(Edwin)</li>
+                    {/* <li className="nav-item" style={listItemStyle}>Users</li>
+                    <li className="nav-item" style={listItemStyle}>Logout</li> */}
+                    {/* <li style={listItemStyle}>(Edwin)</li> */}
                 </ul>
             </div>
         </nav>
