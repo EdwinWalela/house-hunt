@@ -9,7 +9,7 @@ function Container(props) {
     return (
         <React.Fragment>
           <Header title="Admin Dashboard"/>
-          {props.listings.length !== 0 ? <ListingContainer listings={props.listings} listingOnClick={props.listingOnClick}/> : <NoResults />}
+          {props.listings.length !== 0 ? <ListingContainer listings={props.listings} listingOnClick={props.listingOnClick}/> : <NoResults error={props.networkError}/>}
         </React.Fragment>
     )
 }

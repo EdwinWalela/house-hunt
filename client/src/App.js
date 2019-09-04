@@ -8,17 +8,39 @@ import Header from './layout/Header';
 
 import './App.css';
 
+
+Axios.defaults.baseURL = "http://localhost:8080"
+
 class App extends Component {
     state = {
         listings:[],
-        activeListing:{}
+        activeListing:{},
+        loading:false,
+        networkError:false
     }
 
     async componentDidMount(){
-        let listings = await Axios.get('http://192.168.0.29:8080/api/listings');
-        listings = listings.data.results
+        // Enter Loading State
         this.setState({
-            listings
+            loading:true
+        })
+        let res;
+        let listings = [];
+        // Fetch Data
+        try{
+            res = await Axios.get('/api/listings');
+            listings = res.data.results
+        }catch(err){
+            this.setState({
+                listings,
+                loading:!this.state.loading,
+                networkError:true,
+            })
+            return;
+        } 
+        this.setState({
+            listings,
+            loading:!this.state.loading
         })
     }
 
@@ -38,6 +60,7 @@ class App extends Component {
                         <AdminContainer 
                             listings={this.state.listings}
                             listingOnClick={this.listingOnClick} 
+                            networkError={this.state.networkError}
                         />
                     }/>
                     <Route path="/admin/edit" render={()=>

@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function NoResults() {
+export default function NoResults(props) {
+    let error = props.error;
     return (
         <div style={containerStyle}>
-            ...
+            {error ? "Network Error." : "..."}
         </div>
     )
 }
@@ -11,5 +12,5 @@ export default function NoResults() {
 const containerStyle = {
     margin:"200px auto",
     textAlign:"center",
-    fontSize:"2em"
+    fontSize:"1em"
 }
