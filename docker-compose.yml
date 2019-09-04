@@ -1,0 +1,14 @@
+version: '3'
+services:
+  crawler:
+    container_name: crawler-api
+    restart: always
+    build: ./crawler
+    ports:
+      - '8080:8080'
+  analytics:
+    container_name: twitter-analytics
+    restart: always
+    build: ./twitter-analytics
+    ports:
+      - '5000:5000'
