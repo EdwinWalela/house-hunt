@@ -7,7 +7,10 @@ function EditContainer(props) {
     return (
         <div>
             <Header title="Admin Dashboard"/>
-            <EditForm listing={props.listing}/>
+            <EditForm
+             listing={props.listing}
+             updateListing={props.updateListing}
+            />
         </div>
     )
 }

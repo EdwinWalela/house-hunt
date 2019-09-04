@@ -3,31 +3,46 @@ import React, { Component } from 'react'
 class EditForm extends Component {
 
     state = {
-
+        id:this.props.listing.id,
+        title:this.props.listing.title,
+        price:this.props.listing.price,
+        location:this.props.listing.location,
+        beds:this.props.listing.beds,
+        baths:this.props.listing.baths
     }
 
     handleInputChange = (e) =>{
-        // Add onchange + name to each input
-        // Implement onSubmit
-        // Update Array
-        // Send update request to API
         this.setState({
             [e.target.name]:e.target.value
         })
     }
 
+    handleFormSubmit = (e) =>{
+        e.preventDefault();
+        let updatedListing = {
+            id:this.props.listing._id,
+            title:this.state.title,
+            price:this.state.price,
+            location:this.state.location,
+            beds:this.state.beds,
+            baths:this.state.baths,
+        }
+        // Send updated listing to App.js
+        this.props.updateListing(updatedListing)
+
+    }
+
     render() {
-        let listing = this.props.listing
         return (
-            <form style={formStyle}>
+            <form onSubmit={this.handleFormSubmit} style={formStyle}>
                 <h1 style={headingStyle}>Edit Listing</h1>
-                <textarea name="title" onChange={this.handleInputChange} rows='5' style={inputStyle} type="text" placeholder="Title" value={listing.title}/>
-                <input style={inputStyle} type="text" placeholder="Price" value={listing.price}/>
-                <input style={inputStyle} type="text" placeholder="Location" value={listing.location}/>
+                <textarea name="title" onChange={this.handleInputChange} rows='5' style={inputStyle} type="text" placeholder="Title" value={this.state.title}/>
+                <input name="price" onChange={this.handleInputChange}  style={inputStyle} type="text" placeholder="Price" value={this.state.price}/>
+                <input name="location" onChange={this.handleInputChange}  style={inputStyle} type="text" placeholder="Location" value={this.state.location}/>
                 <label for="beds">Beds</label>
-                <input id="beds" style={counterStyle} type="number" value={listing.beds}/>
+                <input name="beds" onChange={this.handleInputChange}  id="beds" style={counterStyle} type="number" value={this.state.beds}/>
                 <label for="baths">Baths</label>
-                <input id="baths" style={counterStyle} type="number" value={listing.baths}/>
+                <input name="baths" onChange={this.handleInputChange} id="baths" style={counterStyle} type="number" value={this.state.baths}/>
                 <input style={submitBtnStyle} type="submit" value="Update"/>
             </form>
         )

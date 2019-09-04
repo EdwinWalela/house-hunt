@@ -49,6 +49,11 @@ class App extends Component {
             activeListing:this.state.listings[i]
         })
     }
+
+    updateListing = async (listing) =>{
+        let url = `api/listings/${listing.id}`;
+        await Axios.post(url,listing)
+    }
     
     render(){
         return (
@@ -63,7 +68,10 @@ class App extends Component {
                         />
                     }/>
                     <Route path="/admin/edit" render={()=>
-                        <EditContainer listing={this.state.activeListing}/>
+                        <EditContainer 
+                            listing={this.state.activeListing}
+                            updateListing={this.updateListing}
+                        />
                     }/>
                 </Router>
             </div>

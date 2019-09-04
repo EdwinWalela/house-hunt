@@ -67,6 +67,33 @@ router.get('/listings',async(req,res)=>{
   })
 });
 
+router.post('/listings/:id',async(req,res)=>{
+  let id = req.params.id;
+  let listing = req.body;
+  console.log(req.body);
+
+  try{
+    await Listing.findByIdAndUpdate(id,{
+      title:listing.title,
+      price:listing.price,
+      location:listing.location,
+      url:listing.url,
+      beds:Number(listing.beds),
+      baths:Number(listing.baths),
+    })
+  }catch(err){
+    console.log(err)
+    res.status(500).send({
+      msg:"err",
+      err
+    })
+    return;
+  }
+  res.send({
+    msg:"Updated recorded"
+  })
+});
+
 
 
 module.exports = router;
