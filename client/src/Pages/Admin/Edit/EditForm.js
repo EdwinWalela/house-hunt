@@ -1,12 +1,27 @@
 import React, { Component } from 'react'
 
 class EditForm extends Component {
+
+    state = {
+
+    }
+
+    handleInputChange = (e) =>{
+        // Add onchange + name to each input
+        // Implement onSubmit
+        // Update Array
+        // Send update request to API
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
     render() {
         let listing = this.props.listing
         return (
             <form style={formStyle}>
                 <h1 style={headingStyle}>Edit Listing</h1>
-                <textarea rows='5' style={inputStyle} type="text" placeholder="Title" value={listing.title}/>
+                <textarea name="title" onChange={this.handleInputChange} rows='5' style={inputStyle} type="text" placeholder="Title" value={listing.title}/>
                 <input style={inputStyle} type="text" placeholder="Price" value={listing.price}/>
                 <input style={inputStyle} type="text" placeholder="Location" value={listing.location}/>
                 <label for="beds">Beds</label>
