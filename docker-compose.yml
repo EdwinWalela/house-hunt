@@ -11,4 +11,4 @@ services:
     restart: always
     build: ./twitter-analytics
     ports:
-      - '5000:5000'
+      - '8000:8000'
