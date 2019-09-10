@@ -35,7 +35,7 @@ class RangeSelector extends Component {
                         style={{ 
                                 ...props.style,
                                 ...thumbStyle,
-                                backgroundColor:isDragged ? colors[index] : '#333'
+                                backgroundColor:isDragged ? colors[index] : 'grey'
                             }
                         }
                     />
@@ -61,13 +61,14 @@ class RangeSelector extends Component {
 }
 
 const statsStyle = {
-    margin:"40px auto",
+    margin:"30px auto",
 }
 
 const barlabelStyle = {
-    boxShadow:"0px 10px 5px rgba(0,0,0,0.1)",
+    boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
     padding:"10px 0",
-    margin:"10px auto",
+    margin:"15px auto",
+    backgroundColor:"#fff"
 }
 
 const valueStyle ={
@@ -114,14 +115,15 @@ const containerStyle = {
 }
 
 const trackStyle = {
-    height: '50px',
-    width: '100%',
-    backgroundColor: '#ccc'
+    height: '30px',
+    width: '80%',
+    margin:"auto",
+    backgroundColor: '#fff'
 }
 
 const  thumbStyle = {
-    height: '50px',
-    width: '42px',
+    height: '30px',
+    width: '30px',
     borderRadius: '4px',
     backgroundColor: '#7FC29B',
     display: 'flex',

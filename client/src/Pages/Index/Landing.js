@@ -17,12 +17,11 @@ class Landing extends Component {
     }
 }
 
-const colors = [
-    
-]
 
 const containerStyle = {
-    margin:"150px auto"
+    margin:"60px auto",
+    backgroundColor:"#7FC29B",
+    padding:"50px"
 }
 
 const inputStyle = {
@@ -30,7 +29,9 @@ const inputStyle = {
     fontSize:"1.2em",
     letterSpacing:"1px",
     display:"block",
-    margin:"30px auto"
+    margin:"30px auto",
+    border:"none",
+    boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
 }
 
 export default Landing;
