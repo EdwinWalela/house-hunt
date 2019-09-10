@@ -25,35 +25,71 @@ class RangeSelector extends Component {
                         {children}
                     </div>
                     )}
-                    renderThumb={({ props,isDragged }) => (
+                    renderThumb={({ props,isDragged,index }) => (
                     <div
                         {...props}
                         style={{ 
-                            ...props.style,
-                            ...thumbStyle,
-                            backgroundColor:isDragged ? '#7FC29B' : '#333'
+                                ...props.style,
+                                ...thumbStyle,
+                                backgroundColor:isDragged ? '#7FC29B' : '#333'
                             }
                         }
                     />
                     )}
                 />
-                <p style={priceBarStyle}><span style={priceLabelStyle}>Price</span>: 0 to Ksh.{this.state.values[0]*1000} </p>
-                <p style={trafficBarStyle}>Estimate Traffic: {this.state.values[1]} minutes</p>
-                <p style={ShoppingCentersBarStyle}>Nearest Shopping Centers:  {this.state.values[2]*25-750} meters away</p>
+                <div style={priceBarStyle}>
+                    <span style={priceLabelStyle}>Price</span>
+                    <span style={valueStyle}>0 to Ksh.{this.state.values[0]*1000} </span>
+                </div>
+                <div style={trafficBarStyle}>
+                    <span style={trafficLabelStyle}>Estimate Traffic</span>
+                    <span style={valueStyle}>{this.state.values[1]} mins</span>
+                </div>
+                <div style={shoppingCentersBarStyle}>
+                    <span style={ShoppingCentersStyle}>Shopping Centers</span> 
+                    <span style={valueStyle}>{this.state.values[2]*25-750} meters away</span>
+                </div>
             </div>
         )
     }
 }
 
 
+const barlabelStyle = {
+    border:"solid 1px",
+    padding:"10px 0",
+    margin:"10px auto",
+}
+
+const valueStyle ={
+    paddingRight:"20px",
+    position:"relative",
+    bottom:"2px",
+    float:'right',
+    fontSize:"1.4em"
+}
+
+const priceBarStyle = {
+    ...barlabelStyle,
+}
+
+const trafficBarStyle = {
+    ...barlabelStyle,
+}
+
+const shoppingCentersBarStyle = {
+    ...barlabelStyle,
+}
+
 const labelStyle = {
     border:"solid 1px",
     padding:"10px",
-    margin:"10px auto"
+    // float:"left",
 }
 
 const priceLabelStyle = {
     ...labelStyle,
+
 }
 const trafficLabelStyle = {
     ...labelStyle,
@@ -62,17 +98,6 @@ const ShoppingCentersStyle = {
     ...labelStyle,
 }
 
-const priceBarStyle = {
-
-}
-
-const trafficBarStyle = {
-
-}
-
-const ShoppingCentersBarStyle = {
-    
-}
 
 const containerStyle = {
     width:"400px",

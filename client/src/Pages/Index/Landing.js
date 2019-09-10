@@ -9,6 +9,7 @@ class Landing extends Component {
             <div>
                 <Header title="Home" />
                 <div style={containerStyle}>
+                    <input style={inputStyle} type="text" placeholder="1 bedroom langata" />
                     <RangeSelector />
                 </div>
             </div>
@@ -20,5 +21,12 @@ const containerStyle = {
     margin:"150px auto"
 }
 
+const inputStyle = {
+    padding:"10px",
+    fontSize:"1.2em",
+    letterSpacing:"1px",
+    display:"block",
+    margin:"30px auto"
+}
 
 export default Landing;
