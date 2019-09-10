@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {BrowserRouter as Router,Route}  from 'react-router-dom';
 import Axios from 'axios'
 
+import Landing from './Pages/Index/Landing';
 import AdminContainer from './Pages/Admin/Dashboard/Container';
 import EditContainer from './Pages/Admin/Edit/EditContainer';
 import Header from './layout/Header';
@@ -59,7 +60,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
-                    <Route exact path= "/" render={()=><Header title="Home"/>}/>
+                    <Route exact path= "/" render={()=><Landing/>}/>
                     <Route exact path="/admin" render={()=>
                         <AdminContainer 
                             listings={this.state.listings}
