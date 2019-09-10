@@ -17,6 +17,10 @@ class Landing extends Component {
     }
 }
 
+const colors = [
+    
+]
+
 const containerStyle = {
     margin:"150px auto"
 }
