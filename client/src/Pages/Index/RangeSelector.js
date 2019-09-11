@@ -111,7 +111,7 @@ const ShoppingCentersStyle = {
 
 const containerStyle = {
     width:"300px",
-    margin:"auto" 
+    margin:"auto" ,
 }
 
 const trackStyle = {
