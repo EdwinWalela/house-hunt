@@ -30,12 +30,12 @@ class RangeSelector extends Component {
                     </div>
                     )}
                     renderThumb={({ props,isDragged,index }) => (
-                    <div
+                    <div className="slider-thumb"
                         {...props}
                         style={{ 
                                 ...props.style,
                                 ...thumbStyle,
-                                backgroundColor:isDragged ? colors[index] : 'grey'
+                                backgroundColor:colors[index]
                             }
                         }
                     />
@@ -44,15 +44,15 @@ class RangeSelector extends Component {
                 <div style={statsStyle}>
                     <div style={priceBarStyle}>
                         <span style={priceLabelStyle}>Price</span>
-                        <span style={valueStyle}>0 to Ksh.{this.state.values[0]*1000} </span>
+                        <span style={valueStyle}>Ksh.{this.state.values[0]*500-2500 < 1 ? 0 : this.state.values[0]*500-2500} to Ksh.{this.state.values[0]*500} </span>
                     </div>
                     <div style={trafficBarStyle}>
                         <span style={trafficLabelStyle}>Estimate Traffic</span>
-                        <span style={valueStyle}>{this.state.values[1]} mins</span>
+                        <span style={valueStyle}>{this.state.values[1]+15} mins</span>
                     </div>
                     <div style={shoppingCentersBarStyle}>
                     <span style={ShoppingCentersStyle}>Shopping Centers</span> 
-                    <span style={valueStyle}>{this.state.values[2]*25} meters away</span>
+                    <span style={valueStyle}>{this.state.values[2]*25+10} meters away</span>
                 </div>
                 </div>        
             </div>
@@ -115,15 +115,15 @@ const containerStyle = {
 }
 
 const trackStyle = {
-    height: '30px',
+    height: '20px',
     width: '80%',
     margin:"auto",
     backgroundColor: '#fff'
 }
 
 const  thumbStyle = {
-    height: '30px',
-    width: '30px',
+    height: '40px',
+    width: '40px',
     borderRadius: '4px',
     backgroundColor: '#7FC29B',
     display: 'flex',

@@ -29,3 +29,11 @@ a{
 }
 
 
+.slider-thumb{
+    transition: all ease-out 0s;
+}
+
+.slider-thumb:active{
+    transition: all ease-out .2s;
+}
+
