@@ -13,6 +13,20 @@ class RangeSelector extends Component {
     render() {
         return (
             <div style={containerStyle}>
+                <div style={statsStyle}>
+                    <div style={priceBarStyle}>
+                        <span style={priceLabelStyle}>Price</span>
+                        <span style={valueStyle}>Ksh.{this.state.values[0]*500-2500 < 1 ? 0 : this.state.values[0]*500-2500} to Ksh.{this.state.values[0]*500} </span>
+                    </div>
+                    <div style={trafficBarStyle}>
+                        <span style={trafficLabelStyle}>Estimate Traffic</span>
+                        <span style={valueStyle}>{this.state.values[1]+15} mins</span>
+                    </div>
+                    <div style={shoppingCentersBarStyle}>
+                        <span style={ShoppingCentersStyle}>Shopping Centers</span> 
+                        <span style={valueStyle}>{this.state.values[2]*25+10} meters away</span>
+                    </div>
+                </div>     
                  <Range
                     step={1}
                     min={0}
@@ -40,21 +54,7 @@ class RangeSelector extends Component {
                         }
                     />
                     )}
-                />
-                <div style={statsStyle}>
-                    <div style={priceBarStyle}>
-                        <span style={priceLabelStyle}>Price</span>
-                        <span style={valueStyle}>Ksh.{this.state.values[0]*500-2500 < 1 ? 0 : this.state.values[0]*500-2500} to Ksh.{this.state.values[0]*500} </span>
-                    </div>
-                    <div style={trafficBarStyle}>
-                        <span style={trafficLabelStyle}>Estimate Traffic</span>
-                        <span style={valueStyle}>{this.state.values[1]+15} mins</span>
-                    </div>
-                    <div style={shoppingCentersBarStyle}>
-                    <span style={ShoppingCentersStyle}>Shopping Centers</span> 
-                    <span style={valueStyle}>{this.state.values[2]*25+10} meters away</span>
-                </div>
-                </div>        
+                />   
             </div>
         )
     }

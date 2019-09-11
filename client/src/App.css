@@ -28,6 +28,10 @@ a{
     text-decoration: none;
 }
 
+.search-btn:active{
+    transform: scale(0.9);
+    transition: all linear .3s;
+}
 
 .slider-thumb{
     transition: all ease-out 0s;
