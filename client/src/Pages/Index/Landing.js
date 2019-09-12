@@ -21,7 +21,7 @@ class Landing extends Component {
 
 const containerStyle = {
     margin:"60px auto",
-    backgroundColor:"#7FC29B",
+    backgroundColor:"#1B98E0",
     padding:"50px 0",
 }
 

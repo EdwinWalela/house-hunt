@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Range } from 'react-range';
 
 
-const colors = ['#F79D84','#978897','#9CBCF8']
+const colors = ['#B8336A','#E2711D','#2D936C']
 
 
 class RangeSelector extends Component {
@@ -66,7 +66,7 @@ const statsStyle = {
 
 const barlabelStyle = {
     boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
-    padding:"10px 0",
+    padding:"10px 1px 10px 0",
     margin:"15px auto",
     backgroundColor:"#fff"
 }
@@ -89,28 +89,28 @@ const shoppingCentersBarStyle = {
 }
 
 const labelStyle = {
-    padding:"11px 5px",
+    padding:"11px 15px 11px 5px",
     color:"#fff"
     // float:"left",
 }
 
 const priceLabelStyle = {
     ...labelStyle,
-    backgroundColor:"#F79D84"
+    backgroundColor:colors[0]
 
 }
 const trafficLabelStyle = {
     ...labelStyle,
-    backgroundColor:"#978897"
+    backgroundColor:colors[1]
 }
 const ShoppingCentersStyle = {
     ...labelStyle,
-    backgroundColor:"#9CBCF8"
+    backgroundColor:colors[2]
 }
 
 
 const containerStyle = {
-    width:"300px",
+    width:"310px",
     margin:"auto" ,
 }
 
