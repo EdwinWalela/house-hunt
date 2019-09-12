@@ -4,11 +4,18 @@ class SearchForm extends Component {
     render() {
         return (
             <div style={formStyle}>
+                <h1 style={sloganStyle}>Find Your Next Home.</h1>
                 <input style={inputStyle} type="text" placeholder="1 bedroom langata" />
                 <button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button>
             </div>
         )
     }
+}
+
+const sloganStyle = {
+    fontSize:"1.5em",
+    color:"#fff",
+    marginBottom:"20px",
 }
 
 const inputStyle = {
@@ -25,8 +32,10 @@ const btnStyle = {
     display:"inline-block",
     width:"20%",
     fontSize:"1.1em",
-    padding:"11px",
+    padding:"10.5px",
     border:"none",
+    backgroundColor:"#fff",
+    color:"#14213D",
 }
 
 const formStyle = {

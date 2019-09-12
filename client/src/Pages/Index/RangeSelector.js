@@ -61,7 +61,7 @@ class RangeSelector extends Component {
 }
 
 const statsStyle = {
-    margin:"30px auto",
+    margin:"50px auto",
 }
 
 const barlabelStyle = {

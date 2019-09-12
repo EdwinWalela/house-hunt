@@ -24,8 +24,9 @@ const navStyle = {
 }
 
 const titleStyle = {
-    display:"inline",
-    fontSize:"0.9em",
+    display:"inline-block",
+    marginTop:"5px",
+    fontSize:"1em",
     color:"#fff"
 }
 
