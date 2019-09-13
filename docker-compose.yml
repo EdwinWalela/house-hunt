@@ -1,14 +1,24 @@
 version: '3'
 services:
-  crawler:
-    container_name: crawler-api
+  client:
+    container_name: react-client
     restart: always
-    build: ./crawler
+    build: ./client
     ports:
-      - '8080:8080'
-  analytics:
-    container_name: twitter-analytics
-    restart: always
-    build: ./twitter-analytics
-    ports:
-      - '8000:8000'
+     - '80:3000'
+     - '35729:35729'
+    # environment:
+    #  - NODE_ENV=development
+    #  - CHOKIDAR_USEPOLLING=true
+  # crawler:
+  #   container_name: crawler-api
+  #   restart: always
+  #   build: ./crawler
+  #   ports:
+  #     - '8080:8080'
+  # analytics:
+  #   container_name: twitter-analytics
+  #   restart: always
+  #   build: ./twitter-analytics
+  #   ports:
+  #     - '8000:8000'

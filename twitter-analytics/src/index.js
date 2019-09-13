@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 8080 || process.env.PORT;
 const DB_URI = process.env.DB_URI;
 
 const apiRoutes = require("./routes/api");
@@ -11,7 +11,7 @@ const apiRoutes = require("./routes/api");
 // DB connection
 (async()=>{
   try{
-    await mongoose.connect(DB_URI,{useNewUrlParser:true});
+    // await mongoose.connect(DB_URI,{useNewUrlParser:true});
     console.log(`DB connection established`);
   }catch(err){
     console.log(`DB connection failed\n${err}`);
