@@ -6,9 +6,7 @@ router.get('/',async(req,res)=>{
   let areas;
 
   try{
-
     areas = await Area.find({});
-
   }catch(err){
     res.status(500).send({
       msg:"error",
