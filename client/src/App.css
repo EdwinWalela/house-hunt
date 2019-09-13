@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 li{
     list-style-type: none;
     display: inline-block;
@@ -27,4 +28,16 @@ a{
     text-decoration: none;
 }
 
+.search-btn:active{
+    transform: scale(0.9);
+    transition: all linear .3s;
+}
+
+.slider-thumb{
+    transition: all ease-out 0s;
+}
+
+.slider-thumb:active{
+    transition: all ease-out .2s;
+}
 

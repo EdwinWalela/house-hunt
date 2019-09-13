@@ -18,14 +18,15 @@ export default function Header(props) {
 }
 
 const navStyle = {
-    borderBottom:"solid 1px #7FC29B",
+    borderBottom:"solid 3px #fff",
     padding:"15px",
-    background:"#7FC29B"
+    background:"#1B98E0"
 }
 
 const titleStyle = {
-    display:"inline",
-    fontSize:"0.9em",
+    display:"inline-block",
+    marginTop:"5px",
+    fontSize:"1em",
     color:"#fff"
 }
 
