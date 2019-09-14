@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Range } from 'react-range';
 
-
-const colors = ['#B8336A','#E2711D','#2D936C']
+//2D936C//E2711D
+const colors = ['#B8336A','#2D936C','#2D936C']
 
 
 class RangeSelector extends Component {
     state = {
-        values:[0,50, 100]
+        values:[0, 100]
     }
     
     render() {
@@ -18,13 +18,14 @@ class RangeSelector extends Component {
                         <span style={priceLabelStyle}>Price</span>
                         <span style={valueStyle}>Ksh.{this.state.values[0]*500-2500 < 1 ? 0 : this.state.values[0]*500-2500} to Ksh.{this.state.values[0]*500} </span>
                     </div>
-                    <div style={trafficBarStyle}>
+                    {/* Display when user is logged in */}
+                    {/* <div style={trafficBarStyle}>
                         <span style={trafficLabelStyle}>Estimate Traffic</span>
                         <span style={valueStyle}>{this.state.values[1]+15} mins</span>
-                    </div>
+                    </div> */}
                     <div style={shoppingCentersBarStyle}>
                         <span style={ShoppingCentersStyle}>Shopping Centers</span> 
-                        <span style={valueStyle}>{this.state.values[2]*25+10} meters away</span>
+                        <span style={valueStyle}>{this.state.values[1]*25+10} meters away</span>
                     </div>
                 </div>     
                  <Range
