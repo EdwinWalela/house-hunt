@@ -5,6 +5,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+i{
+    transition:all ease-in-out .3s;
+}
 
 li{
     list-style-type: none;
