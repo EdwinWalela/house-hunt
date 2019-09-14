@@ -59,7 +59,7 @@ const descriptionStyle = {
     wordSpacing:"-2px",
     margin:"auto",
     fontSize:"1em",
-    height:"120px",
+    height:"130px",
     lineHeight:"1.1em"
 }
 
