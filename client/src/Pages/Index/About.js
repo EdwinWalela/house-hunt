@@ -22,7 +22,7 @@ const steps = [
         iconA:"fas fa-money-bill",
         iconB:"fas fa-bed",
         title:"Search",
-        description:"Specify your budget and other personal requirements for example number of rooms/baths."
+        description:"Specify your budget and other personal requirements for example number of rooms."
     },
     {
         number:4,
@@ -53,9 +53,22 @@ class About extends Component {
                     updateActiveStep={this.updateActiveStep}
                     active={this.state.step}
                 />
+                <button className="new-acc" style={newAccountStyle}>Create An Account</button>
             </div>
         )
     }
+}
+
+const newAccountStyle = {
+    display:"block",
+    fontSize:"1.1em",
+    borderRadius:"5px",
+    color:"#fff",
+    background:"#1B98E0",
+    padding:"15px 30px",
+    margin:"20px auto 40px auto",
+    border:"none",
+
 }
 
 const containerStyle = {

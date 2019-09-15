@@ -38,7 +38,7 @@ const wrapperStyle = {
 
 const titleStyle = {
     textAlign:"center",
-    color:"#B8336A",
+    color:"#555",
 }
 
 const iconContainerStyle = {
@@ -49,7 +49,7 @@ const iconContainerStyle = {
 const iconStyle = {
     fontSize:"3.5em",
     margin:"15px 25px",
-    color:"#1B98E0"
+    color:"#C52184"
 }
 
 const descriptionStyle = {
