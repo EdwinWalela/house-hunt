@@ -40,6 +40,8 @@ router.get('/analytics',async(req,res)=>{
         for(let j = 0; j < words.length-1; j++){
             let wordPhrase = words[j].toLowerCase() +'-'+words[j+1].toLowerCase();
             areas.map(area=>{
+                area.location = area.location.replace(/[.,\/#@!?$%\^&\*;:{}=\-_`~()]/g,"");
+                area.location = area.location.replace(/\s{2,}/g," ");
                 if(area.location == wordPhrase){
                     hits.push(area.location);
                 }
@@ -59,7 +61,9 @@ router.get('/analytics',async(req,res)=>{
                 }
             })
         })
-    })
+    });
+
+    
     
     res.send({
         msg:"OK",

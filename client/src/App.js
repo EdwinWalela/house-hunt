@@ -5,6 +5,7 @@ import Axios from 'axios'
 import Landing from './Pages/Index/Landing';
 import AdminContainer from './Pages/Admin/Dashboard/Container';
 import EditContainer from './Pages/Admin/Edit/EditContainer';
+import SearchContainer from './Pages/Search/SearchContainer';
 import Header from './layout/Header';
 
 import './App.css';
@@ -73,6 +74,9 @@ class App extends Component {
                             listing={this.state.activeListing}
                             updateListing={this.updateListing}
                         />
+                    }/>
+                    <Route path= "/search" render={()=>
+                        <SearchContainer />
                     }/>
                 </Router>
             </div>
