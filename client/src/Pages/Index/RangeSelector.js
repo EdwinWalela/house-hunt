@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Range } from 'react-range';
 
 //2D936C//E2711D
-const colors = ['#B8336A','#2D936C','#2D936C']
+const colors = ['rgb(184, 51, 106)','#2D936C','#2D936C']
 
 
 class RangeSelector extends Component {

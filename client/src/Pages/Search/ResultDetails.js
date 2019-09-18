@@ -7,15 +7,23 @@ function ResultDetails(props) {
         <div style={DetailsContainerStyle}>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bed"></i>
-                <p style={DetailTextStyle}>2</p>
+                <p style={DetailTextStyle}>1</p>
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bath"></i>
                 <p style={DetailTextStyle}>2</p>
             </div>
-            <div style={DetailItemStyle}>
+            {/* <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-map-marker-alt"></i>
                 <p style={DetailTextStyle}>Langata</p>
+            </div> */}
+            <div style={DetailItemStyle}>
+                <i style={iconStyle} class="fas fa-shopping-cart"></i>
+                <p style={DetailTextStyle}>4</p>
+            </div>
+            <div style={DetailItemStyle}>
+                <i style={iconStyle} class="fas fa-road"></i>
+                <p style={DetailTextStyle}>50 mins</p>
             </div>
          </div>
     )
@@ -23,26 +31,36 @@ function ResultDetails(props) {
 
 const DetailsContainerStyle = {
     textAlign:"center",
-    padding:"10px",
-    marginLeft:"31.5%",
+    margin:"10px auto",
 }
 
 const DetailItemStyle = {
     display:"inline-block",
+    margin:"5px",
     fontSize:"0.9em",
-    margin:"10px 2px",
     textAlign:"center"
 }
 
 const iconStyle = {
+    display:"block",
+    width:"80px",
+    height:"100%",
     color:"#fff",
-    padding:"10px 12px",
-    borderRadius:"50%",
-    marginBottom:"10px",
+    textAlignc:"center",
+    padding:"10px",
+    marginRight:"5px",
     background:"#1B98E0"
 }
 
 const DetailTextStyle = {
+    background:"#272932",
+    color:"#fff",
+    padding:"30px auto",
+    textAlign:"center",
+    height:"100%",
+    fontWeight:"500",
+    width:"80px",
+    display:"block",
     fontSize:"1em",
     textTransform:"capitalize"
 }

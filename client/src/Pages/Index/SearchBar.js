@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
-class SearchForm extends Component {
+class SearchBar extends Component {
     render() {
         return (
             <div style={formStyle}>
                 <h1 style={sloganStyle}>Find Your Next Home.</h1>
                 <input style={inputStyle} type="text" placeholder="1 bedroom langata" />
-                <button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button>
+                <Link to="/search"><button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button></Link>
             </div>
         )
     }
@@ -39,11 +40,12 @@ const btnStyle = {
 }
 
 const formStyle = {
+    backgroundColor:"#1B98E0",
     textAlign:"center",
-    margin:"30px auto",
+    margin:"30px auto 0 auto",
     width:"80%",
     maxWidth:"400px",
     boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
 }
 
-export default SearchForm
+export default SearchBar

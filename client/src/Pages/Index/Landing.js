@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '../../layout/Header';
-import SearchForm from './SearchForm';
+import SearchForm from './SearchBar';
 import RangeSelector from './RangeSelector';
 import About from './About';
 

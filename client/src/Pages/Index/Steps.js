@@ -53,11 +53,12 @@ const iconStyle = {
 }
 
 const descriptionStyle = {
-    width:"90%",
-    textAlign:"justify",
-    textJustify:"distribute",
-    wordSpacing:"-2px",
+    // width:"90%",
+    // textAlign:"justify",
+    // textJustify:"distribute",
+    // wordSpacing:"-2px",
     margin:"auto",
+    textAlign:"center",
     fontSize:"1em",
     height:"130px",
     lineHeight:"1.1em"
