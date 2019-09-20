@@ -23,11 +23,11 @@ router.get('/',async(req,res)=>{
 
 router.get('/analytics',async(req,res)=>{
     let hits = [];
+    var counts = {};
     // Get all Tweets
     let tweets = await Tweet.find({});
     // Get one areas
     let areas = await Area.find({});
-
     // Round 1: Identify muli-word areas
     // loop through all tweets
     for(let i = 0; i < tweets.length;i++){
@@ -40,7 +40,7 @@ router.get('/analytics',async(req,res)=>{
         for(let j = 0; j < words.length-1; j++){
             let wordPhrase = words[j].toLowerCase() +'-'+words[j+1].toLowerCase();
             areas.map(area=>{
-                area.location = area.location.replace(/[.,\/#@!?$%\^&\*;:{}=\-_`~()]/g,"");
+                area.location = area.location.replace(/[.,\/#@!?$%\^&\*;:{}=\_`~()]/g,"");
                 area.location = area.location.replace(/\s{2,}/g," ");
                 if(area.location == wordPhrase){
                     hits.push(area.location);
@@ -64,10 +64,12 @@ router.get('/analytics',async(req,res)=>{
     });
 
     
-    
+    for (var i = 0; i < hits.length; i++) {
+        counts[hits[i]] = 1 + (counts[hits[i]] || 0);
+    }
     res.send({
         msg:"OK",
-        hits
+        counts
     })
 })
 

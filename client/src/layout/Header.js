@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 export default function Header(props) {
     return (
         <nav style={navStyle}>
+            <img style={logoStyle} src="/images/big.png"/>
             <h1 style={titleStyle}>{props.title}</h1>
             <div style={navListStyle}>
                 <ul>
@@ -15,6 +16,14 @@ export default function Header(props) {
             </div>
         </nav>
     )
+}
+
+const logoStyle = {
+    position:"relative",
+    top:"5px",
+    margin:"auto 5px",
+    width:"30px",
+    height:"30px"
 }
 
 const navStyle = {
