@@ -15,7 +15,9 @@ class RangeSelector extends Component {
             <div style={containerStyle}>
                 <div style={statsStyle}>
                     <div style={priceBarStyle}>
-                        <span style={priceLabelStyle}>Price</span>
+                        <select style={priceLabelStyle} disabled="true">
+                            <option>Price</option>
+                        </select>
                         <span style={valueStyle}>Ksh.{this.state.values[0]*500-2500 < 1 ? 0 : this.state.values[0]*500-2500} to Ksh.{this.state.values[0]*500} </span>
                     </div>
                     {/* Display when user is logged in */}
@@ -24,8 +26,12 @@ class RangeSelector extends Component {
                         <span style={valueStyle}>{this.state.values[1]+15} mins</span>
                     </div> */}
                     <div style={shoppingCentersBarStyle}>
-                        <span style={ShoppingCentersStyle}>Shopping Centers</span> 
-                        <span style={valueStyle}>{this.state.values[1]*25+10} meters away</span>
+                        <select style={ShoppingCentersStyle}>
+                            <option>Shopping Centers</option>
+                            <option>Gyms</option>
+                        </select> 
+                        <span style={valueStyle}>{this.state.values[1]*25+10} meters</span>
+                        <i style={helpStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i>
                     </div>
                 </div>     
                  <Range
@@ -61,20 +67,27 @@ class RangeSelector extends Component {
     }
 }
 
+const helpStyle ={
+    color:"#333",
+    // backgroundColor:"#333",
+    padding:"5px",
+}
+
 const statsStyle = {
     margin:"50px auto",
 }
 
 const barlabelStyle = {
     boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
-    padding:"10px 1px 10px 0",
     margin:"15px auto",
     backgroundColor:"#fff"
 }
 
 const valueStyle ={
     paddingRight:"20px",
-    float:'right',
+    fontSize:"0.8em",
+    margin:"12px 0px 5px 15px",
+    // float:'right',
 }
 
 const priceBarStyle = {
@@ -97,6 +110,7 @@ const labelStyle = {
 
 const priceLabelStyle = {
     ...labelStyle,
+    border:"none",
     backgroundColor:colors[0]
 
 }
@@ -106,6 +120,8 @@ const trafficLabelStyle = {
 }
 const ShoppingCentersStyle = {
     ...labelStyle,
+    border:"none",
+    margin:"0",
     backgroundColor:colors[2]
 }
 
