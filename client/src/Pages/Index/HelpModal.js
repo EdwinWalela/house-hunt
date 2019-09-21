@@ -14,11 +14,10 @@ function HelpModal(props) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    To provide you with the best results, select a facility/service you would like to be located near your next home.<br/><br/> The time represents your preffered walking distance from the selected service to your next home.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button"  data-dismiss="modal" class="btn btn-primary">Close</button>
                 </div>
                 </div>
             </div>

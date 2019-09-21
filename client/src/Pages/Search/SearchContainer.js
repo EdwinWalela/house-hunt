@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../../layout/Header';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchCont';
 import SearchList from './SearchList';
 
 function SearchContainer(props) {

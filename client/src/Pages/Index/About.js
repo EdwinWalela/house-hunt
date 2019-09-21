@@ -8,28 +8,28 @@ const steps = [
         iconA:"fas fa-user",
         iconB:"fas fa-road",
         title:"Account Creation",
-        description:"We will request your basic contact information as you create your account. We will also require a workplace location. This will enable us to provide you with traffic information as you search for your next home."
+        description:"We will request your basic contact information as you create your account. We will also request for your workplace location. This will enable us to provide you with traffic information as you search for your next home."
     },
     {
         number:2,
         iconA:"fas fa-shopping-cart",
         iconB:"fas fa-dumbbell",
         title:"Interests",
-        description:"In order to provide you with the best results, we would request you to provide us with facilites/services you would like to be located nearby your next home."
+        description:"In order to provide you with the best results, we would request you to provide us with facilites you would like to be located near your next home."
     },
     {
         number:3,
         iconA:"fas fa-money-bill",
         iconB:"fas fa-bed",
         title:"Search",
-        description:"Specify your budget and other personal requirements for example number of rooms."
+        description:"Specify your budget and other personal requirements."
     },
     {
         number:4,
         iconA:"fas fa-cogs",
         iconB:"fas fa-home",
         title:"Make The Decision",
-        description:"Our systems will process your requirements and intelligently provide you with the best results so that you to make the right decision."
+        description:"Our systems will process your requirements and intelligently provide you with the best results so that you can make the right decision."
     },
 ]
 

@@ -1,14 +1,40 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {
     render() {
         return (
             <div style={formStyle}>
-                <input style={inputStyle} type="text" placeholder="1 bedroom langata" />
-                <button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button>
+                <h1 style={sloganStyle}>Find Your Next Home.</h1>
+                <div style={formGroup}>
+                    <label style={labelStyle}>Location</label>
+                    <input style={inputStyle} type="text" placeholder="Any" />
+                </div>
+                <div style={formGroup}>
+                    <label style={labelStyle}>Beds</label>
+                    <input style={inputStyle} type="text" placeholder="2" />
+                </div>
+                {/* <Link to="/search"><button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button></Link> */}
             </div>
         )
     }
+}
+
+const formGroup = {
+    display:"inline-block",
+    width:"49%",
+}
+
+const labelStyle = {
+    color:"#fff",
+    display:"block",
+    margin:"10px auto",
+}
+
+const sloganStyle = {
+    fontSize:"1.5em",
+    color:"#fff",
+    marginBottom:"20px",
 }
 
 const inputStyle = {
@@ -18,28 +44,17 @@ const inputStyle = {
     display:"inline-block",
     margin:"auto",
     border:"none",
-    width:"60%",
-}
-
-const btnStyle = {
-    display:"inline-block",
-    width:"20%",
-    fontSize:"1.1em",
-    padding:"10.5px",
-    border:"none",
-    backgroundColor:"#fff",
-    color:"#14213D",
+    borderRight:"solid 1px #1B98E0",
+    width:"100%",
+    textAlign:"center",
 }
 
 const formStyle = {
-    padding:"30px 10px",
     backgroundColor:"#1B98E0",
     textAlign:"center",
-    margin:"60px auto 0 auto",
-    height:"100px",
-    width:"100%",
+    margin:"30px auto 0 auto",
+    width:"90%",
     maxWidth:"400px",
-    boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
 }
 
 export default SearchBar

@@ -20,7 +20,7 @@ export default function Header(props) {
 
 const logoStyle = {
     position:"relative",
-    top:"5px",
+    top:"-3px",
     margin:"auto 5px",
     width:"30px",
     height:"30px"
@@ -28,7 +28,7 @@ const logoStyle = {
 
 const navStyle = {
     borderBottom:"solid 3px #fff",
-    padding:"15px",
+    padding:"15px 15px 0px 15px",
     background:"#1B98E0"
 }
 
