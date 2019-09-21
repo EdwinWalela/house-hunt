@@ -32,7 +32,7 @@ router.get('/crawl',async(req,res)=>{
     let dom;
     // read html from file
     try{
-        dom = fs.readFileSync(__dirname+'/tweets.html','utf8');
+        dom = fs.readFileSync('./tweets.html','utf8');
     }catch(err){
         console.log(err);
         res.status(500).send({
