@@ -69,7 +69,8 @@ router.get('/analytics',async(req,res)=>{
     }
     res.send({
         msg:"OK",
-        counts
+        hits:hits.length,
+        areas:counts
     })
 })
 

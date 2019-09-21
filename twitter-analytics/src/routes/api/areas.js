@@ -2,9 +2,10 @@ const router = require("express").Router();
 const Area = require("../../models/Area");
 
 
-router.get('/new',async(req,res)=>{
+router.get('/new/:area',async(req,res)=>{
+    let area = req.params.area;
     await new Area({
-        location:"south-b",
+        location:area,
         elecHits:0
     }).save();
 
