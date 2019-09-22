@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import ResultItem from './ResultItem';
 
 function ResultDetails(props) {
+    let data = props.data
     return (
         <div style={DetailsContainerStyle}>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bed"></i>
-                <p style={DetailTextStyle}>1</p>
+                <p style={DetailTextStyle}>{data.beds}</p>
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bath"></i>
-                <p style={DetailTextStyle}>2</p>
+                <p style={DetailTextStyle}>{data.baths}</p>
             </div>
             {/* <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-map-marker-alt"></i>

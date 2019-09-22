@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import ResultDetails from './ResultDetails';
 
 function ResultItem(props) {
+    let data = props.data;
     return (
         <div style={containerStyle}>
-            <img style={imageStyle} src={"https://picsum.photos/200/300"} />
-            <p style={textStyle}> 1 bedroom for sale located in langata rapta road 4400 sq ft 1 master ensuite in a secured compound. </p>
-            <ResultDetails />
+            <img style={imageStyle} src={data.thumb} />
+            <p style={textStyle}> {data.title}. </p>
+            <ResultDetails data={data}/>
             {props.best == "1" ?
              <div style={bestMatchStyle}>Best Match <i class="fas fa-star"></i></div>
              : ''}
