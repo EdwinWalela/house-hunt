@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 class SearchBar extends Component {
 
     state = {
-        locations:[]
+        locations:[],
+    }
+
+    handleInputChange=(e)=>{
+        this.props.updateSearchParams(e);
     }
 
     async componentDidMount(){
@@ -23,7 +27,7 @@ class SearchBar extends Component {
                 <h1 style={sloganStyle}>Find Your Next Home.</h1>
                 <div style={formGroup}>
                     <label style={labelStyle}>Location</label>
-                    <select style={selectStyle} type="text" placeholder="Any">
+                    <select name="location" style={selectStyle} type="text" placeholder="Any" onChange={this.handleInputChange}>
                         <option value="any">Anywhere</option>
                         {locations.map(location=>(
                             <option value={location.area}>{location.area}</option>
@@ -32,9 +36,8 @@ class SearchBar extends Component {
                 </div>
                 <div style={formGroup}>
                     <label style={labelStyle}>Beds</label>
-                    <input style={inputStyle} type="text" placeholder="2" />
+                    <input name="beds" style={inputStyle} type="text" placeholder="2"  onChange={this.handleInputChange}/>
                 </div>
-                {/* <Link to="/search"><button className="search-btn" style={btnStyle}><i class="fas fa-search"></i></button></Link> */}
             </div>
         )
     }

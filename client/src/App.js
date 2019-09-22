@@ -10,12 +10,19 @@ import './App.css';
 class App extends Component {
     state = {
         listings:[],
-        activeListing:{},
         loading:false,
-        networkError:false
+        networkError:false,
     }
 
-    async componentDidMount(){
+    updateSearchParams = (e) =>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
+    listingSearch = async()=>{
+        let beds = this.state.beds;
+        let location = this.state.location;
         // Enter Loading State
         this.setState({
             loading:true
@@ -24,7 +31,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get('http://192.168.0.29:8000/api/listings');
+            res = await Axios.get(`http://192.168.0.29:8000/api/listings?beds=${beds}&location=${location}`);
             listings = res.data.results
         }catch(err){
             this.setState({
@@ -44,9 +51,18 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
-                    <Route exact path= "/" render={()=><Landing/>}/>
+                    <Route exact path= "/" render={()=>
+                        <Landing
+                            listingSearch={this.listingSearch}
+                            updateSearchParams={this.updateSearchParams}
+                        />
+                    }/>
                     <Route path= "/search" render={()=>
-                        <SearchContainer />
+                        <SearchContainer
+                            updateSearchParams={this.updateSearchParams}
+                            listingSearch={this.listingSearch}
+                            listings={this.state.listings}
+                        />
                     }/>
                 </Router>
             </div>

@@ -12,7 +12,10 @@ class Landing extends Component {
         return (
             <div>
                 <Header title="House Hunt" />
-                <SearchContainer />
+                <SearchContainer
+                    listingSearch={this.props.listingSearch}
+                    updateSearchParams={this.props.updateSearchParams}
+                />
                 <About />
                 <HelpModal />
             </div>
