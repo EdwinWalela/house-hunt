@@ -1,16 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class SearchBar extends Component {
+
+    state = {
+        locations:[]
+    }
+
+    async componentDidMount(){
+        let res = await Axios.get('http://192.168.0.29:8000/api/locations');
+        console.log(res.data.locations);
+        this.setState({
+            locations:res.data.locations
+        })
+    }
+
     render() {
+        let locations = this.state.locations || [];
         return (
             <div style={formStyle}>
                 <h1 style={sloganStyle}>Find Your Next Home.</h1>
                 <div style={formGroup}>
                     <label style={labelStyle}>Location</label>
                     <select style={selectStyle} type="text" placeholder="Any">
-                        <option>Any</option>
-                        <option>Any</option>
+                        {locations.map(location=>(
+                            <option>{location.area}</option>
+                        ))}
                     </select>
                 </div>
                 <div style={formGroup}>
