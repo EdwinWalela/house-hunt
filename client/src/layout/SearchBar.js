@@ -8,7 +8,10 @@ class SearchBar extends Component {
                 <h1 style={sloganStyle}>Find Your Next Home.</h1>
                 <div style={formGroup}>
                     <label style={labelStyle}>Location</label>
-                    <input style={inputStyle} type="text" placeholder="Any" />
+                    <select style={selectStyle} type="text" placeholder="Any">
+                        <option>Any</option>
+                        <option>Any</option>
+                    </select>
                 </div>
                 <div style={formGroup}>
                     <label style={labelStyle}>Beds</label>
@@ -35,6 +38,19 @@ const sloganStyle = {
     fontSize:"1.5em",
     color:"#fff",
     marginBottom:"20px",
+}
+
+const selectStyle = {
+    padding:"13px",
+    backgroundColor:"#fff",
+    fontSize:"1.2em",
+    letterSpacing:"1px",
+    display:"inline-block",
+    margin:"-1px auto",
+    border:"none",
+    borderRight:"solid 1px #1B98E0",
+    width:"100%",
+    textAlign:"center",
 }
 
 const inputStyle = {
