@@ -30,7 +30,7 @@ class RangeSelector extends Component {
                             <option>Shopping Centers</option>
                             <option>Gyms</option>
                         </select> 
-                        <span style={valueStyle}>{"< "}{this.state.values[1]} minutes</span>
+                        <span style={valueStyle}>{"<"}{this.state.values[1]} minutes</span>
                         <i style={helpStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i>
                     </div>
                 </div>     
