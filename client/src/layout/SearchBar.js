@@ -24,8 +24,9 @@ class SearchBar extends Component {
                 <div style={formGroup}>
                     <label style={labelStyle}>Location</label>
                     <select style={selectStyle} type="text" placeholder="Any">
+                        <option value="any">Anywhere</option>
                         {locations.map(location=>(
-                            <option>{location.area}</option>
+                            <option value={location.area}>{location.area}</option>
                         ))}
                     </select>
                 </div>
@@ -57,6 +58,7 @@ const sloganStyle = {
 }
 
 const selectStyle = {
+    textTranform:"capitalize",
     padding:"13px",
     backgroundColor:"#fff",
     fontSize:"1.2em",

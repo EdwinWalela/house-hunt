@@ -37,6 +37,7 @@ const wrapperStyle = {
 }
 
 const titleStyle = {
+    fontSize:"1.2em",
     textAlign:"center",
     color:"#555",
 }
@@ -53,10 +54,6 @@ const iconStyle = {
 }
 
 const descriptionStyle = {
-    // width:"90%",
-    // textAlign:"justify",
-    // textJustify:"distribute",
-    // wordSpacing:"-2px",
     margin:"auto",
     textAlign:"center",
     fontSize:"1em",

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
-
 const Listing = require("../models/Listing");
 const Location = require("../models/Locations");
 
