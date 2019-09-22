@@ -3,15 +3,9 @@ import {BrowserRouter as Router,Route}  from 'react-router-dom';
 import Axios from 'axios'
 
 import Landing from './Pages/Index/Landing';
-import AdminContainer from './Pages/Admin/Dashboard/Container';
-import EditContainer from './Pages/Admin/Edit/EditContainer';
 import SearchContainer from './Pages/Search/SearchContainer';
-import Header from './layout/Header';
 
 import './App.css';
-
-
-Axios.defaults.baseURL = "http://localhost:8080"
 
 class App extends Component {
     state = {
@@ -30,7 +24,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get('/api/listings');
+            res = await Axios.get('http://192.168.0.29:8000/api/listings');
             listings = res.data.results
         }catch(err){
             this.setState({
@@ -46,35 +40,11 @@ class App extends Component {
         })
     }
 
-    listingOnClick = (i) =>{
-        this.setState({
-            activeListing:this.state.listings[i]
-        })
-    }
-
-    updateListing = async (listing) =>{
-        let url = `api/listings/${listing.id}`;
-        await Axios.post(url,listing)
-    }
-    
     render(){
         return (
             <div className="App">
                 <Router>
                     <Route exact path= "/" render={()=><Landing/>}/>
-                    <Route exact path="/admin" render={()=>
-                        <AdminContainer 
-                            listings={this.state.listings}
-                            listingOnClick={this.listingOnClick} 
-                            networkError={this.state.networkError}
-                        />
-                    }/>
-                    <Route path="/admin/edit" render={()=>
-                        <EditContainer 
-                            listing={this.state.activeListing}
-                            updateListing={this.updateListing}
-                        />
-                    }/>
                     <Route path= "/search" render={()=>
                         <SearchContainer />
                     }/>
