@@ -40,7 +40,7 @@ router.get('/refresh-location',async(req,res)=>{
 })
 
 router.get('/locations',async(req,res)=>{
-    let locations = await Location.find({});
+    let locations = await Location.find({}).sort({area:1});
 
     res.send({
         msg:"OK",
