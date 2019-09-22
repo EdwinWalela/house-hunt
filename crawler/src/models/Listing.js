@@ -10,7 +10,7 @@ const ListingSchema = new Schema({
     beds:String,
     baths:String,
     origin:String
-});
+},{versionKey:false});
 
 
 const Listing = mongoose.model("listings",ListingSchema);

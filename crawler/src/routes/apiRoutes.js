@@ -1,8 +1,53 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
-const jijiCrawler = require("../crawlers/jiji");
 
 const Listing = require("../models/Listing");
+const Location = require("../models/Locations");
+
+router.get('/refresh-location',async(req,res)=>{
+    let locations = [];
+    // Delete old locations
+    await Location.deleteMany({});
+
+    // Retrieve listings
+    let listings = await Listing.find({});
+
+    // Save locations locations
+    listings.map(async listing=>{
+        let location = listing.location;
+        locations.push(location);
+    })
+
+    // Remove duplicates
+    let uniqueSet = new Set(locations);
+    locations = [...uniqueSet]
+
+    // Delete old locations
+    await Location.deleteMany({});
+
+    // Save new Locations
+    locations.map(async loc=>{
+        await new Location({
+            area:loc,
+        }).save();
+    })
+
+    res.send({
+        msg:"OK",
+        count:locations.length,
+        locations
+    })
+})
+
+router.get('/locations',async(req,res)=>{
+    let locations = await Location.find({});
+
+    res.send({
+        msg:"OK",
+        count:locations.length,
+        locations
+    })
+})
 
 router.get('/crawl-jumia',async(req,res)=>{
   let query = req.query.q || '';
@@ -34,10 +79,9 @@ router.get('/crawl-jumia',async(req,res)=>{
 })
 
 router.get('/listings',async(req,res)=>{
-  
   let beds = Number(req.query.beds) || '';
   let location = req.query.location || '';
-  let limit = Number(req.query.limit) || 20
+  let limit = Number(req.query.limit) || 100;
   let results = [];
 
   try {
@@ -48,6 +92,14 @@ router.get('/listings',async(req,res)=>{
           {location},
         ]
       }).limit(limit);
+    }if(beds!==''){
+        results = await Listing.find({
+            beds
+        }).limit(limit);
+    }if(location!==''){
+        results = await Listing.find({
+            location
+        }).limit(limit);
     }else{
       results = await Listing.find({}).limit(limit);
     }
