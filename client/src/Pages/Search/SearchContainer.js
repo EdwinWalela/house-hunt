@@ -8,7 +8,9 @@ function SearchContainer(props) {
     return (
         <React.Fragment>
             <Header title="House Hunt"/>
-            <SearchBar />
+            <SearchBar 
+                updateSearchParams={props.updateSearchParams}
+            />
             <div style={containerStyle}>
                 <SearchList 
                     listings={props.listings}

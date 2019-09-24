@@ -9,7 +9,9 @@ import RangeSelector from '../../layout/RangeSelector'
 function SearchContainer(props) {
     return (
         <div style={containerStyle}>
-            <SearchForm />
+            <SearchForm 
+                 updateSearchParams={props.updateSearchParams}
+            />
             <RangeSelector />
             <Link to="/search#results"><button style={btnStyle}>Search</button></Link>
         </div>
