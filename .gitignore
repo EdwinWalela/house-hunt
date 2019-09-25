@@ -1,5 +1,5 @@
 node_modules
-# .env
+.env
 tweets.html
 areas.json
 build
