@@ -91,11 +91,11 @@ router.get('/listings',async(req,res)=>{
           {location},
         ]
       }).limit(limit);
-    }if(beds!==''){
+    }else if(beds!==''){
         results = await Listing.find({
             beds
         }).limit(limit);
-    }if(location!==''){
+    }else if(location!==''){
         results = await Listing.find({
             location
         }).limit(limit);

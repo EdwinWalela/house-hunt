@@ -31,7 +31,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`http://192.168.0.29:8000/api/listings?beds=${beds}&location=${location}`);
+            res = await Axios.get(`http://localhost:8000/api/listings?beds=${beds}&location=${location}`);
             listings = res.data.results
         }catch(err){
             this.setState({

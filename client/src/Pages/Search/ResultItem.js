@@ -42,7 +42,7 @@ const imageStyle = {
 }
 
 const textStyle = {
-    textTransform:"capitalize",
+    textTransform:"lowercase",
     fontSize:"0.9em",
     margin:"10px auto",
     width:"99%",

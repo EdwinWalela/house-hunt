@@ -12,7 +12,7 @@ function ResultDetails(props) {
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bath"></i>
-                <p style={DetailTextStyle}>{data.baths}</p>
+                <p style={DetailTextStyle}>n/a</p>
             </div>
             {/* <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-map-marker-alt"></i>
@@ -20,11 +20,11 @@ function ResultDetails(props) {
             </div> */}
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-shopping-cart"></i>
-                <p style={DetailTextStyle}>4</p>
+                <p style={DetailTextStyle}>n/a</p>
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-road"></i>
-                <p style={DetailTextStyle}>50 mins</p>
+                <p style={DetailTextStyle}>n/a</p>
             </div>
          </div>
     )
@@ -63,7 +63,7 @@ const DetailTextStyle = {
     width:"80px",
     display:"block",
     fontSize:"1em",
-    textTransform:"capitalize"
+    // textTransform:"capitalize"
 }
 
 ResultDetails.propTypes = {
