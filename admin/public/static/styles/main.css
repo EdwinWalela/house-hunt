@@ -1,0 +1,144 @@
+*{
+    padding:0;
+    box-sizing: border-box;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    color:inherit;
+}
+
+nav{
+    border-bottom:solid 1px;   
+    background: #1B98E0;
+    color:#fff;
+}
+
+nav div{
+    display: inline-block;
+    width: 49%;
+    padding: 15px;
+}
+
+.brand{
+
+}
+
+.nav-items{
+    text-align: right;
+}
+
+.stats-container{
+    margin: 10vh auto 30px auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px 10px;
+    border-radius: 5px;
+    background:#52528C;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.stats-item{
+    cursor: pointer;
+    display: inline-block;
+    width:25%;
+    margin:10px;
+}
+
+.stats-item:hover > span{
+    transition: all linear .4s;
+    color: #52528C;
+    background:#fff;
+}
+
+.stats-item:hover > p{
+    text-decoration: underline;
+}
+
+.stats-item span{
+    transition: all linear .4s .2s;
+    font-size: 1.5em;
+    margin:20px auto;
+    border:solid 2px;
+    background: #52528C;
+    color:#fff;
+    padding:20px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.stats-item p{
+    color:#fff;
+}
+
+table{
+    text-align: left;
+    border-collapse: collapse;
+    width:90%;
+    margin:30px auto;
+    max-width: 600px;
+    text-transform: capitalize;
+}
+
+td,th{
+  text-align: left;
+    padding:10px;
+}
+
+td{
+    font-size: 0.9em;
+}
+
+table tr:nth-child(1){
+    background:#52528C;
+    color:#fff;
+}
+
+tr{
+    border-bottom:solid 3px #52528C;
+}
+
+#filter{
+    display: block;
+    margin:30px auto;
+    text-align: center;
+    padding: 10px;
+    width:120px;   
+}
+
+form{
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
+    width:90%;
+    max-width: 350px;
+    margin:30px auto;
+    padding:20px;
+    text-align: center;
+}
+
+form label{
+    display: inline-block;
+    width:100px;
+    font-size: 0.8em;
+}
+
+form input{
+    padding:5px;
+    text-transform: lowercase;
+    display: inline-block;
+    margin:10px 0px;
+}
+
+form button{
+    border:none;
+    background: #52528C;
+    color:#fff;
+    margin:20px auto;
+    padding: 10px 5px;
+    width:150px;
+}
