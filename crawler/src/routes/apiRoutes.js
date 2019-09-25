@@ -141,7 +141,6 @@ router.get('/listings/:id',async(req,res)=>{
 router.put('/listings/:id',async(req,res)=>{
   let id = req.params.id;
   let listing = req.body;
-
   try{
     await Listing.findByIdAndUpdate(id,{
       title:listing.title,
@@ -162,6 +161,24 @@ router.put('/listings/:id',async(req,res)=>{
     msg:"Updated recorded"
   })
 });
+
+router.delete('/listings/:id',async(req,res)=>{
+    let id = req.params.id;
+    
+    try{
+        await Listing.findByIdAndDelete(id);
+    }catch(err){
+        res.status(500).send({
+            msg:"error",
+            err
+        })
+        return;
+    }
+
+    res.send({
+        msg:"OK"
+    })
+})
 
 
 
