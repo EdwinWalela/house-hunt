@@ -12,3 +12,10 @@ services:
     build: ./twitter-analytics
     ports:
       - '8000:8000'
+  admin:
+    container_name: admin-dashboard
+    restart: always
+    build: ./admin
+    ports:
+      - '5000:5000'
+
