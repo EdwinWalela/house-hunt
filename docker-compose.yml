@@ -5,13 +5,13 @@ services:
     restart: always
     build: ./crawler
     ports:
-      - '8080:8080'
+      - '8000:8000'
   analytics:
     container_name: twitter-analytics
     restart: always
     build: ./twitter-analytics
     ports:
-      - '8000:8000'
+      - '8080:8080'
   admin:
     container_name: admin-dashboard
     restart: always
