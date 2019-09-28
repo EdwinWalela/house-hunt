@@ -13,7 +13,7 @@ class SearchBar extends Component {
     }
 
     async componentDidMount(){
-        let res = await Axios.get('http://localhost:8000/api/locations');
+        let res = await Axios.get('http://167.71.101.66:8000/api/locations');
         console.log(res.data.locations);
         this.setState({
             locations:res.data.locations
