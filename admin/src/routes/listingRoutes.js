@@ -3,7 +3,7 @@ const Axios = require("axios");
 const CRAWLER_URI = process.env.CRAWLER_URI;
 
 router.get('/',async(req,res)=>{ 
-    let data = await Axios.get(CRAWLER_URI+'/listings');
+    let data = await Axios.get(`${CRAWLER_URI}/listings`);
     let listings = data.data.results;
     res.render('tableView',{
         listings
@@ -11,7 +11,7 @@ router.get('/',async(req,res)=>{
 })
 
 router.get('/edit/:id',async(req,res)=>{
-    let data = await Axios.get('http://localhost:8000/api/listings/'+req.params.id);
+    let data = await Axios.get(`${CRAWLER_URI}/listings/${req.params.id}`);
     let listing = data.data.listing;
     res.render('edit',{
         listing
@@ -21,7 +21,7 @@ router.get('/edit/:id',async(req,res)=>{
 router.post('/:id',async(req,res)=>{
     let id = req.params.id;
     let body = req.body;
-    await Axios.put('http://localhost:8000/api/listings/'+id,{
+    await Axios.put(`${CRAWLER_URI}/listings/${id}`,{
         ...body
     });
 
@@ -33,7 +33,7 @@ router.get('/delete/:id',async(req,res)=>{
     let id = req.params.id;
     
     try{
-        await Axios.delete('http://localhost:8000/api/listings/'+id);
+        await Axios.delete(`${CRAWLER_URI}/listings/${id}`);
     }catch(err){
         console.log(err);
         res.redirect('/listings?status=error')
