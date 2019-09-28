@@ -1,8 +1,9 @@
-const router = require("express").Router;
+const router = require("express").Router();
 const Axios = require("axios");
+const CRAWLER_URI = process.env.CRAWLER_URI;
 
 router.get('/',async(req,res)=>{ 
-    let data = await Axios.get('http://localhost:8000/api/listings');
+    let data = await Axios.get(CRAWLER_URI+'/listings');
     let listings = data.data.results;
     res.render('tableView',{
         listings
@@ -40,3 +41,5 @@ router.get('/delete/:id',async(req,res)=>{
     }
     res.redirect('/listings?status=success')
 })
+
+module.exports = router;
