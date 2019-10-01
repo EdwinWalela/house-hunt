@@ -78,11 +78,11 @@ router.get('/crawl-jumia',async(req,res)=>{
 })
 
 router.get('/listings',async(req,res)=>{
+ 
   let beds = Number(req.query.beds) || '';
   let location = req.query.location || '';
   let limit = Number(req.query.limit) || 400;
   let results = [];
-
   try {
     if(beds !== '' && location !== ''){
       results = await Listing.find({

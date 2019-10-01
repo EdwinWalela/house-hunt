@@ -12,7 +12,7 @@ function ResultDetails(props) {
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-bath"></i>
-                <p style={DetailTextStyle}>n/a</p>
+                <p style={DetailTextStyle}>{data.baths}</p>
             </div>
             {/* <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-map-marker-alt"></i>
@@ -31,13 +31,13 @@ function ResultDetails(props) {
 }
 
 const DetailsContainerStyle = {
-    textAlign:"center",
     margin:"10px auto",
 }
 
 const DetailItemStyle = {
     display:"inline-block",
-    margin:"5px",
+    margin:"0px",
+    width:"24%",
     fontSize:"0.9em",
     textAlign:"center"
 }
@@ -49,7 +49,7 @@ const iconStyle = {
     color:"#fff",
     textAlignc:"center",
     padding:"10px",
-    marginRight:"5px",
+    marginRight:"0px",
     background:"#1B98E0"
 }
 
