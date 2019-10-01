@@ -91,6 +91,15 @@ router.get('/listings',async(req,res)=>{
           {location},
         ]
       }).limit(limit);
+    if(results.length < 2){
+        results = await Listing.find({
+            $or:[
+              {beds},
+              {location},
+            ]
+          }).limit(10);
+     }
+
     }else if(beds!==''){
         results = await Listing.find({
             beds
