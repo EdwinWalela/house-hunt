@@ -23,7 +23,12 @@
         <option>
             Sort By
         </option>
+        <option value="1">1 Bed</option>
+        <option value="2">2 Bed</option>
+        <option value="3">3 Bed</option>
+        <option value="4">4 Bed</option>
     </select>
+    <p id="result-count">Showing <%=listings.length%> Result(s)</p>
     <table>
         <tr>
             <th>Title</th>
@@ -44,5 +49,7 @@
             </tr>
         <%})%>
     </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/public/static/scripts/app.js"></script>
 </body>
 </html>

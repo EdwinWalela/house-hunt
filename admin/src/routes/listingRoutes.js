@@ -4,8 +4,9 @@ const CRAWLER_URI = process.env.CRAWLER_URI;
 
 router.get('/',async(req,res)=>{ 
     let data;
+    let beds = req.query.beds;
     try{
-         data = await Axios.get(`${CRAWLER_URI}/listings`);
+         data = await Axios.get(`${CRAWLER_URI}/listings?beds=${beds}`);
     }catch(err){
         console.log(err);
         res.redirect('/?status=error');

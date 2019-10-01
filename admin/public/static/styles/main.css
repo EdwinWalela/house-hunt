@@ -77,12 +77,16 @@ nav div{
     color:#fff;
 }
 
+#result-count{
+    text-align: center;
+}
+
 table{
     text-align: left;
     border-collapse: collapse;
     width:90%;
     margin:30px auto;
-    max-width: 600px;
+    max-width: 700px;
     text-transform: capitalize;
 }
 
@@ -93,6 +97,7 @@ td,th{
 
 td{
     font-size: 0.9em;
+    text-transform: lowercase;
 }
 
 table tr:nth-child(1){
@@ -152,5 +157,5 @@ form button{
 
 #listing-source{
     text-align: center;
-    
+
 }
