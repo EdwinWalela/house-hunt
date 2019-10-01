@@ -20,6 +20,7 @@
     </nav>
 
     <form method="POST" action="/listings/<%=listing._id%>">
+        <h1>Edit Listing</h1>
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="Title" value="<%=listing.title%>"/><br>
         <label for="title">Location</label>
@@ -32,6 +33,6 @@
         <input type="number" name="baths" placeholder="Baths" value="<%=listing.baths%>"/><br>
         <button>Update</button>
     </form>
-    
+    <a href="<%=listing.url%>" target="_blank"><p id="listing-source" >View Source</p></a>
 </body>
 </html>

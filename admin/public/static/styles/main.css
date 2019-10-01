@@ -134,6 +134,13 @@ form input{
     margin:10px 0px;
 }
 
+form h1{
+    font-size: 1em;
+    text-align: center;
+    margin:10px auto;
+    
+}
+
 form button{
     border:none;
     background: #52528C;
@@ -141,4 +148,9 @@ form button{
     margin:20px auto;
     padding: 10px 5px;
     width:150px;
+}
+
+#listing-source{
+    text-align: center;
+    
 }

@@ -3,7 +3,14 @@ const Axios = require("axios");
 const CRAWLER_URI = process.env.CRAWLER_URI;
 
 router.get('/',async(req,res)=>{ 
-    let data = await Axios.get(`${CRAWLER_URI}/listings`);
+    let data;
+    try{
+         data = await Axios.get(`${CRAWLER_URI}/listings`);
+    }catch(err){
+        console.log(err);
+        res.redirect('/?status=error');
+        return;
+    }
     let listings = data.data.results;
     res.render('tableView',{
         listings
