@@ -80,7 +80,7 @@ router.get('/crawl-jumia',async(req,res)=>{
 router.get('/listings',async(req,res)=>{
   let beds = Number(req.query.beds) || '';
   let location = req.query.location || '';
-  let limit = Number(req.query.limit) || 100;
+  let limit = Number(req.query.limit) || 200;
   let results = [];
 
   try {
