@@ -13,7 +13,7 @@ function SearchContainer(props) {
                  updateSearchParams={props.updateSearchParams}
             />
             <RangeSelector />
-            <Link to="/search#results"><button style={btnStyle}>Search</button></Link>
+            <Link to="/search#results"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link>
         </div>
     )
 }

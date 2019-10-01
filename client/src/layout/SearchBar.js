@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import baseAPI from '../config';
 
 class SearchBar extends Component {
 
@@ -13,7 +14,9 @@ class SearchBar extends Component {
     }
 
     async componentDidMount(){
-        let res = await Axios.get('http://167.71.101.66:8000/api/locations');
+        console.log(baseAPI)
+
+        let res = await Axios.get(`${baseAPI}/locations`);
         console.log(res.data.locations);
         this.setState({
             locations:res.data.locations

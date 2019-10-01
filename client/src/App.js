@@ -4,6 +4,7 @@ import Axios from 'axios'
 
 import Landing from './Pages/Index/Landing';
 import SearchContainer from './Pages/Search/SearchContainer';
+import baseAPI from './config';
 
 import './App.css';
 
@@ -31,7 +32,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`http://localhost:8000/api/listings?beds=${beds}&location=${location}`);
+            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}`);
             listings = res.data.results
         }catch(err){
             this.setState({
