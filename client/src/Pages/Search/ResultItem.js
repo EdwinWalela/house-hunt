@@ -7,8 +7,8 @@ function ResultItem(props) {
     return (
         <div style={containerStyle}>
             <img style={imageStyle} src={data.thumb} />
-            <p style={textStyle}> {data.title}. </p>
             <ResultDetails data={data}/>
+            <p style={textStyle}> {data.title}.</p>
             {props.best == "1" ?
              <div style={bestMatchStyle}>Best Match <i class="fas fa-star"></i></div>
              : ''}
@@ -27,8 +27,8 @@ const bestMatchStyle = {
 
 const containerStyle = {
     overflow:"hidden",
-    padding:"10px 15px",
-    width:"90%",
+    padding:"5px",
+    width:"100%",
     background:"#fff",
     margin:"20px auto",
     borderRadius:"5px",
@@ -42,7 +42,7 @@ const imageStyle = {
 }
 
 const textStyle = {
-    textTransform:"lowercase",
+    textTransform:"capitalize",
     fontSize:"0.9em",
     margin:"10px auto",
     width:"99%",
