@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ResultItem from './ResultItem';
 
 function ResultDetails(props) {
     let data = props.data
@@ -31,7 +30,9 @@ function ResultDetails(props) {
 }
 
 const DetailsContainerStyle = {
-    margin:"10px auto",
+    margin:"5px",
+    width:"60%",
+    display:"inline-block"
 }
 
 const DetailItemStyle = {
@@ -48,7 +49,7 @@ const iconStyle = {
     height:"100%",
     color:"#fff",
     textAlignc:"center",
-    padding:"10px",
+    padding:"5px",
     marginRight:"0px",
     background:"#1B98E0"
 }
