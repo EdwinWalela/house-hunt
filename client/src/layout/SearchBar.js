@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { geolocated } from 'react-geolocated';
 import baseAPI from '../config';
+
+import SearchFormGroup from './SearchFormGroup';
+import CoordsInput from './CoordsReffrence';
 
 class SearchBar extends Component {
 
@@ -14,8 +17,6 @@ class SearchBar extends Component {
     }
 
     async componentDidMount(){
-        console.log(baseAPI)
-
         let res = await Axios.get(`${baseAPI}/locations`);
         console.log(res.data.locations);
         this.setState({
@@ -28,19 +29,20 @@ class SearchBar extends Component {
         return (
             <div style={formStyle}>
                 <h1 style={sloganStyle}>Find Your Next Home.</h1>
-                <div style={formGroup}>
-                    <label style={labelStyle}>Location</label>
-                    <select name="location" style={selectStyle} type="text" placeholder="Any" onChange={this.handleInputChange}>
-                        <option value="any">Anywhere</option>
-                        {locations.map(location=>(
-                            <option value={location.area}>{location.area}</option>
-                        ))}
-                    </select>
-                </div>
-                <div style={formGroup}>
-                    <label style={labelStyle}>Beds</label>
-                    <input name="beds" style={inputStyle} type="text" placeholder="2"  onChange={this.handleInputChange}/>
-                </div>
+                <SearchFormGroup
+                     locations={locations}
+                     type="location"
+                     handleInputChange={this.props.updateSearchParams}
+                />
+                 <SearchFormGroup
+                     type="beds"
+                     handleInputChange={this.props.updateSearchParams}
+                />
+                <CoordsInput
+                     type="reffrence"
+                     handleInputChange={this.props.updateSearchParams}
+                />
+                {/* <SearchFormGroup type="reffrence"/> */}
             </div>
         )
     }
@@ -89,6 +91,7 @@ const inputStyle = {
     textAlign:"center",
 }
 
+
 const formStyle = {
     backgroundColor:"#1B98E0",
     textAlign:"center",
@@ -97,4 +100,9 @@ const formStyle = {
     maxWidth:"400px",
 }
 
-export default SearchBar
+export default geolocated({
+    positionOptions:{
+        enableHighAccuracy:true,
+    },
+    userDecisionTimeout:5000,
+})(SearchBar)
