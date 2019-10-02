@@ -38,6 +38,7 @@ const containerStyle = {
 const imageStyle = {
     width:"100px",
     height:"100px",
+    verticalAlign:"middle",
     borderRadius:"5px",
 }
 

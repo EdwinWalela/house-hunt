@@ -21,12 +21,34 @@ function ResultDetails(props) {
                 <i style={iconStyle} class="fas fa-road"></i>
                 <p style={DetailTextStyle}>n/a</p>
             </div>
+            <p style={priceStyle}><i class="fas fa-tag"></i> Ksh.{data.price}</p>
+            <p style={locationStyle}><i class="fas fa-map-marker-alt"></i> {data.location}</p>
          </div>
     )
 }
 
+const metaStyle = {
+    width:"50%",
+    padding:"5px",
+    textTransform:"capitalize",
+    margin:"5px auto",
+    display:"inline-block",
+    textAlign:"center",
+    fontSize:"0.8em"
+}
+
+const priceStyle = {
+    ...metaStyle,
+    fontWeight:"600"
+}
+
+const locationStyle = { 
+    ...metaStyle,
+}
+
 const DetailsContainerStyle = {
-    margin:"5px",
+    margin:"10px 5px 5px 5px",
+    verticalAlign:"middle",
     width:"60%",
     display:"inline-block"
 }
