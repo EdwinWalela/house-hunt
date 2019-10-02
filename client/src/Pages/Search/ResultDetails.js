@@ -13,10 +13,6 @@ function ResultDetails(props) {
                 <i style={iconStyle} class="fas fa-bath"></i>
                 <p style={DetailTextStyle}>{data.baths}</p>
             </div>
-            {/* <div style={DetailItemStyle}>
-                <i style={iconStyle} class="fas fa-map-marker-alt"></i>
-                <p style={DetailTextStyle}>Langata</p>
-            </div> */}
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-shopping-cart"></i>
                 <p style={DetailTextStyle}>n/a</p>

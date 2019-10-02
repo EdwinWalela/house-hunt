@@ -9,6 +9,7 @@ const listingRoutes = require("./routes/listingRoutes");
 app.set('view engine','ejs');
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
+
 app.use('/public',express.static('public'));
 
 // Routes
