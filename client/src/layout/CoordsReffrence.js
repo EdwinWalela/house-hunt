@@ -7,7 +7,7 @@ class CoordsReffrence extends Component {
         return(
             <div>
                  <p style={infoStyle}>Get Traffic Comparison</p>
-                 <input name="location" style={locationStyle} type="text" placeholder="Workplace/Institution" onChange={this.props.handleInputChange}/> 
+                 <input name="refference" style={locationStyle} type="text" placeholder="Workplace/Institution" onChange={this.props.handleInputChange}/> 
             </div>
         )
         // return !this.props.isGeolocationAvailable ? (

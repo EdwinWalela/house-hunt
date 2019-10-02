@@ -1,6 +1,5 @@
 const Axios = require('axios');
 const cheerio = require("cheerio");
-const getMetrics = require("./helpers/metrics");
 
 const jiji = async(query,clientLocation,depth,offset) =>{
   let results = [];

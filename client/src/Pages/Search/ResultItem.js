@@ -27,7 +27,7 @@ const bestMatchStyle = {
 
 const containerStyle = {
     overflow:"hidden",
-    padding:"5px",
+    padding:"10px",
     width:"100%",
     background:"#fff",
     margin:"20px auto",

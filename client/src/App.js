@@ -24,6 +24,7 @@ class App extends Component {
     listingSearch = async()=>{
         let beds = this.state.beds;
         let location = this.state.location;
+        let reff = this.state.refference || "CBD"
         // Enter Loading State
         this.setState({
             loading:true
@@ -32,8 +33,9 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}`);
+            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff}`);
             listings = res.data.results
+            console.log(listings)
         }catch(err){
             this.setState({
                 listings,

@@ -19,9 +19,10 @@ function ResultDetails(props) {
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-road"></i>
-                <p style={DetailTextStyle}>n/a</p>
+                <p style={DetailTextStyle}>{data.metric.duration}</p>
             </div>
             <p style={priceStyle}><i class="fas fa-tag"></i> Ksh.{data.price}</p>
+            
             <p style={locationStyle}><i class="fas fa-map-marker-alt"></i> {data.location}</p>
          </div>
     )
@@ -47,6 +48,7 @@ const locationStyle = {
 }
 
 const DetailsContainerStyle = {
+    textAlign:"center",
     margin:"10px 5px 5px 5px",
     verticalAlign:"middle",
     width:"60%",
@@ -63,7 +65,7 @@ const DetailItemStyle = {
 
 const iconStyle = {
     display:"block",
-    width:"80px",
+    width:"50px",
     height:"100%",
     color:"#fff",
     textAlignc:"center",
@@ -79,9 +81,9 @@ const DetailTextStyle = {
     textAlign:"center",
     height:"100%",
     fontWeight:"500",
-    width:"80px",
+    width:"50px",
     display:"block",
-    fontSize:"1em",
+    fontSize:"0.8em",
     // textTransform:"capitalize"
 }
 

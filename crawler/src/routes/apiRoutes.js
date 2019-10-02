@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
+const metricsHelper = require("../helpers/metrics");
 const Listing = require("../models/Listing");
 const Location = require("../models/Locations");
 
@@ -80,6 +81,7 @@ router.get('/crawl-jumia',async(req,res)=>{
 router.get('/listings',async(req,res)=>{
   let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
   let location = req.query.location || '';
+  let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
   let clientLimit = 5;
   let results = [];
@@ -117,6 +119,25 @@ router.get('/listings',async(req,res)=>{
       err
     })
     return;
+  }
+
+  results = results.map(listing=>{
+    delete listing.id
+    delete listing.category
+    listing.location = listing.location.toLowerCase();
+    listing.origin = 'jumia'
+    listing.beds = 3;
+    return listing;
+  })
+
+  if(typeof refferencePoint !== undefined){
+    for(let i = 0; i < results.length; i++){
+        let metric = await metricsHelper(results[i].location,refferencePoint);
+        results[i] = {
+            ...results[i]._doc,
+            metric
+        }
+    }
   }
 
   res.send({
