@@ -4,18 +4,24 @@ import { geolocated } from 'react-geolocated';
 
 class CoordsReffrence extends Component {
     render() {
-        return !this.props.isGeolocationAvailable ? (
-          <p style={infoStyle}>Sorrry, your browser doesnot support Geolocation</p>
-        ) : !this.props.isGeolocationEnabled ? (
-            <p style={infoStyle}>Geolocation is not enabled</p>
-        ) : this.props.coords ? (
+        return(
             <div>
-                <p style={infoStyle}>Current Geocoordinates</p>
-                <input name="location" style={locationStyle} type="text" placeholder="2"  onChange={this.props.handleInputChange} value={`${this.props.coords.latitude},${this.props.coords.longitude}`}/> 
+                 <p style={infoStyle}>Get Traffic Comparison</p>
+                 <input name="location" style={locationStyle} type="text" placeholder="Workplace/Institution" onChange={this.props.handleInputChange}/> 
             </div>
-        ) : (
-            <p style={infoStyle}>Getting the location data&hellip;</p>
         )
+        // return !this.props.isGeolocationAvailable ? (
+        //   <p style={infoStyle}>Sorrry, your browser doesnot support Geolocation</p>
+        // ) : !this.props.isGeolocationEnabled ? (
+        //     <p style={infoStyle}>Geolocation is not enabled</p>
+        // ) : this.props.coords ? (
+        //     <div>
+        //         <p style={infoStyle}>Current Geocoordinates</p>
+        //         <input name="location" style={locationStyle} type="text" placeholder="2"  onChange={this.props.handleInputChange} value={`${this.props.coords.latitude},${this.props.coords.longitude}`}/> 
+        //     </div>
+        // ) : (
+        //     <p style={infoStyle}>Getting the location data&hellip;</p>
+        // )
     }
 }
 
