@@ -8,7 +8,11 @@ export default function Header(props) {
             <h1 style={titleStyle}>{props.title}</h1>
             <div style={navListStyle}>
                 <ul>
-                    <Link to="#"><li className="nav-item" style={listItemStyle}>Login</li></Link>
+                    <Link to="#">
+                        <li style={listItemStyle}>
+                            <i class="fas fa-user-alt"></i>
+                        </li>
+                    </Link>
                     {/* <li className="nav-item" style={listItemStyle}>Users</li>
                     <li className="nav-item" style={listItemStyle}>Logout</li> */}
                     {/* <li style={listItemStyle}>(Edwin)</li> */}
