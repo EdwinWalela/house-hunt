@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 export default function Header(props) {
     return (
         <nav style={navStyle}>
-            <img style={logoStyle} src="/images/big.png"/>
-            <h1 style={titleStyle}>{props.title}</h1>
             <div style={navListStyle}>
                 <ul>
                     <Link to="#">
@@ -22,25 +20,11 @@ export default function Header(props) {
     )
 }
 
-const logoStyle = {
-    position:"relative",
-    top:"-3px",
-    margin:"auto 5px",
-    width:"30px",
-    height:"30px"
-}
-
 const navStyle = {
-    borderBottom:"solid 3px #fff",
-    padding:"15px 15px 0px 15px",
-    background:"#1B98E0"
-}
-
-const titleStyle = {
-    display:"inline-block",
-    marginTop:"5px",
-    fontSize:"1em",
-    color:"#fff"
+    boxShadow:"0px 2px 2px rgba(0,0,0,0.3)",
+    padding:"5px",
+    height:"9vh",
+    background:"rgba(255,255,255,0.7)"
 }
 
 const navListStyle = {
@@ -51,5 +35,6 @@ const navListStyle = {
 
 const listItemStyle = {
     margin:"5px 10px",
-    color:"#fff"
+    color:"#fff",
+    fontSize:"1.2em"
 }

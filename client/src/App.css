@@ -18,6 +18,7 @@ i:hover{
     background:#fff;
     color:#1B98E0;
     transition: all linear .4s;
+    /* background-size:  */
 }
 
 @keyframes steps-bubble{

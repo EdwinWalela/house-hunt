@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 function SearchContainer(props) {
     return (
@@ -15,8 +13,12 @@ function SearchContainer(props) {
 }
 
 const containerStyle = {
-    margin:"60px auto 25px auto",
-    backgroundColor:"#1B98E0",
+    margin:"0 auto 25px auto",
+    height:"80vh",
+    background:"url(/images/landing5.jpg)",
+    backgroundPosition:"bottom",
+    backgroundRepeat:"none",
+    backgroundSize:"cover",
     padding:"10px 0 50px 0",
 }
 
