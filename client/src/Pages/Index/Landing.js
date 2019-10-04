@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
+// Components
 import Header from '../../layout/Header';
-import SearchContainer from './SearchContainer';
+import InteractiveSearch from './InteractiveSearch/Container';
 import About from './About';
 import HelpModal from './HelpModal';
-
 
 class Landing extends Component {
     render() {
         return (
             <div>
                 <Header title="House Hunt" />
-                <SearchContainer
+                <InteractiveSearch
                     listingSearch={this.props.listingSearch}
                     updateSearchParams={this.props.updateSearchParams}
                 />

@@ -2,18 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import SearchForm from '../../layout/SearchBar'
-import RangeSelector from '../../layout/RangeSelector'
-
-
 function SearchContainer(props) {
     return (
         <div style={containerStyle}>
-            <SearchForm
-                updateSearchParams={props.updateSearchParams}
+            {/* <SearchForm
+                updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
             />
-            <RangeSelector />
-            <Link to="/search#results"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link>
+            <RangeSelector /> */}
+            {/* <Link to="/search"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link> */}
         </div>
     )
 }
