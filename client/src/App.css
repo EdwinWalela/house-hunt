@@ -20,6 +20,21 @@ i:hover{
     transition: all linear .4s;
 }
 
+@keyframes steps-bubble{
+    0%{
+        color:rgba(0,0,0,1);
+        transform: scale(1);
+    }
+    50%{
+        color:rgba(0,0,0,0.6);
+        transform: scale(0.8);
+    }
+    100%{
+        color:rgba(0,0,0,1);
+        transform: scale(1);
+    }
+}
+
 @keyframes step-icon-touch{
     0%{
         transform: scale(1);
