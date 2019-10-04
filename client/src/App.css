@@ -6,12 +6,24 @@
     scroll-behavior: smooth;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 i{
-    transition:all ease-in-out .3s;
+    transition:all ease-in-out .3s .4s;
 }
 
 i:hover{
     animation: step-icon-touch .2s linear;
+}
+
+.search-input:hover{
+    /* transform: all linear .3s;
+    border-bottom:solid 2px #fff !important; */
 }
 
 .new-acc:hover{

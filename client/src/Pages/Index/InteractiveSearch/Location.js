@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// F3A712 - Tangerine
+// 29335C - Purple
+
 function Location(props) {
     return (
         <div style={containerStyle}>
             <p style={titleStyle}>Choose a Location</p>
-            <input style={inputStyle} type="text" placeholder="Start typing ..."/>
+            {/* <i style={iconStyle} className="fas fa-map-marker-alt"></i> */}
+            <input className="search-input" style={inputStyle} type="text" placeholder="Start typing ..."/>
             <button style={buttonStyle}>Next</button>
         </div>
     )
@@ -23,6 +27,12 @@ const containerStyle = {
 
 const titleStyle = {
     fontWeight:"500",
+    color:"#29335C",
+}
+
+const iconStyle = {
+    position:"absolute",
+    left:"22vw",
 }
 
 const inputStyle = {
@@ -32,7 +42,7 @@ const inputStyle = {
     borderBottom:"solid 2px #D3424E",
     background:"transparent",
     padding:"5px",
-
+    width:"80%",
 }
 
 const buttonStyle = {
