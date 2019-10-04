@@ -15,7 +15,7 @@ function SearchContainer(props) {
 const containerStyle = {
     margin:"0 auto 25px auto",
     height:"80vh",
-    background:"url(/images/landing5.jpg)",
+    background:"url(/images/landing5.png)",
     backgroundPosition:"bottom",
     backgroundRepeat:"none",
     backgroundSize:"cover",
