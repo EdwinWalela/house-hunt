@@ -36,5 +36,6 @@ const navListStyle = {
 const listItemStyle = {
     margin:"5px 10px",
     color:"#fff",
-    fontSize:"1.2em"
+    fontSize:"1.5em",
+    color:"#D3424E"
 }

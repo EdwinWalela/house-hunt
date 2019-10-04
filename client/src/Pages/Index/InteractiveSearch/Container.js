@@ -3,6 +3,8 @@ import React from 'react'
 function SearchContainer(props) {
     return (
         <div style={containerStyle}>
+            <h1 style={logoStyle}>House Hunt</h1>
+            <p style={sloganStyle}>Find Your Next Home</p>
             {/* <SearchForm
                 updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
             />
@@ -20,6 +22,20 @@ const containerStyle = {
     backgroundRepeat:"none",
     backgroundSize:"cover",
     padding:"10px 0 50px 0",
+}
+
+const logoStyle={
+    margin:"15vh auto 10px auto",
+    textAlign:"center",
+    color:"#fff",
+    fontWeight:"600",
+    fontSize:"2.2em",
+}
+
+const sloganStyle={
+    textAlign:"center",
+    color:"#fff",
+    fontWeight:"500",
 }
 
 const btnStyle = {
