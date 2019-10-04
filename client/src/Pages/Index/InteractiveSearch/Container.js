@@ -1,10 +1,14 @@
 import React from 'react'
 
+// Components
+import LocationStep from './Location'
+
 function SearchContainer(props) {
     return (
         <div style={containerStyle}>
             <h1 style={logoStyle}>House Hunt</h1>
             <p style={sloganStyle}>Find Your Next Home</p>
+            <LocationStep />
             {/* <SearchForm
                 updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
             />
