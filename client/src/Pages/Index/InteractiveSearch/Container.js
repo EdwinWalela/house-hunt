@@ -19,21 +19,22 @@ class SearchContainer extends Component {
         })
     }
     render(){
-        const chevronWidth = "300";
+        const chevronWidth = "10";
         return (
             <div style={containerStyle}>
                 <h1 style={logoStyle}>House Hunt</h1>
                 <p style={sloganStyle}>Find Your Next Home</p>
-                <div style={{ padding: `0 ${chevronWidth}` }}>
+                <div style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
                     <ItemsCarousel
                         requestToChangeActive={this.setActiveItemIndex}
                         activeItemIndex={this.state.activeItemIndex}
                         numberOfCards={1}
                         slidesToScroll={1}
-                        gutter={20}
-                        leftChevron={<button>{'<'}</button>}
-                        rightChevron={<button>{'>'}</button>}
-                        outsideChevron
+                        gutter={12}
+                        showSlither={false}
+                        alwaysShowChevrons={true}
+                        firstAndLastGutter={false}
+                        outsideChevron={true}
                         chevronWidth={chevronWidth}
                     >
                         <LocationStep />
@@ -77,14 +78,9 @@ const sloganStyle={
 }
 
 const btnStyle = {
-    display:"block",
-    width:"80%",
-    margin:"50px auto 20px auto",
-    fontSize:"1.1em",
-    padding:"10.5px",
-    border:"none",
-    backgroundColor:"#49306B",
-    color:"#fff",
+    color:"#333",
+    border:"solid 1px",
+    fontSize:"2em"
 }
 
 SearchContainer.propTypes = {

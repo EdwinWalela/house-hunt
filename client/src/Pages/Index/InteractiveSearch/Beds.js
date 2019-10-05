@@ -45,7 +45,7 @@ class Beds extends Component {
                         +
                     </span>
                 </div>
-                <button style={buttonStyle}>Next</button>
+                {/* <button style={buttonStyle}>Next</button> */}
             </div>
         )
     }
@@ -59,7 +59,7 @@ const containerStyle = {
     margin:"20px auto",
     width:"90%",
     maxWidth:"400px",
-    height:"200px",
+    height:"150px",
     textAlign:"center"
 }
 
@@ -67,14 +67,6 @@ const titleStyle = {
     fontWeight:"500",
     color:"#29335C",
     letterSpacing:"1.2px",
-}
-
-const iconStyle = {
-    position:"relative",
-    display:"inline",
-    right:"36%",
-    bottom:"112px",
-    color:"#F3A712",
 }
 
 const counterContainer = {

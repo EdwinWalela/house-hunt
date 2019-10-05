@@ -47,7 +47,7 @@ class Budget extends Component {
                     </div>
                     )}
                 /> 
-                <button style={buttonStyle}>Next</button>
+                {/* <button style={buttonStyle}>Next</button> */}
             </div>
         )
     }
@@ -60,7 +60,7 @@ const containerStyle = {
     margin:"20px auto",
     width:"90%",
     maxWidth:"400px",
-    height:"200px",
+    height:"150px",
     textAlign:"center"
 }
 
@@ -97,16 +97,6 @@ const trackStyle = {
 }
 
 const sliderTagStyle = {
-    color:"#fff"
-}
-
-const buttonStyle = {
-    display:"block",
-    padding:"8px 10px",
-    margin:"20px auto",
-    border:"none",
-    width:"80%",
-    background:"#D3424E",
     color:"#fff"
 }
 

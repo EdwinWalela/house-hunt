@@ -9,7 +9,7 @@ function Location(props) {
         <div style={containerStyle}>
             <p style={titleStyle}>Choose a Location</p>
             <input className="search-input" style={inputStyle} type="text" placeholder="Start typing ..."/>
-            <button style={buttonStyle}>Next</button>
+            {/* <button style={buttonStyle}>Next</button> */}
             <i style={iconStyle} className="fas fa-map-marker-alt location-icon"></i>
         </div>
     )
@@ -22,7 +22,7 @@ const containerStyle = {
     margin:"20px auto",
     width:"90%",
     maxWidth:"400px",
-    height:"200px",
+    height:"150px",
     textAlign:"center"
 }
 
@@ -36,7 +36,7 @@ const iconStyle = {
     position:"relative",
     display:"inline",
     right:"36%",
-    bottom:"112px",
+    bottom:"52px",
     color:"#F3A712",
 }
 
@@ -46,21 +46,12 @@ const inputStyle = {
     border:"none",
     borderBottom:"solid 2px #D3424E",
     background:"transparent",
-    padding:"5px 5px 5px 30px",
+    padding:"5px",
     width:"80%",
     fontSize:"1.1em",
     letterSpacing:"1.3px",
     textTransform:"capitalize",
-}
-
-const buttonStyle = {
-    display:"block",
-    padding:"8px 10px",
-    margin:"20px auto",
-    border:"none",
-    width:"80%",
-    background:"#D3424E",
-    color:"#fff"
+    textAlign:"center"
 }
 
 Location.propTypes = {
