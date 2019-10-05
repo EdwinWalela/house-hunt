@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import ItemsCarousel from 'react-items-carousel'
 
 // Components
 import LocationStep from './Location'
@@ -6,19 +7,49 @@ import BedStep from './Beds'
 import BudgetStep from './Budget'
 import InterestStep from './Intrests'
 
-function SearchContainer(props) {
-    return (
-        <div style={containerStyle}>
-            <h1 style={logoStyle}>House Hunt</h1>
-            <p style={sloganStyle}>Find Your Next Home</p>
-           
-            {/* <SearchForm
-                updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
-            />
-            <RangeSelector /> */}
-            {/* <Link to="/search"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link> */}
-        </div>
-    )
+class SearchContainer extends Component {
+
+    state = {
+        activeItemIndex:0
+    }
+
+    setActiveItemIndex = (index) =>{
+        this.setState({
+            activeItemIndex:index
+        })
+    }
+    render(){
+        const chevronWidth = "300";
+        return (
+            <div style={containerStyle}>
+                <h1 style={logoStyle}>House Hunt</h1>
+                <p style={sloganStyle}>Find Your Next Home</p>
+                <div style={{ padding: `0 ${chevronWidth}` }}>
+                    <ItemsCarousel
+                        requestToChangeActive={this.setActiveItemIndex}
+                        activeItemIndex={this.state.activeItemIndex}
+                        numberOfCards={1}
+                        slidesToScroll={1}
+                        gutter={20}
+                        leftChevron={<button>{'<'}</button>}
+                        rightChevron={<button>{'>'}</button>}
+                        outsideChevron
+                        chevronWidth={chevronWidth}
+                    >
+                        <LocationStep />
+                        <BedStep />
+                        <BudgetStep />
+                        <InterestStep />
+                    </ItemsCarousel>
+                    </div>
+                {/* <SearchForm
+                    updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
+                />
+                <RangeSelector /> */}
+                {/* <Link to="/search"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link> */}
+            </div>
+        )
+    }
 }
 
 const containerStyle = {
