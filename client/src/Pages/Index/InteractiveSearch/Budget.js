@@ -1,5 +1,4 @@
 import React , { Component } from 'react'
-import { Range } from 'react-range'
 import PropTypes from 'prop-types'
 
 // F3A712 - Tangerine
@@ -7,51 +6,62 @@ import PropTypes from 'prop-types'
 
 class Budget extends Component {
     state = {
-        values:[50]
+        price:5000
     }
+
+    onIncrease = () =>{
+        this.setState({
+            price:(Number(this.state.price)+5000)
+        })
+    }
+
+    onDecrease = () =>{
+        this.setState({
+            price:(Number(this.state.price)-5000)
+        })
+    }
+
+    handlePriceChange = (e) =>{
+        this.setState({
+            [e.target.name]:Number(e.target.value)
+        })
+    }
+
     render(){
         return (
             <div style={containerStyle}>
                 <p style={titleStyle}>What's Your Budget?</p>
-                <p style={priceStyle}>
-                    {"KES "+(this.state.values[0]*600).toLocaleString()}
-                </p>
-                <Range
-                    step={1}
-                    min={0}
-                    max={100}
-                    values={this.state.values}
-                    onChange={values => this.setState({ values })}
-                    allowOverlap={true}
-                    renderTrack={({ props, children }) => (
-                    <div
-                        {...props}
-                        style={trackStyle}
+                <div style={counterContainer}>
+                    <span 
+                        className="beds-btn"
+                        style={decrementStyle}
+                        // onClick={this.onDecrease}
+                        onTouchStart={this.onDecrease}
                     >
-                        
-                        {children}
-                    </div>
-                    )}
-                    renderThumb={({ props,isDragged,index }) => (
-                    <div className="slider-thumb"
-                        {...props}
-                    
-                        style={{ 
-                                ...props.style,
-                                ...thumbStyle,
-                                // backgroundColor:colors[index]
-                            }
-                        }
+                        -
+                    </span>
+                    <input 
+                        type="number"
+                        name="price"
+                        className="bed-count" 
+                        style={numberStyle}
+                        value={this.state.price}
+                        onChange={this.handlePriceChange}
+                    />
+                    <span 
+                        className="beds-btn"
+                        style={incrementStyle}
+                        onClick={this.onIncrease}
                     >
-                        <i style={sliderTagStyle} className="fas fa-money-bill-wave"></i>
-                    </div>
-                    )}
-                /> 
+                        +
+                    </span>
+                </div>
                 {/* <button style={buttonStyle}>Next</button> */}
             </div>
         )
     }
 }
+
 
 const containerStyle = {
     background:"rgba(255,255,255,1)",
@@ -70,33 +80,49 @@ const titleStyle = {
     letterSpacing:"1.2px",
 }
 
-const priceStyle = {
-    display:"block",
-    textAlign:"center",
+const counterContainer = {
+    margin:"20px auto",
+    padding:"0px",
+    width:"80%",
+}
+
+const spanStyle = {
+    display:"inline-block",
+    padding:"5px",
+    width:"20%",
+    height:"100%",
     fontSize:"1.5em",
-    letterSpacing:"1.5px",
+    fontWeight:"600",
+    color:"#fff"
+}
+
+const numberStyle = {
+    ...spanStyle,
+    width:"60%",
     fontWeight:"400",
     color:"#333",
+    fontSize:"1.5em",
+    textAlign:"center",
+    padding:"6px",
 }
 
-const thumbStyle = {
-    height: '35px',
-    width: '35px',
-    borderRadius: '4px',
-    backgroundColor: '#F3A712',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+const decrementStyle = {
+    ...spanStyle,
+    background:"#333",
 }
 
-const trackStyle = {
-    height: '5px',
-    width: '80%',
-    margin:"auto",
-    backgroundColor: 'rgba(0,0,0,0.3)'
+const incrementStyle = {
+    ...spanStyle,
+    background:"#355691",
 }
 
-const sliderTagStyle = {
+const buttonStyle = {
+    display:"block",
+    padding:"8px 10px",
+    margin:"20px auto",
+    border:"none",
+    width:"80%",
+    background:"#D3424E",
     color:"#fff"
 }
 
