@@ -14,7 +14,7 @@ class Budget extends Component {
             <div style={containerStyle}>
                 <p style={titleStyle}>What's Your Budget?</p>
                 <p style={priceStyle}>
-                    {this.state.values[0]*600}
+                    {"KES "+(this.state.values[0]*600).toLocaleString()}
                 </p>
                 <Range
                     step={1}
@@ -75,32 +75,30 @@ const priceStyle = {
     textAlign:"center",
     fontSize:"1.5em",
     letterSpacing:"1.5px",
-    fontWeight:"600",
-    color:"#333"
+    fontWeight:"400",
+    color:"#333",
 }
 
-const  thumbStyle = {
-    height: '30px',
-    width: '30px',
+const thumbStyle = {
+    height: '35px',
+    width: '35px',
     borderRadius: '4px',
-    backgroundColor: '#7FC29B',
+    backgroundColor: '#F3A712',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    after:"<i class='fas fa-tag'></i>",
 }
 
 const trackStyle = {
-    height: '10px',
-    width: '70%',
+    height: '5px',
+    width: '80%',
     margin:"auto",
-    backgroundColor: '#333'
+    backgroundColor: 'rgba(0,0,0,0.3)'
 }
 
 const sliderTagStyle = {
     color:"#fff"
 }
-
 
 const buttonStyle = {
     display:"block",

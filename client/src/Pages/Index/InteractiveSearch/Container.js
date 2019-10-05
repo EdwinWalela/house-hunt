@@ -4,13 +4,14 @@ import React from 'react'
 import LocationStep from './Location'
 import BedStep from './Beds'
 import BudgetStep from './Budget'
+import InterestStep from './Intrests'
 
 function SearchContainer(props) {
     return (
         <div style={containerStyle}>
             <h1 style={logoStyle}>House Hunt</h1>
             <p style={sloganStyle}>Find Your Next Home</p>
-            <BudgetStep />
+           
             {/* <SearchForm
                 updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
             />
