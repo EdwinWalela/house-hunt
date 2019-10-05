@@ -21,6 +21,12 @@ i:hover{
     animation: step-icon-touch .2s linear;
 }
 
+.beds-btn:active{
+    transition: all ease-in-out .1s;
+    background: #fff;
+    transform: scale(0.9);
+}
+
 .search-input:focus ~ .location-icon{
     /* transform: all linear .3s;
     border-bottom:solid 2px #fff !important; */
