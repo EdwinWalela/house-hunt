@@ -21,9 +21,16 @@ i:hover{
     animation: step-icon-touch .2s linear;
 }
 
-.search-input:hover{
+.search-input:focus ~ .location-icon{
     /* transform: all linear .3s;
     border-bottom:solid 2px #fff !important; */
+     transition: all linear .4s;
+    animation: location-bubble .7s ease-in-out .3s;
+}
+
+.fa-map-marker-alt{
+    transition: all linear .4s;
+    animation: location-bubble .7s ease-in-out 2s;
 }
 
 .new-acc:hover{
@@ -31,6 +38,18 @@ i:hover{
     color:#1B98E0;
     transition: all linear .4s;
     /* background-size:  */
+}
+
+@keyframes location-bubble{
+    0%{
+        bottom:112px;
+    }
+    50%{
+        bottom:120px;
+    }
+    100%{
+        bottom:112px;
+    }
 }
 
 @keyframes steps-bubble{
