@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 // Components
 import Header from '../../layout/Header';
 import InteractiveSearch from './InteractiveSearch/Container';
-import About from './About';
-import HelpModal from './HelpModal';
+import InfoModal from './HelpModal';
 
 class Landing extends Component {
     render() {
@@ -15,8 +14,8 @@ class Landing extends Component {
                     listingSearch={this.props.listingSearch}
                     updateSearchParams={this.props.updateSearchParams}
                 />
-                <About />
-                <HelpModal />
+                
+                <InfoModal />
             </div>
         )
     }

@@ -7,10 +7,10 @@ import PropTypes from 'prop-types'
 function Interests(props) {
     return (
         <div style={containerStyle}>
-            <p style={titleStyle}>Workplace/Institution <i style={infoIconStyle} className="far fa-question-circle"></i></p>
+            <p style={titleStyle}>Workplace/Institution <i style={infoIconStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i></p>
             <input className="search-input" style={inputStyle} type="text" placeholder="CBD"/>
             <button style={buttonStyle}>Search</button>
-            <i style={iconStyle} className="fas fa-map-marker-alt location-icon"></i>
+            <i style={iconStyle} className="fas fa-map-marker-alt location-icon" ></i>
         </div>
     )
 }
@@ -64,7 +64,7 @@ const buttonStyle = {
     margin:"20px auto",
     border:"none",
     width:"80%",
-    background:"#1B98E0",
+    background:"#D3424E",
     color:"#fff"
 }
 

@@ -6,6 +6,7 @@ import LocationStep from './Location'
 import BedStep from './Beds'
 import BudgetStep from './Budget'
 import InterestStep from './Intrests'
+import StepsNavigator from './StepNavigator'
 
 class SearchContainer extends Component {
 
@@ -13,10 +14,8 @@ class SearchContainer extends Component {
         activeItemIndex:0
     }
 
-    setActiveItemIndex = (index) =>{
-        this.setState({
-            activeItemIndex:index
-        })
+    setActiveItemIndex = (activeItemIndex) =>{
+        this.setState({ activeItemIndex })
     }
     render(){
         const chevronWidth = "10";
@@ -42,7 +41,12 @@ class SearchContainer extends Component {
                         <BudgetStep />
                         <InterestStep />
                     </ItemsCarousel>
-                    </div>
+                   
+                </div>
+                <StepsNavigator  
+                    active={this.state.activeItemIndex}
+                    updateActiveStep={this.setActiveItemIndex} 
+                />
                 {/* <SearchForm
                     updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
                 />
@@ -54,7 +58,7 @@ class SearchContainer extends Component {
 }
 
 const containerStyle = {
-    margin:"0 auto 25px auto",
+    margin:"0 auto 0px auto",
     height:"110vh",
     minHeight:"600px",
     background:"url(/images/landing5.png)",
