@@ -23,8 +23,8 @@ export default function Header(props) {
 const navStyle = {
     boxShadow:"0px 2px 2px rgba(0,0,0,0.3)",
     padding:"5px",
-    height:"9vh",
-    background:"rgba(255,255,255,0.7)"
+    height:"60px",
+    background:"rgba(255,255,255,1)"
 }
 
 const navListStyle = {

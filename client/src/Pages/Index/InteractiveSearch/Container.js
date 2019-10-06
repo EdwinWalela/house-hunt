@@ -55,7 +55,8 @@ class SearchContainer extends Component {
 
 const containerStyle = {
     margin:"0 auto 25px auto",
-    height:"80vh",
+    height:"110vh",
+    minHeight:"600px",
     background:"url(/images/landing5.png)",
     backgroundPosition:"bottom",
     backgroundRepeat:"none",
