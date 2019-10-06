@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ItemsCarousel from 'react-items-carousel'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 // Components
 import LocationStep from './Location'
@@ -11,7 +12,7 @@ import StepsNavigator from './StepNavigator'
 class SearchContainer extends Component {
 
     state = {
-        activeItemIndex:0
+        activeItemIndex:-1
     }
 
     setActiveItemIndex = (activeItemIndex) =>{
@@ -23,26 +24,32 @@ class SearchContainer extends Component {
             <div style={containerStyle}>
                 <h1 style={logoStyle}>House Hunt</h1>
                 <p style={sloganStyle}>Find Your Next Home</p>
-                <div style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
-                    <ItemsCarousel
-                        requestToChangeActive={this.setActiveItemIndex}
-                        activeItemIndex={this.state.activeItemIndex}
-                        numberOfCards={1}
-                        slidesToScroll={1}
-                        gutter={12}
-                        showSlither={false}
-                        alwaysShowChevrons={true}
-                        firstAndLastGutter={false}
-                        outsideChevron={true}
-                        chevronWidth={chevronWidth}
-                    >
-                        <LocationStep />
-                        <BedStep />
-                        <BudgetStep />
-                        <InterestStep />
-                    </ItemsCarousel>
-                   
-                </div>
+                <ReactCSSTransitionGroup
+                    transitionAppear={true}
+                    transitionAppearTimeout={1000}
+                    transitionName="slide"
+                    component="div"    
+                >
+                    <div className="search-carousel" style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
+                        <ItemsCarousel
+                            requestToChangeActive={this.setActiveItemIndex}
+                            activeItemIndex={this.state.activeItemIndex}
+                            numberOfCards={1}
+                            slidesToScroll={1}
+                            gutter={12}
+                            showSlither={false}
+                            alwaysShowChevrons={true}
+                            firstAndLastGutter={false}
+                            outsideChevron={true}
+                            chevronWidth={chevronWidth}
+                        >
+                            <LocationStep />
+                            <BedStep />
+                            <BudgetStep />
+                            <InterestStep />
+                        </ItemsCarousel>
+                    </div>
+                </ReactCSSTransitionGroup>
                 <StepsNavigator  
                     active={this.state.activeItemIndex}
                     updateActiveStep={this.setActiveItemIndex} 
@@ -58,7 +65,7 @@ class SearchContainer extends Component {
 }
 
 const containerStyle = {
-    margin:"0 auto 0px auto",
+    margin:"-30px auto 0px auto",
     height:"110vh",
     minHeight:"600px",
     background:"url(/images/landing5.png)",

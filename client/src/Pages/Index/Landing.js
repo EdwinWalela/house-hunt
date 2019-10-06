@@ -9,11 +9,11 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                <Header title="House Hunt" />
-                <InteractiveSearch
-                    listingSearch={this.props.listingSearch}
-                    updateSearchParams={this.props.updateSearchParams}
-                />
+                {/* <Header title="House Hunt" /> */}
+                    <InteractiveSearch
+                        listingSearch={this.props.listingSearch}
+                        updateSearchParams={this.props.updateSearchParams}
+                    />
                 
                 <InfoModal />
             </div>

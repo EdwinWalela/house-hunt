@@ -8,7 +8,7 @@ export default function Header(props) {
                 <ul>
                     <Link to="#">
                         <li style={listItemStyle}>
-                            <i class="fas fa-user-alt"></i>
+                            {/* <i class="fas fa-user-alt"></i> */}
                         </li>
                     </Link>
                     {/* <li className="nav-item" style={listItemStyle}>Users</li>
@@ -21,10 +21,10 @@ export default function Header(props) {
 }
 
 const navStyle = {
-    boxShadow:"0px 2px 2px rgba(0,0,0,0.3)",
+    // boxShadow:"0px 2px 2px rgba(0,0,0,0.3)",
     padding:"5px",
     height:"60px",
-    background:"rgba(255,255,255,1)"
+    background:"rgba(255,255,255,0)"
 }
 
 const navListStyle = {
