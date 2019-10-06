@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Axios from 'axios'
+import baseAPI from '../../../config';
 import ItemsCarousel from 'react-items-carousel'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -10,9 +12,20 @@ import InterestStep from './Intrests'
 import StepsNavigator from './StepNavigator'
 
 class SearchContainer extends Component {
-
     state = {
-        activeItemIndex:-1
+        activeItemIndex:-1,
+        locations:[]
+    }
+
+    handleInputChange=(e)=>{
+        this.props.updateSearchParams(e);
+    }
+
+    async componentDidMount(){
+        let res = await Axios.get(`${baseAPI}/locations`);
+        this.setState({
+            locations:res.data.locations
+        })
     }
 
     setActiveItemIndex = (activeItemIndex) =>{
@@ -24,12 +37,6 @@ class SearchContainer extends Component {
             <div style={containerStyle}>
                 <h1 style={logoStyle}>House Hunt</h1>
                 <p style={sloganStyle}>Find Your Next Home</p>
-                <ReactCSSTransitionGroup
-                    transitionAppear={true}
-                    transitionAppearTimeout={1000}
-                    transitionName="slide"
-                    component="div"    
-                >
                     <div className="search-carousel" style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
                         <ItemsCarousel
                             requestToChangeActive={this.setActiveItemIndex}
@@ -43,13 +50,14 @@ class SearchContainer extends Component {
                             outsideChevron={true}
                             chevronWidth={chevronWidth}
                         >
-                            <LocationStep />
+                            <LocationStep 
+                                locations={this.state.locations}    
+                            />
                             <BedStep />
                             <BudgetStep />
                             <InterestStep />
                         </ItemsCarousel>
-                    </div>
-                </ReactCSSTransitionGroup>
+                </div>
                 <StepsNavigator  
                     active={this.state.activeItemIndex}
                     updateActiveStep={this.setActiveItemIndex} 

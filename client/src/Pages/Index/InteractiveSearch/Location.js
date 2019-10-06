@@ -1,18 +1,92 @@
-import React from 'react'
+import React , { Component } from 'react'
 import PropTypes from 'prop-types'
+import Autosuggest from 'react-autosuggest';
 
-// F3A712 - Tangerine
-// 29335C - Purple
+// Teach Autosuggest how to calculate suggestions for any given input value.
+const getSuggestions = (value,locations) => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
 
-function Location(props) {
-    return (
-        <div style={containerStyle}>
-            <p style={titleStyle}>Choose a Location</p>
-            <input className="search-input" style={inputStyle} type="text" placeholder="Start typing ..."/>
-            {/* <button style={buttonStyle}>Next</button> */}
-            <i style={iconStyle} className="fas fa-map-marker-alt location-icon"></i>
-        </div>
-    )
+  return inputLength === 0 ? [] : locations.filter(loc =>
+    loc.area.toLowerCase().slice(0, inputLength) === inputValue
+  );
+};
+
+// When suggestion is clicked, Autosuggest needs to populate the input
+// based on the clicked suggestion. Teach Autosuggest how to calculate the
+// input value for every given suggestion.
+const getSuggestionValue = suggestion => suggestion.area;
+
+// Use your imagination to render suggestions.
+const renderSuggestion = suggestion => (
+  <div style={suggestionContainerStyle}>
+    <p style={suggestionStyle}>{suggestion.area}</p>
+  </div>
+);
+
+
+class Location extends Component {
+    state = {
+        value:'',
+        locations:[],
+        suggestions:["langata","lavington"]
+    }
+
+    componentWillReceiveProps(locations){
+        this.setState({
+            locations:locations.locations
+        })
+    }
+
+    onChange = (event, { newValue }) => {
+        this.setState({
+          value: newValue
+        });
+      };
+    
+    // Autosuggest will call this function every time you need to update suggestions.
+    // You already implemented this logic above, so just use it.
+    onSuggestionsFetchRequested = ({ value }) => {
+        this.setState({
+            suggestions: getSuggestions(value,this.state.locations)
+        });
+    };
+
+    // Autosuggest will call this function every time you need to clear suggestions.
+    onSuggestionsClearRequested = () => {
+        this.setState({
+            suggestions: []
+        });
+    };
+
+    render(){
+        const { value, suggestions } = this.state;
+        // Autosuggest will pass through all these props to the input.
+        const inputProps = {
+          placeholder: 'Start typing ...',
+          value,
+          onChange: this.onChange,
+          style:inputStyle
+        };
+
+        return (
+            <div style={containerStyle}>
+                <p style={titleStyle}>Choose a Location</p>
+                {/* <i style={iconStyle} className="fas fa-map-marker-alt location-icon"></i> */}
+                <Autosuggest
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                    getSuggestionValue={getSuggestionValue}
+                    renderSuggestion={renderSuggestion}
+                    inputProps={inputProps}
+                />
+                {/* <input className="search-input" style={inputStyle} type="text" placeholder="Start typing ..."/> */}
+                {/* <button style={buttonStyle}>Next</button> */}
+                
+            </div>
+        )
+    }
 }
 
 const containerStyle = {
@@ -23,7 +97,8 @@ const containerStyle = {
     width:"90%",
     maxWidth:"400px",
     height:"150px",
-    textAlign:"center"
+    textAlign:"center",
+    // overFlow:"auto"
 }
 
 const titleStyle = {
@@ -32,11 +107,26 @@ const titleStyle = {
     letterSpacing:"1.2px",
 }
 
+const suggestionContainerStyle = {
+    borderBottom:"solid 1px rgba(0,0,0,0)",
+    paddding:"10px",
+    display:"block",
+    background:"#fff",
+    width:"210px",
+    fontSize:"1.2em",
+    letterSpacing:"1.3px",
+    textTransform:"capitalize"
+}
+
+const suggestionStyle = {
+    display:"block"
+}
+
 const iconStyle = {
     position:"relative",
     display:"inline",
     right:"36%",
-    bottom:"52px",
+    top:"20px",
     color:"#F3A712",
 }
 
@@ -57,6 +147,11 @@ const inputStyle = {
 Location.propTypes = {
 
 }
+
+
+// F3A712 - Tangerine
+// 29335C - Purple
+
 
 export default Location
 
