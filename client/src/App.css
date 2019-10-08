@@ -56,16 +56,33 @@ i:hover{
 
 .search-carousel{
     opacity: 0;
-    transform: translateY(200%);
-    animation: search-appear 1.3s ease-in-out 2s forwards;
+    /* transform: translateY(200%); */
+    animation: search-appear .8s ease-in-out 3s forwards;
+}
+
+.slogan{
+    opacity: 0;
+    /* transform: translateY(200%); */
+    animation: search-appear .8s ease-in-out 1.5s forwards;
+}
+
+.landing-title{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 1s forwards;
+}
+
+.search-nav{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 2s forwards;
 }
 
 @keyframes search-appear{
     0%{
-        transform: translateY(200%);
+        /* transform: translateY(200%); */
+        opacity:0;
     }
     50%{
-        transform: translateY(-5%);
+        /* transform: translateY(-5%); */
     }
     100%{
         opacity: 1;

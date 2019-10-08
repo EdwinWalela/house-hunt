@@ -15,7 +15,7 @@ function HelpModal(props) {
                     </div> */}
                     <div style={textStyle} className="modal-body">
                     <img style={trafficStyle} src="/images/traffic.gif"/>
-                    We will use this information to provide you with traffic data to enable you to make the right decision.
+                    We will use this information to provide you with traffic data.
                     </div>
                     <div style={{border:"none"}} className="modal-footer">
                         <button type="button" className="btn" style={closeBtnStyle}  data-dismiss="modal" >Close</button>

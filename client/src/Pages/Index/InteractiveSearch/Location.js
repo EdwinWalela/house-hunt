@@ -93,7 +93,7 @@ const containerStyle = {
     background:"rgba(255,255,255,1)",
     borderRadius:"5px",
     padding:"20px",
-    margin:"20px auto",
+    margin:"10px auto",
     width:"90%",
     maxWidth:"400px",
     height:"150px",

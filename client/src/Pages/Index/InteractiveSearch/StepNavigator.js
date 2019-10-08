@@ -23,7 +23,7 @@ const iconStyle = (active) => {
 
 function StepNavigator(props) {
     return (
-        <div style={wrapperStyle}>
+        <div className="search-nav" style={wrapperStyle}>
             <i 
                 onClick={props.updateActiveStep.bind(this,0)}
                 style={iconStyle(props.active == 0 ? true : false)}
@@ -51,7 +51,7 @@ const wrapperStyle = {
     textAlign:"center",
     padding:"0px",
     width:"90%",
-    margin:"-10px auto 0 auto"
+    margin:"-5px auto 0 auto"
 }
 
 StepNavigator.propTypes = {

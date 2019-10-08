@@ -5,10 +5,11 @@ export default function Header(props) {
     return (
         <nav style={navStyle}>
             <div style={navListStyle}>
+            {/* <p>House Hunt</p> */}
                 <ul>
                     <Link to="#">
                         <li style={listItemStyle}>
-                            {/* <i class="fas fa-user-alt"></i> */}
+                            <i class="fas fa-user-alt"></i>
                         </li>
                     </Link>
                     {/* <li className="nav-item" style={listItemStyle}>Users</li>

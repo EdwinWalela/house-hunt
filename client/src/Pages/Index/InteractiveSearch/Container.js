@@ -13,7 +13,7 @@ import StepsNavigator from './StepNavigator'
 
 class SearchContainer extends Component {
     state = {
-        activeItemIndex:-1,
+        activeItemIndex:0,
         locations:[]
     }
 
@@ -35,8 +35,8 @@ class SearchContainer extends Component {
         const chevronWidth = "10";
         return (
             <div style={containerStyle}>
-                <h1 style={logoStyle}>House Hunt</h1>
-                <p style={sloganStyle}>Find Your Next Home</p>
+                <h1 className="landing-title" style={logoStyle}>House Hunt</h1>
+                <p className="slogan" style={sloganStyle}>Find Your Next Home</p>
                     <div className="search-carousel" style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
                         <ItemsCarousel
                             requestToChangeActive={this.setActiveItemIndex}
@@ -62,6 +62,7 @@ class SearchContainer extends Component {
                     active={this.state.activeItemIndex}
                     updateActiveStep={this.setActiveItemIndex} 
                 />
+                 {/* <button className="new-acc" style={newAccountStyle}>Sign Up</button> */}
                 {/* <SearchForm
                     updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
                 />
@@ -72,8 +73,28 @@ class SearchContainer extends Component {
     }
 }
 
+const logoStyle={
+    margin:"11vh auto 0px auto",
+    textAlign:"center",
+    color:"#fff",
+    fontWeight:"600",
+    fontSize:"2.2em",
+}
+
+const newAccountStyle = {
+    width:"100px",
+    display:"block",
+    fontSize:"1em",
+    borderRadius:"5px",
+    color:"#D3424E",
+    background:"#fff",
+    padding:"10px",
+    margin:"5vh auto 40px auto",
+    border:"none",
+}
+
 const containerStyle = {
-    margin:"-30px auto 0px auto",
+    margin:"00px auto 0px auto",
     height:"110vh",
     minHeight:"600px",
     background:"url(/images/landing5.png)",
@@ -83,18 +104,12 @@ const containerStyle = {
     padding:"10px 0 50px 0",
 }
 
-const logoStyle={
-    margin:"15vh auto 10px auto",
-    textAlign:"center",
-    color:"#fff",
-    fontWeight:"600",
-    fontSize:"2.2em",
-}
 
 const sloganStyle={
     textAlign:"center",
     color:"#fff",
     fontWeight:"500",
+    marginTop:"10px"
 }
 
 const btnStyle = {
