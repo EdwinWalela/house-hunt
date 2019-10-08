@@ -66,6 +66,7 @@ class SearchContainer extends Component {
                             <InterestStep
                                 setActiveItemIndex={this.setActiveItemIndex}
                                 updateSearchParams={this.props.updateSearchParams}
+                                listingSearch={this.props.listingSearch}
                             />
                         </ItemsCarousel>
                 </div>

@@ -1,4 +1,5 @@
 import React , { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 // F3A712 - Tangerine
@@ -21,6 +22,7 @@ class Interests extends Component{
         this.props.updateSearchParams({
             target:{name:"reffPoint",value:this.state.reffPoint}
         })
+        this.props.listingSearch();
     }
 
 
@@ -29,7 +31,7 @@ class Interests extends Component{
             <div style={containerStyle}>
                 <p style={titleStyle}>Workplace/Institution <i style={infoIconStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i></p>
                 <input onChange={this.handleChange} className="search-input" name="reffPoint" style={inputStyle} type="text" value={this.state.reffPoint} placeholder="CBD"/>
-                <button onClick={this.handleSearchSubmit} style={buttonStyle}>Search</button>
+                <Link to="/search"><button onClick={this.handleSearchSubmit} style={buttonStyle}>Search</button></Link>
                 <i style={iconStyle} className="fas fa-map-marker-alt location-icon" ></i>
             </div>
         )

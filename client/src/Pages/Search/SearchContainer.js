@@ -7,11 +7,6 @@ import SearchList from './SearchList';
 function SearchContainer(props) {
     return (
         <React.Fragment>
-            <Header title="House Hunt"/>
-            <SearchBar 
-                listingSearch={props.listingSearch}
-                updateSearchParams={props.updateSearchParams}
-            />
             <div style={containerStyle}>
                 <SearchList 
                     listings={props.listings}
@@ -23,7 +18,12 @@ function SearchContainer(props) {
 
 const containerStyle = {
     padding:"10px 10px",
-    background:"#1B98E0",
+    background:"url('/images/landing5.jpg')",
+    background:"url(/images/landing5.jpg)",
+    backgroundPosition:"center",
+    backgroundRepeat:"none",
+    backgroundSize:"cover",
+    minHeight:"800px",
 }
 
 SearchContainer.propTypes = {
