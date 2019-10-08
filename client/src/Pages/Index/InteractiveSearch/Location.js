@@ -130,7 +130,8 @@ const suggestionContainerStyle = {
     width:"210px",
     fontSize:"1.2em",
     letterSpacing:"1.3px",
-    textTransform:"capitalize"
+    textTransform:"capitalize",
+    cursor:"pointer"
 }
 
 const suggestionStyle = {

@@ -67,7 +67,6 @@ class Budget extends Component {
     }
 }
 
-
 const containerStyle = {
     background:"rgba(255,255,255,1)",
     borderRadius:"5px",

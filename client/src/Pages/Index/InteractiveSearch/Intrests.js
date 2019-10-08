@@ -64,7 +64,7 @@ const buttonStyle = {
     margin:"20px auto",
     border:"none",
     width:"80%",
-    background:"#D3424E",
+    background:"#3A86FF",
     color:"#fff"
 }
 

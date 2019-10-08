@@ -48,34 +48,33 @@ i:hover{
 
 .fa-map-marker-alt{
     transition: all linear .4s;
-    /* animation: location-bubble .7s ease-in-out 2s; */
+    animation: location-bubble .7s ease-in-out 2s;
 }
 
 .new-acc:hover{
     background:#fff;
     color:#1B98E0;
     transition: all linear .4s;
-    /* background-size:  */
 }
 
 .search-carousel{
-    opacity: 1;
-    /* animation: search-appear .8s ease-in-out 3s forwards; */
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 3s forwards;
 }
 
 .slogan{
-    opacity: 1;
-    /* animation: search-appear .8s ease-in-out 1.5s forwards; */
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 1.5s forwards;
 }
 
 .landing-title{
-    opacity: 1;
+    opacity: 0;
     animation: search-appear .8s ease-in-out 1s forwards;
 }
 
 .search-nav{
-    opacity: 1;
-    /* animation: search-appear .8s ease-in-out 2s forwards; */
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 2s forwards;
 }
 
 @keyframes search-appear{

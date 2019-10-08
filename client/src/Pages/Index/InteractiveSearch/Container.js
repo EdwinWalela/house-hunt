@@ -37,7 +37,7 @@ class SearchContainer extends Component {
             <div style={containerStyle}>
                 <h1 className="landing-title" style={logoStyle}>House Hunt</h1>
                 <p className="slogan" style={sloganStyle}>Find Your Next Home</p>
-                    <div className="search-carousel" style={{margin:"auto", maxWidth:"500px", paddingLeft: `${chevronWidth}`}}>
+                    <div className="search-carousel" style={{margin:"auto", maxWidth:"400px", paddingLeft: `${chevronWidth}`}}>
                         <ItemsCarousel
                             requestToChangeActive={this.setActiveItemIndex}
                             activeItemIndex={this.state.activeItemIndex}
@@ -81,7 +81,7 @@ class SearchContainer extends Component {
 }
 
 const logoStyle={
-    margin:"11vh auto 0px auto",
+    margin:"8vh auto 0px auto",
     textAlign:"center",
     color:"#fff",
     fontWeight:"600",
