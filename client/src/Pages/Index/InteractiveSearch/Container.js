@@ -53,15 +53,19 @@ class SearchContainer extends Component {
                             <LocationStep 
                                 locations={this.state.locations}    
                                 setActiveItemIndex={this.setActiveItemIndex}
+                                updateSearchParams={this.props.updateSearchParams}
                             />
                             <BedStep 
                                 setActiveItemIndex={this.setActiveItemIndex}
+                                updateSearchParams={this.props.updateSearchParams}
                             />
                             <BudgetStep 
                                 setActiveItemIndex={this.setActiveItemIndex}
+                                updateSearchParams={this.props.updateSearchParams}
                             />
                             <InterestStep
                                 setActiveItemIndex={this.setActiveItemIndex}
+                                updateSearchParams={this.props.updateSearchParams}
                             />
                         </ItemsCarousel>
                 </div>

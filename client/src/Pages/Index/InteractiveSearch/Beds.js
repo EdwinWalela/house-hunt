@@ -22,8 +22,12 @@ class Beds extends Component {
     }
 
     onNextClick = () =>{
+        this.props.updateSearchParams({
+            target:{name:"beds",value:this.state.beds}
+        })
         this.props.setActiveItemIndex(2)
     }
+
 
 
     render(){

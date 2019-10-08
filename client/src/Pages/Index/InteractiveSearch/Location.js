@@ -60,9 +60,11 @@ class Location extends Component {
     };
 
     onNextClick = () =>{
-        this.props.setActiveItemIndex(1)
+        this.props.updateSearchParams({
+            target:{name:"location",value:this.state.value}
+        })
+        this.props.setActiveItemIndex(1);
     }
-  
 
     render(){
         const { value, suggestions } = this.state;
@@ -71,7 +73,8 @@ class Location extends Component {
           placeholder: 'Start typing ...',
           value,
           onChange: this.onChange,
-          style:inputStyle
+          style:inputStyle,
+          name:"location"
         };
 
         return (

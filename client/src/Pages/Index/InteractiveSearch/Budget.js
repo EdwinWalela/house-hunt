@@ -28,7 +28,10 @@ class Budget extends Component {
     }
 
     onNextClick = () =>{
-        this.props.setActiveItemIndex(3)
+        this.props.setActiveItemIndex(3);
+        this.props.updateSearchParams({
+            target:{name:"price",value:this.state.price}
+        })
     }
   
 

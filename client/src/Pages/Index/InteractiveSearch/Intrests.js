@@ -1,18 +1,39 @@
-import React from 'react'
+import React , { Component } from 'react'
 import PropTypes from 'prop-types'
 
 // F3A712 - Tangerine
 // 29335C - Purple
 
-function Interests(props) {
-    return (
-        <div style={containerStyle}>
-            <p style={titleStyle}>Workplace/Institution <i style={infoIconStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i></p>
-            <input className="search-input" style={inputStyle} type="text" placeholder="CBD"/>
-            <button style={buttonStyle}>Search</button>
-            <i style={iconStyle} className="fas fa-map-marker-alt location-icon" ></i>
-        </div>
-    )
+
+class Interests extends Component{
+
+    state = {
+        reffPoint:""
+    }
+
+    handleChange = (e) =>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
+    handleSearchSubmit = () =>{
+        this.props.updateSearchParams({
+            target:{name:"reffPoint",value:this.state.reffPoint}
+        })
+    }
+
+
+    render(){
+        return (
+            <div style={containerStyle}>
+                <p style={titleStyle}>Workplace/Institution <i style={infoIconStyle} className="far fa-question-circle" data-toggle="modal" data-target="#exampleModal"></i></p>
+                <input onChange={this.handleChange} className="search-input" name="reffPoint" style={inputStyle} type="text" value={this.state.reffPoint} placeholder="CBD"/>
+                <button onClick={this.handleSearchSubmit} style={buttonStyle}>Search</button>
+                <i style={iconStyle} className="fas fa-map-marker-alt location-icon" ></i>
+            </div>
+        )
+    }
 }
 
 const containerStyle = {
