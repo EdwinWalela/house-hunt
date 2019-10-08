@@ -27,6 +27,11 @@ class Budget extends Component {
         })
     }
 
+    onNextClick = () =>{
+        this.props.setActiveItemIndex(3)
+    }
+  
+
     render(){
         return (
             <div style={containerStyle}>
@@ -56,7 +61,7 @@ class Budget extends Component {
                         +
                     </span>
                 </div>
-                {/* <button style={buttonStyle}>Next</button> */}
+                <button onClick={this.onNextClick} style={buttonStyle}>Next</button>
             </div>
         )
     }
@@ -70,7 +75,7 @@ const containerStyle = {
     margin:"10px auto",
     width:"90%",
     maxWidth:"400px",
-    height:"150px",
+    height:"180px",
     textAlign:"center"
 }
 
@@ -81,16 +86,16 @@ const titleStyle = {
 }
 
 const counterContainer = {
-    margin:"20px auto",
+    margin:"0px auto",
     padding:"0px",
     width:"80%",
 }
 
 const spanStyle = {
     display:"inline-block",
-    padding:"5px",
+    padding:"2px 5px 5px 5px",
     width:"20%",
-    height:"100%",
+    height:"40px",
     fontSize:"1.5em",
     fontWeight:"600",
     color:"#fff"
@@ -98,7 +103,7 @@ const spanStyle = {
 
 const numberStyle = {
     ...spanStyle,
-    width:"60%",
+    width:"55%",
     fontWeight:"400",
     color:"#333",
     fontSize:"1.5em",
@@ -119,12 +124,13 @@ const incrementStyle = {
 const buttonStyle = {
     display:"block",
     padding:"8px 10px",
-    margin:"20px auto",
+    margin:"14px auto",
     border:"none",
     width:"80%",
     background:"#D3424E",
     color:"#fff"
 }
+
 
 Budget.propTypes = {
 

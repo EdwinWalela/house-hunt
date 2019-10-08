@@ -59,6 +59,11 @@ class Location extends Component {
         });
     };
 
+    onNextClick = () =>{
+        this.props.setActiveItemIndex(1)
+    }
+  
+
     render(){
         const { value, suggestions } = this.state;
         // Autosuggest will pass through all these props to the input.
@@ -82,7 +87,7 @@ class Location extends Component {
                     inputProps={inputProps}
                 />
                 {/* <input className="search-input" style={inputStyle} type="text" placeholder="Start typing ..."/> */}
-                {/* <button style={buttonStyle}>Next</button> */}
+                <button onClick={this.onNextClick} style={buttonStyle}>Next</button>
                 
             </div>
         )
@@ -96,7 +101,7 @@ const containerStyle = {
     margin:"10px auto",
     width:"90%",
     maxWidth:"400px",
-    height:"150px",
+    height:"180px",
     textAlign:"center",
     // overFlow:"auto"
 }
@@ -105,6 +110,16 @@ const titleStyle = {
     fontWeight:"500",
     color:"#29335C",
     letterSpacing:"1.2px",
+}
+
+const buttonStyle = {
+    display:"block",
+    padding:"8px 10px",
+    margin:"20px auto",
+    border:"none",
+    width:"80%",
+    background:"#D3424E",
+    color:"#fff"
 }
 
 const suggestionContainerStyle = {

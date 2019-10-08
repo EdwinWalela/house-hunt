@@ -52,10 +52,17 @@ class SearchContainer extends Component {
                         >
                             <LocationStep 
                                 locations={this.state.locations}    
+                                setActiveItemIndex={this.setActiveItemIndex}
                             />
-                            <BedStep />
-                            <BudgetStep />
-                            <InterestStep />
+                            <BedStep 
+                                setActiveItemIndex={this.setActiveItemIndex}
+                            />
+                            <BudgetStep 
+                                setActiveItemIndex={this.setActiveItemIndex}
+                            />
+                            <InterestStep
+                                setActiveItemIndex={this.setActiveItemIndex}
+                            />
                         </ItemsCarousel>
                 </div>
                 <StepsNavigator  
@@ -97,7 +104,7 @@ const containerStyle = {
     margin:"00px auto 0px auto",
     height:"110vh",
     minHeight:"600px",
-    background:"url(/images/landing5.png)",
+    background:"url(/images/landing5.jpg)",
     backgroundPosition:"bottom",
     backgroundRepeat:"none",
     backgroundSize:"cover",
