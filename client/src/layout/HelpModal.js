@@ -2,20 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function HelpModal(props) {
+    let data = {
+        src:props.src,
+        desc:props.description
+    }
     return (
         <div>
             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div  className="modal-dialog modal-dialog-centered" role="document">
                     <div style={modalContainer} className="modal-content">
-                    {/* <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Areas Of Interest</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> */}
                     <div style={textStyle} className="modal-body">
-                    <img style={trafficStyle} src="/images/traffic.gif"/>
-                    We will show you how far the commute is to the places you got to the most.
+                        <img style={trafficStyle} src={data.src}/>
+                        {data.desc}.
                     </div>
                     <div style={{border:"none"}} className="modal-footer">
                         <button type="button" className="btn" style={closeBtnStyle}  data-dismiss="modal" >Close</button>
@@ -44,8 +42,8 @@ const textStyle = {
 }
 
 const trafficStyle = {
-    height:"200px",
-    width:"200px",
+    height:"150px",
+    width:"150px",
     display:"block",
     textAlign:"center",
     margin:"20px auto",  

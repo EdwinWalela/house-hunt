@@ -74,12 +74,6 @@ class SearchContainer extends Component {
                     active={this.state.activeItemIndex}
                     updateActiveStep={this.setActiveItemIndex} 
                 />
-                 {/* <button className="new-acc" style={newAccountStyle}>Sign Up</button> */}
-                {/* <SearchForm
-                    updateSearchParams={props.updateSearchParams}  ----- (Pass To New Search)
-                />
-                <RangeSelector /> */}
-                {/* <Link to="/search"><button onClick={props.listingSearch} style={btnStyle}>Search</button></Link> */}
             </div>
         )
     }
