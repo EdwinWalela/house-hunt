@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../../layout/Header';
-import SearchBar from './SearchCont';
+
+// Components
 import SearchList from './SearchList';
+import SearchBar from './SearchBar/Container'
 
 function SearchContainer(props) {
     return (
         <React.Fragment>
             <div style={containerStyle}>
+                <SearchBar />
                 <SearchList 
                     listings={props.listings}
                 />
@@ -17,7 +19,6 @@ function SearchContainer(props) {
 }
 
 const containerStyle = {
-    padding:"10px 10px",
     background:"url('/images/landing5.jpg')",
     background:"url(/images/landing5.jpg)",
     backgroundPosition:"center",

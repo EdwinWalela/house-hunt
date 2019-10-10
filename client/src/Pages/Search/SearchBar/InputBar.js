@@ -1,0 +1,48 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+function InputBar(props) {
+    return (
+        <div>
+            <div style={inputGroupStyle}>
+                <label style={labelStyle}>Where</label>
+                <input style={inputStyle} type="text" name="location" placeholder="Nairobi" />
+            </div>
+            <div style={inputGroupStyle}>
+                <label style={labelStyle}>Bedrooms</label>
+                <input style={inputStyle} type="number" name="beds" placeholder="3" />
+            </div>
+            <div style={inputGroupStyle}>
+                <label style={labelStyle}>Budget</label>
+                <input style={inputStyle} type="number" name="budget" placeholder="18000" />
+            </div>
+        </div>
+    )
+}
+
+const inputGroupStyle = {
+    textAlign:"center",
+    width:"30%",
+    margin:"5px",
+    display:"inline-block"
+}
+
+const inputStyle = {
+    textAlign:"center",
+    fontSize:"1em",
+    padding:"5px 0px",
+    marding:"5px",
+    width:"100%"
+}
+
+const labelStyle = {
+    fontSize:"0.8em",
+    color:"grey"
+}
+
+InputBar.propTypes = {
+
+}
+
+export default InputBar
+
