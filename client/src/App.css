@@ -46,6 +46,22 @@ i:hover{
     /* animation: location-bubble .7s ease-in-out .3s; */
 }
 
+.icon-hint{
+    animation: icon-hint 2s ease-in-out 2s infinite;
+}
+
+@keyframes icon-hint{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
 .fa-map-marker-alt{
     transition: all linear .4s;
     animation: location-bubble .7s ease-in-out 2s;
