@@ -32,12 +32,14 @@ const inputStyle = {
     fontSize:"1em",
     padding:"5px 0px",
     marding:"5px",
-    width:"100%"
+    width:"100%",
+    textTransform:"capitalize",
+    letterSpacing:"1.1px"
 }
 
 const labelStyle = {
     fontSize:"0.8em",
-    color:"grey"
+    color:"#D3424E"
 }
 
 InputBar.propTypes = {
