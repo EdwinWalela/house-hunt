@@ -15,7 +15,7 @@ function HelpModal(props) {
                     </div> */}
                     <div style={textStyle} className="modal-body">
                     <img style={trafficStyle} src="/images/traffic.gif"/>
-                    We will use this information to provide you with traffic data.
+                    We will show you how far the commute is to the places you got to the most.
                     </div>
                     <div style={{border:"none"}} className="modal-footer">
                         <button type="button" className="btn" style={closeBtnStyle}  data-dismiss="modal" >Close</button>
