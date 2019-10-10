@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function InputBar(props) {
     return (
-        <div>
+        <div style={containerStyle}>
             <div style={inputGroupStyle}>
                 <label style={labelStyle}>Where</label>
                 <input style={inputStyle} type="text" name="location" placeholder="Nairobi" />
@@ -18,6 +18,11 @@ function InputBar(props) {
             </div>
         </div>
     )
+}
+
+const containerStyle = {
+    borderBottom:"2px solid #29335C",
+    paddingBottom:"10px",
 }
 
 const inputGroupStyle = {
@@ -39,7 +44,7 @@ const inputStyle = {
 
 const labelStyle = {
     fontSize:"0.8em",
-    color:"#D3424E"
+    color:"#29335C"
 }
 
 InputBar.propTypes = {

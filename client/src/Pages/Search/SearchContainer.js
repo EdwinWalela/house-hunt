@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Components
-import SearchList from './SearchList';
+import SearchList from './SearchList'
 import SearchBar from './SearchBar/Container'
+import HelpModal from '../../layout/HelpModal'
 
 function SearchContainer(props) {
     return (
@@ -12,6 +13,10 @@ function SearchContainer(props) {
                 <SearchBar />
                 <SearchList 
                     listings={props.listings}
+                />
+                <HelpModal 
+                    src=""
+                    desc=""
                 />
             </div>
         </React.Fragment>

@@ -16,7 +16,7 @@ class Container extends PureComponent {
 }
 
 const containerStyle = {
-    padding:"10px 5px",
+    padding:"10px 5px 0 5px",
     background:"#fff"
 }
 
