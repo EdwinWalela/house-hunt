@@ -84,11 +84,17 @@ router.get('/listings',async(req,res)=>{
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
+  let interests = {
+      shopping:req.query.shopping === 'true' ? true : false,
+      medical:req.query.medical === 'true' ? true : false,
+      restaurants:req.query.restaurants === 'true' ? true : false,
+      gyms:req.query.gyms === 'true' ? true : false
+  }
+  
   let results = [];
   let xtraResults = [];
 
   try {
-    
     // Beds and Location Specified
     if(beds !== '' && location !== ''){
       results = await Listing.find({
@@ -122,9 +128,9 @@ router.get('/listings',async(req,res)=>{
     return;
   }
 
-results = results.concat(xtraResults);
+  results = results.concat(xtraResults);
 
-  if(typeof refferencePoint !== undefined){
+  if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
         let metric = await metricsHelper(results[i].location,refferencePoint);
         results[i] = {
