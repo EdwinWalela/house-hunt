@@ -83,7 +83,6 @@ router.get('/listings',async(req,res)=>{
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
-  let clientLimit = 5;
   let results = [];
 
   try {
@@ -100,7 +99,7 @@ router.get('/listings',async(req,res)=>{
               {beds},
               {location},
             ]
-          }).limit(clientLimit);
+          }).limit(limit);
      }
 
     }else if(beds!==''){
@@ -108,7 +107,7 @@ router.get('/listings',async(req,res)=>{
             beds
         }).limit(limit);
     }else if(location!==''){
-        results = await Listing.find({}).limit(clientLimit);
+        results = await Listing.find({}).limit(limit);
     }else{
       results = await Listing.find({}).limit(limit);
     }
