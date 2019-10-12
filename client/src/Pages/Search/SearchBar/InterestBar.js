@@ -4,13 +4,19 @@ import PropTypes from 'prop-types'
 class InterestBar extends Component {
 
     state = {
-        
+
     }
 
     handleInputChange = (e) =>{
         this.setState({
             [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
         })
+        this.props.updateSearchParams(e)
+    }
+
+    handleSubmit = (e) =>{
+        e.preventDefault()
+        this.props.updateSearchParams()
     }
 
     render(){
