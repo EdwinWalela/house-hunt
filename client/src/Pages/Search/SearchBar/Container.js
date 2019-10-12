@@ -8,8 +8,15 @@ class Container extends PureComponent {
     render() {
         return (
             <div style={containerStyle}>
-                <InputBar />
-                <InterestBar />
+                <InputBar
+                    location={this.props.location}
+                    beds={this.props.beds}
+                    budget={this.props.budget}
+                    updateSearchParams={this.props.updateSearchParams}
+                />
+                <InterestBar 
+                     updateSearchParams={this.props.updateSearchParams}
+                />
             </div>
         )
     }

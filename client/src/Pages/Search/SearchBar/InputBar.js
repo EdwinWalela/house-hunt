@@ -6,15 +6,15 @@ function InputBar(props) {
         <div style={containerStyle}>
             <div style={inputGroupStyle}>
                 <label style={labelStyle}>Where</label>
-                <input style={inputStyle} type="text" name="location" placeholder="Nairobi" />
+                <input style={inputStyle} type="text" name="location" placeholder="Nairobi" value={props.location} onChange={props.updateSearchParams}/>
             </div>
             <div style={inputGroupStyle}>
                 <label style={labelStyle}>Bedrooms</label>
-                <input style={inputStyle} type="number" name="beds" placeholder="3" />
+                <input style={inputStyle} type="number" name="beds" placeholder="3" value={props.beds} onChange={props.updateSearchParams}/>
             </div>
             <div style={inputGroupStyle}>
                 <label style={labelStyle}>Budget</label>
-                <input style={inputStyle} type="number" name="budget" placeholder="18000" />
+                <input style={inputStyle} type="number" name="budget" placeholder="18000" value={props.budget} onChange={props.updateSearchParams}/>
             </div>
         </div>
     )

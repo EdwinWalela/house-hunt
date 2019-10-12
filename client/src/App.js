@@ -17,8 +17,9 @@ class App extends Component {
 
     updateSearchParams = (e) =>{
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
         })
+        
     }
 
     listingSearch = async()=>{
@@ -62,6 +63,9 @@ class App extends Component {
                     }/>
                     <Route path= "/search" render={()=>
                         <SearchContainer
+                            location={this.state.location}
+                            beds={this.state.beds}
+                            budget={this.state.price}
                             updateSearchParams={this.updateSearchParams}
                             listingSearch={this.listingSearch}
                             listings={this.state.listings}

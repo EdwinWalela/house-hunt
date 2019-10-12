@@ -10,7 +10,12 @@ function SearchContainer(props) {
     return (
         <React.Fragment>
             <div style={containerStyle}>
-                <SearchBar />
+                <SearchBar
+                    location={props.location}
+                    beds={props.beds}
+                    budget={props.budget}
+                    updateSearchParams={props.updateSearchParams}
+                />
                 <SearchList 
                     listings={props.listings}
                 />
@@ -25,7 +30,6 @@ function SearchContainer(props) {
 
 const containerStyle = {
     background:"url('/images/landing5.jpg')",
-    background:"url(/images/landing5.jpg)",
     backgroundPosition:"center",
     backgroundRepeat:"none",
     backgroundSize:"cover",
