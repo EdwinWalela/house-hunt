@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
 const metricsHelper = require("../helpers/metrics");
+const placesHelper = require("../helpers/interests");
 const Listing = require("../models/Listing");
 const Location = require("../models/Locations");
 
@@ -132,11 +133,12 @@ router.get('/listings',async(req,res)=>{
 
   if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
-        let metric = await metricsHelper(results[i].location,refferencePoint);
-        results[i] = {
-            ...results[i]._doc,
-            metric
-        }
+        // let metric = await metricsHelper(results[i].location,refferencePoint);
+        // results[i] = {
+        //     ...results[i]._doc,
+        //     metric
+        // }
+        await placesHelper(interests,results[i].location)
     }
   }
 
