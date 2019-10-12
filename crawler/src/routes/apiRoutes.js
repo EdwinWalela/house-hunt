@@ -79,13 +79,17 @@ router.get('/crawl-jumia',async(req,res)=>{
 })
 
 router.get('/listings',async(req,res)=>{
+// Search Parameters
   let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
   let results = [];
+  let xtraResults = [];
 
   try {
+    
+    // Beds and Location Specified
     if(beds !== '' && location !== ''){
       results = await Listing.find({
         $and:[
@@ -93,23 +97,21 @@ router.get('/listings',async(req,res)=>{
           {location},
         ]
       }).limit(limit);
-    if(results.length < 2){
-        results = await Listing.find({
-            $or:[
-              {beds},
-              {location},
-            ]
-          }).limit(limit);
+    
+    // Lookup other listings in the specified location
+    if(results.length < 3){
+        xtraResults = await Listing.find({
+            location:location
+        }).limit(limit);
      }
 
+    // Only Beds specified
     }else if(beds!==''){
-        results = await Listing.find({
-            beds
-        }).limit(limit);
+        results = await Listing.find({ beds }).limit(limit);
     }else if(location!==''){
-        results = await Listing.find({}).limit(limit);
+        results = await Listing.find({ location }).limit(limit);
     }else{
-      results = await Listing.find({}).limit(limit);
+      results = await Listing.find({ }).limit(limit);
     }
   } catch (err) {
     console.log(err)
@@ -120,14 +122,7 @@ router.get('/listings',async(req,res)=>{
     return;
   }
 
-  results = results.map(listing=>{
-    delete listing.id
-    delete listing.category
-    listing.location = listing.location.toLowerCase();
-    listing.origin = 'jumia'
-    listing.beds = 3;
-    return listing;
-  })
+results = results.concat(xtraResults);
 
   if(typeof refferencePoint !== undefined){
     for(let i = 0; i < results.length; i++){
