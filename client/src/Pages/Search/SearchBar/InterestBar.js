@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class InterestBar extends Component {
 
     state = {
-
+        
     }
 
     handleInputChange = (e) =>{
@@ -22,19 +22,19 @@ class InterestBar extends Component {
                 </p>
                 <div style={inputGrpContainer}>
                     <div style={inputGroupStyle}>
-                        <input type="checkbox" name="shopping" checked={this.state.shopping} updateSearchParams={this.handleInputChange}/>
+                        <input type="checkbox" name="shopping" checked={this.state.shopping} onChange={this.handleInputChange}/>
                         <label style={labelStyle}>Shopping Centers</label>
                     </div>
                     <div style={inputGroupStyle}>
-                        <input type="checkbox" name="gyms" checked={this.state.gyms} updateSearchParams={this.handleInputChange} />
+                        <input type="checkbox" name="gyms" checked={this.state.gyms} onChange={this.handleInputChange} />
                         <label style={labelStyle}>Gyms</label>
                     </div>
                     <div style={inputGroupStyle}>
-                        <input type="checkbox"name="medical" checked={this.state.medical} updateSearchParams={this.handleInputChange} />
+                        <input type="checkbox"name="medical" checked={this.state.medical} onChange={this.handleInputChange} />
                         <label style={labelStyle}>Medical Centers</label>
                     </div>
                     <div style={inputGroupStyle}>
-                        <input type="checkbox" name="restaurants" checked={this.state.restaurants}updateSearchParams={this.handleInputChange} />
+                        <input type="checkbox" name="restaurants" checked={this.state.restaurants}onChange={this.handleInputChange} />
                         <label style={labelStyle}>Restaurants/Bars</label>
                     </div>
                 </div>
