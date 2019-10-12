@@ -15,6 +15,7 @@ function SearchContainer(props) {
                     beds={props.beds}
                     budget={props.budget}
                     updateSearchParams={props.updateSearchParams}
+                    listingSearch={props.listingSearch}
                 />
                 <SearchList 
                     listings={props.listings}

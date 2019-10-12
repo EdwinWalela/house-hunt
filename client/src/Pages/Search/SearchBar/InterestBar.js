@@ -16,7 +16,7 @@ class InterestBar extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault()
-        this.props.updateSearchParams()
+        this.props.listingSearch()
     }
 
     render(){
@@ -44,7 +44,7 @@ class InterestBar extends Component {
                         <label style={labelStyle}>Restaurants/Bars</label>
                     </div>
                 </div>
-                <button style={buttonStyle}>Update Results</button>
+                <button style={buttonStyle} onClick={this.handleSubmit}>Update Results</button>
             </div>
     )
     }

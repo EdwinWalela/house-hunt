@@ -16,6 +16,7 @@ class Container extends PureComponent {
                 />
                 <InterestBar 
                      updateSearchParams={this.props.updateSearchParams}
+                     listingSearch={this.props.listingSearch}
                 />
             </div>
         )

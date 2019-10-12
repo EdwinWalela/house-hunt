@@ -38,16 +38,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`
-                ${baseAPI}
-                /listings?
-                beds=${beds}
-                &location=${location}
-                &reff=${reff}
-                &gyms=${gyms}
-                &medical=${medical}
-                &restaurants=${restaurants}
-                &shopping=${shopping}
+            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}
             `);
             listings = res.data.results
             console.log(listings)
