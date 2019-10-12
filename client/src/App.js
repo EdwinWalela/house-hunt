@@ -26,6 +26,10 @@ class App extends Component {
         let beds = this.state.beds;
         let location = this.state.location;
         let reff = this.state.refference || "CBD"
+        let gyms = this.state.gyms
+        let shopping = this.state.shopping
+        let medical = this.state.medical
+        let restaurants = this.state.restaurants
         // Enter Loading State
         this.setState({
             loading:true
@@ -34,7 +38,17 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff}`);
+            res = await Axios.get(`
+                ${baseAPI}
+                /listings?
+                beds=${beds}
+                &location=${location}
+                &reff=${reff}
+                &gyms=${gyms}
+                &medical=${medical}
+                &restaurants=${restaurants}
+                &shopping=${shopping}
+            `);
             listings = res.data.results
             console.log(listings)
         }catch(err){
