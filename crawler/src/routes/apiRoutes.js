@@ -85,12 +85,11 @@ router.get('/listings',async(req,res)=>{
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
-  let interests = {
-      shopping:req.query.shopping === 'true' ? true : false,
-      medical:req.query.medical === 'true' ? true : false,
-      restaurants:req.query.restaurants === 'true' ? true : false,
-      gyms:req.query.gyms === 'true' ? true : false
-  }
+  let interests = [
+      {shoppingMalls:req.query.shopping === 'true' ? true : false},
+      {hospitals:req.query.medical === 'true' ? true : false},
+      {restaurants:req.query.restaurants === 'true' ? true : false},
+      {gyms:req.query.gyms === 'true' ? true : false}]
   
   let results = [];
   let xtraResults = [];
@@ -133,12 +132,13 @@ router.get('/listings',async(req,res)=>{
 
   if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
-        // let metric = await metricsHelper(results[i].location,refferencePoint);
-        // results[i] = {
-        //     ...results[i]._doc,
-        //     metric
-        // }
-        await placesHelper(interests,results[i].location)
+        let places = await placesHelper(interests,results[i].location);
+        let metric = await metricsHelper(results[i].location,refferencePoint);
+        results[i] = {
+            ...results[i]._doc,
+            metric,
+            places
+        }
     }
   }
 
