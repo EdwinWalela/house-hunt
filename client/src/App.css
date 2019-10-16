@@ -4,6 +4,25 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    max-width: 100vw;
+}
+
+.sc-bwzfXH.gwZiig{
+    overflow: hidden;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+span{
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
 }
 
 i{
@@ -14,10 +33,105 @@ i:hover{
     animation: step-icon-touch .2s linear;
 }
 
+.beds-btn:active{
+    transition: all ease-in-out .1s;
+    background: #fff;
+    transform: scale(0.9);
+}
+
+.search-input:focus ~ .location-icon{
+    /* transform: all linear .3s;
+    border-bottom:solid 2px #fff !important; */
+     transition: all linear .4s;
+    /* animation: location-bubble .7s ease-in-out .3s; */
+}
+
+.icon-hint{
+    animation: icon-hint 2s ease-in-out 2s infinite;
+}
+
+@keyframes icon-hint{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.fa-map-marker-alt{
+    transition: all linear .4s;
+    animation: location-bubble .7s ease-in-out 2s;
+}
+
 .new-acc:hover{
     background:#fff;
     color:#1B98E0;
     transition: all linear .4s;
+}
+
+.search-carousel{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 3s forwards;
+}
+
+.slogan{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 1.5s forwards;
+}
+
+.landing-title{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 1s forwards;
+}
+
+.search-nav{
+    opacity: 0;
+    animation: search-appear .8s ease-in-out 2s forwards;
+}
+
+@keyframes search-appear{
+    0%{
+        /* transform: translateY(200%); */
+        opacity:0;
+    }
+    50%{
+        /* transform: translateY(-5%); */
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes location-bubble{
+    0%{
+        bottom:52px;
+    }
+    50%{
+        bottom:62px;
+    }
+    100%{
+        bottom:52px;
+    }
+}
+
+@keyframes steps-bubble{
+    0%{
+        color:rgba(0,0,0,1);
+        transform: scale(1);
+    }
+    50%{
+        color:rgba(0,0,0,0.6);
+        transform: scale(0.8);
+    }
+    100%{
+        color:rgba(0,0,0,1);
+        transform: scale(1);
+    }
 }
 
 @keyframes step-icon-touch{

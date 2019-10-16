@@ -50,6 +50,7 @@ const locationStyle = {
 const DetailsContainerStyle = {
     textAlign:"center",
     margin:"10px 5px 5px 5px",
+    paddingLeft:"10px",
     verticalAlign:"middle",
     width:"60%",
     display:"inline-block"

@@ -1,26 +1,28 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
-import Header from '../../layout/Header';
-import SearchContainer from './SearchContainer';
-import About from './About';
-import HelpModal from './HelpModal';
-
+// Components
+import InteractiveSearch from './InteractiveSearch/Container';
+import InfoModal from '../../layout/HelpModal';
 
 class Landing extends Component {
     render() {
         return (
             <div>
-                <Header title="House Hunt" />
-                <SearchContainer
-                    listingSearch={this.props.listingSearch}
-                    updateSearchParams={this.props.updateSearchParams}
+                {/* <Header title="House Hunt" /> */}
+                    <InteractiveSearch
+                        listingSearch={this.props.listingSearch}
+                        updateSearchParams={this.props.updateSearchParams}
+                    />
+                <InfoModal 
+                    src="/images/traffic.gif"
+                    description="We will show you how far the commute is to the places you got to the most"
                 />
-                <About />
-                <HelpModal />
             </div>
         )
     }
 }
+
+
+
 
 export default Landing;

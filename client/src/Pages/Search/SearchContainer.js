@@ -1,20 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../../layout/Header';
-import SearchBar from './SearchCont';
-import SearchList from './SearchList';
+
+// Components
+import SearchList from './SearchList'
+import SearchBar from './SearchBar/Container'
+import HelpModal from '../../layout/HelpModal'
 
 function SearchContainer(props) {
     return (
         <React.Fragment>
-            <Header title="House Hunt"/>
-            <SearchBar 
-                listingSearch={props.listingSearch}
-                updateSearchParams={props.updateSearchParams}
-            />
             <div style={containerStyle}>
+                <SearchBar
+                    location={props.location}
+                    beds={props.beds}
+                    budget={props.budget}
+                    updateSearchParams={props.updateSearchParams}
+                    listingSearch={props.listingSearch}
+                />
                 <SearchList 
                     listings={props.listings}
+                />
+                <HelpModal 
+                    src=""
+                    desc=""
                 />
             </div>
         </React.Fragment>
@@ -22,8 +30,11 @@ function SearchContainer(props) {
 }
 
 const containerStyle = {
-    padding:"10px 10px",
-    background:"#1B98E0",
+    background:"url('/images/landing5.jpg')",
+    backgroundPosition:"center",
+    backgroundRepeat:"none",
+    backgroundSize:"cover",
+    minHeight:"800px",
 }
 
 SearchContainer.propTypes = {

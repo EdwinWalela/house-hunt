@@ -17,14 +17,19 @@ class App extends Component {
 
     updateSearchParams = (e) =>{
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
         })
+        
     }
 
     listingSearch = async()=>{
         let beds = this.state.beds;
         let location = this.state.location;
         let reff = this.state.refference || "CBD"
+        let gyms = this.state.gyms
+        let shopping = this.state.shopping
+        let medical = this.state.medical
+        let restaurants = this.state.restaurants
         // Enter Loading State
         this.setState({
             loading:true
@@ -33,7 +38,8 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff}`);
+            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}
+            `);
             listings = res.data.results
             console.log(listings)
         }catch(err){
@@ -62,6 +68,9 @@ class App extends Component {
                     }/>
                     <Route path= "/search" render={()=>
                         <SearchContainer
+                            location={this.state.location}
+                            beds={this.state.beds}
+                            budget={this.state.price}
                             updateSearchParams={this.updateSearchParams}
                             listingSearch={this.listingSearch}
                             listings={this.state.listings}

@@ -32,7 +32,7 @@ const containerStyle = {
     background:"#fff",
     margin:"20px auto",
     borderRadius:"5px",
-    boxShadow:"0px 10px 5px rgba(0,0,0,0.2)",
+    boxShadow:"0px 5px 5px rgba(0,0,0,0.2)",
 }
 
 const imageStyle = {

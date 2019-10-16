@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
 const metricsHelper = require("../helpers/metrics");
+const placesHelper = require("../helpers/interests");
 const Listing = require("../models/Listing");
 const Location = require("../models/Locations");
 
@@ -79,14 +80,22 @@ router.get('/crawl-jumia',async(req,res)=>{
 })
 
 router.get('/listings',async(req,res)=>{
+// Search Parameters
   let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
-  let clientLimit = 5;
+  let interests = [
+      {shoppingMalls:req.query.shopping === 'true' ? true : false},
+      {hospitals:req.query.medical === 'true' ? true : false},
+      {restaurants:req.query.restaurants === 'true' ? true : false},
+      {gyms:req.query.gyms === 'true' ? true : false}]
+  
   let results = [];
+  let xtraResults = [];
 
   try {
+    // Beds and Location Specified
     if(beds !== '' && location !== ''){
       results = await Listing.find({
         $and:[
@@ -94,23 +103,21 @@ router.get('/listings',async(req,res)=>{
           {location},
         ]
       }).limit(limit);
-    if(results.length < 2){
-        results = await Listing.find({
-            $or:[
-              {beds},
-              {location},
-            ]
-          }).limit(clientLimit);
+    
+    // Lookup other listings in the specified location
+    if(results.length < 3){
+        xtraResults = await Listing.find({
+            location:location
+        }).limit(limit);
      }
 
+    // Only Beds specified
     }else if(beds!==''){
-        results = await Listing.find({
-            beds
-        }).limit(limit);
+        results = await Listing.find({ beds }).limit(limit);
     }else if(location!==''){
-        results = await Listing.find({}).limit(clientLimit);
+        results = await Listing.find({ location }).limit(limit);
     }else{
-      results = await Listing.find({}).limit(limit);
+      results = await Listing.find({ }).limit(limit);
     }
   } catch (err) {
     console.log(err)
@@ -121,21 +128,16 @@ router.get('/listings',async(req,res)=>{
     return;
   }
 
-  results = results.map(listing=>{
-    delete listing.id
-    delete listing.category
-    listing.location = listing.location.toLowerCase();
-    listing.origin = 'jumia'
-    listing.beds = 3;
-    return listing;
-  })
+  results = results.concat(xtraResults);
 
-  if(typeof refferencePoint !== undefined){
+  if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
+        let places = await placesHelper(interests,results[i].location);
         let metric = await metricsHelper(results[i].location,refferencePoint);
         results[i] = {
             ...results[i]._doc,
-            metric
+            metric,
+            places
         }
     }
   }
