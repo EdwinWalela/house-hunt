@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const jumiaCrawler = require("../crawlers/jumia");
 const metricsHelper = require("../helpers/metrics");
+const placesWeighter = require("../helpers/weighter");
 const placesHelper = require("../helpers/interests");
 const Listing = require("../models/Listing");
 const Location = require("../models/Locations");
@@ -80,11 +81,12 @@ router.get('/crawl-jumia',async(req,res)=>{
 })
 
 router.get('/listings',async(req,res)=>{
-// Search Parameters
+  // Search Parameters
   let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
+
   let interests = [
       {shoppingMalls:req.query.shopping === 'true' ? true : false},
       {hospitals:req.query.medical === 'true' ? true : false},
@@ -133,14 +135,19 @@ router.get('/listings',async(req,res)=>{
   if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
         let places = await placesHelper(interests,results[i].location);
+        let placesWeights = placesWeighter(places);
         let metric = await metricsHelper(results[i].location,refferencePoint);
         results[i] = {
             ...results[i]._doc,
             metric,
+            placesWeights,
             places
         }
     }
   }
+
+
+ rssults = placesWeighter(results)
 
   res.send({
     msg:"OK",
