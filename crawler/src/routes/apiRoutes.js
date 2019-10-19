@@ -89,7 +89,7 @@ router.get('/listings',async(req,res)=>{
 
   let interests = {
       shoppingMalls:req.query.shopping === 'true' ? true : false,
-      hospitals:req.query.medical === 'true' ? true : false,
+      medics:req.query.medical === 'true' ? true : false,
       restaurants:req.query.restaurants === 'true' ? true : false,
       gyms:req.query.gyms === 'true' ? true : false
   }

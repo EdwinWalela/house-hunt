@@ -5,7 +5,7 @@ const weighter = (places) =>{
         let medicalRating = 0;
         let gymRating = 0;
         let weights = [];
-        
+
 
         if(places["shops"].length != 0){
             let shops = places["shops"]
@@ -21,8 +21,8 @@ const weighter = (places) =>{
             })
             restRating = Math.floor(restRating/restaurants.length)
         }
-        if(places["hospitals"].length != 0){
-            let medicals = places["medical"];
+        if(places["medics"].length != 0){
+            let medicals = places["medics"];
             medicals.map(medical=>{
                 medicalRating+=medical.rating;
             })

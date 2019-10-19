@@ -5,7 +5,7 @@ const BASE_URI = 'https://maps.googleapis.com/maps/api/place/textsearch/json?ran
 const getAreasOfInterests = async (interests,listingLocation) =>{
     let results = { 
         shops:[],
-        hospitals:[],
+        medics:[],
         restaurants:[],
         gyms:[]
     };
@@ -32,7 +32,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
         }else{
             results["shops"] = []
         }
-        if(interests["hospitals"]){
+        if(interests["medics"]){
             let medics = [];
             let place = "hospitals"
             let query = `${place} in ${listingLocation}`;
@@ -53,7 +53,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
            }
            results["medics"] = medics;
         }else{
-            results["hospitals"] = []
+            results["medics"] = []
         }
         if(interests["restaurants"]){
             let restaurants = [];
