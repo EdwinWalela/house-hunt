@@ -3,9 +3,13 @@ const GG_API_KEY = process.env.GG_API_KEY;
 const BASE_URI = 'https://maps.googleapis.com/maps/api/place/textsearch/json?rankBy=distance&sensor=true&';
 
 const getAreasOfInterests = async (interests,listingLocation) =>{
-    let results = [];
-    for(let i = 0; i < interests.length; i++){
-        if(interests[i].shoppingMalls){
+    let results = { 
+        shops:[],
+        hospitals:[],
+        restaurants:[],
+        gyms:[]
+    };
+        if(interests["shoppingMalls"]){
             let shops = [];
             let place = "shopping malls"
             let query = `${place} in ${listingLocation}`;
@@ -23,10 +27,12 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
                     }   
                 }
                 shops.push(obj);
-           }
-           results.push({shops});
+            }
+            results["shops"] = shops
+        }else{
+            results["shops"] = []
         }
-        if(interests[i].hospitals){
+        if(interests["hospitals"]){
             let medics = [];
             let place = "hospitals"
             let query = `${place} in ${listingLocation}`;
@@ -45,9 +51,11 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
                 }
                 medics.push(obj);
            }
-           results.push({medics});
+           results["medics"] = medics;
+        }else{
+            results["hospitals"] = []
         }
-        if(interests[i].restaurants){
+        if(interests["restaurants"]){
             let restaurants = [];
             let place = "restaurants"
             let query = `${place} in ${listingLocation}`;
@@ -66,9 +74,11 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
                 }
                 restaurants.push(obj);
            }
-           results.push({restaurants});
+           results["restaurants"] = restaurants;
+        }else{
+            results["restaurants"] = [] 
         }
-        if(interests[i].gyms){
+        if(interests["gyms"]){
             let gyms = [];
             let place = "gyms"
             let query = `${place} in ${listingLocation}`;
@@ -87,9 +97,11 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
                 }
                 gyms.push(obj);
            }
-           results.push({gyms});
+           results[gyms] = gyms;
+        }else{
+            results["gyms"] = []
         }
-    }
+
     return results;
 }
 
