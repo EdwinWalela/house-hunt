@@ -68,6 +68,7 @@ class App extends Component {
                     }/>
                     <Route path= "/search" render={()=>
                         <SearchContainer
+                            isLoading={this.state.loading}
                             location={this.state.location}
                             beds={this.state.beds}
                             budget={this.state.price}

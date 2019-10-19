@@ -5,11 +5,13 @@ import PropTypes from 'prop-types'
 import SearchList from './SearchList'
 import SearchBar from './SearchBar/Container'
 import HelpModal from '../../layout/HelpModal'
+import LoadingScreen from './Loading'
 
 function SearchContainer(props) {
     return (
         <React.Fragment>
             <div style={containerStyle}>
+
                 <SearchBar
                     location={props.location}
                     beds={props.beds}
@@ -17,9 +19,15 @@ function SearchContainer(props) {
                     updateSearchParams={props.updateSearchParams}
                     listingSearch={props.listingSearch}
                 />
-                <SearchList 
-                    listings={props.listings}
-                />
+
+                {props.isLoading ? 
+                    <LoadingScreen />
+                :
+                    <SearchList 
+                        listings={props.listings}
+                    />
+                }
+               
                 <HelpModal 
                     src=""
                     desc=""

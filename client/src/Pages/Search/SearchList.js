@@ -7,11 +7,15 @@ function SearchList(props) {
     let listings = props.listings;
     return (
         <div id="results">
-            <p style={countStyle}>Showing {listings.length} of {listings.length} results</p>
+            {listings.length === 0 ?
+                <p style={countStyleNF}>No Results Found</p>
+             :
+                <p style={countStyle}>Showing {listings.length} of {listings.length} results</p>
+            }
             {listings.map(listing=>(
                 <ResultItem data={listing}/>
             ))}
-            <PaginationBar currentPage="1" />
+            {/* <PaginationBar currentPage="1" /> */}
         </div>
     )
 }
@@ -19,6 +23,11 @@ function SearchList(props) {
 const countStyle = {
     textAlign:"center",
     color:"#fff"
+}
+
+const countStyleNF = {
+    ...countStyle,
+    marginTop:"50px"
 }
 
 SearchList.propTypes = {
