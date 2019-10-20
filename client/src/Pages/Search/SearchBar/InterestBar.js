@@ -85,10 +85,11 @@ const labelStyle = {
 
 const buttonStyle = {
     display:"block",
-    padding:"5px",//
+    padding:"5px",
     margin:"5px auto",
     border:"none",
     width:"50%",
+    maxWidth:"300px",
     background:"#D3424E",
     color:"#fff"
 }
