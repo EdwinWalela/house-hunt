@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 // Components
 import NavSearch from './SearchBar/Container'
 import Features from './Features'
+import Commute from './Commute'
+import Neighborhood from './Neighborhood'
 
 function Container(props) {
     let listing = props.listing
@@ -13,6 +15,8 @@ function Container(props) {
             <Features 
                 listing = {listing}
             />
+            <Commute />
+            <Neighborhood />
         </div>
     )
 }

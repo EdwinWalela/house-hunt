@@ -19,7 +19,7 @@ function Features(props) {
                     </div>
                     <div style={featureGroupStyle}>
                         <i style={priceIcon} class="fas fa-money-bill-wave"></i>
-                        <p style={featureTextStyle}>KES {listing.price.toLocaleString()}</p>
+                        {/* <p style={featureTextStyle}>KES {listing.price.toLocaleString()}</p> */}
                     </div>
                 </div>
             </div>
