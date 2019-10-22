@@ -1,11 +1,14 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function InputBar(props) {
     return (
         <div style={containerStyle}>
             <div style={iconGroup}>
-                <i class="fas fa-chevron-left"></i>
+                <NavLink to="/search">
+                    <i class="fas fa-chevron-left"></i>
+                </NavLink>
             </div>
             <div style={locationStyle}>
                 <input style={inputStyle} type="text" name="location" placeholder="Location" value={props.location} onChange={props.updateSearchParams}/>
@@ -17,7 +20,9 @@ function InputBar(props) {
                 <input style={inputStyle} type="number" name="budget" placeholder="Budget" value={props.budget} onChange={props.updateSearchParams}/>
             </div>
             <div style={iconGroup}>
-                <i class="fas fa-search"></i>
+                <NavLink to="/search">
+                    <i class="fas fa-search"></i>
+                </NavLink>
             </div>
         </div>
     )
