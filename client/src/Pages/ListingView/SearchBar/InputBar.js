@@ -24,9 +24,9 @@ function InputBar(props) {
 }
 
 const containerStyle = {
-    border:"1px solid",
     textAlign:"center",
-    padding:"10px 5px"
+    padding:"10px 5px",
+    background:"#D3424E",
 }
 
 const inputGroupStyle = {
@@ -52,6 +52,7 @@ const locationStyle = {
 
 const iconGroup = {
     ...inputGroupStyle,
+    color:"#fff",
     width:"10%",
     fontSize:"1.2em",
     marginRight:"2.5px"
