@@ -21,7 +21,7 @@ function InputBar(props) {
 }
 
 const containerStyle = {
-    borderBottom:"2px solid #29335C",
+    border:"1px solid #29335C",
     paddingBottom:"10px",
 }
 
