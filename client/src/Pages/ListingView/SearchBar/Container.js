@@ -19,9 +19,7 @@ class Container extends PureComponent {
 }
 
 const containerStyle = {
-    padding:"10px 5px 0 5px",
     background:"#fff",
-    border:"solid 1px",
 }
 
 export default Container
