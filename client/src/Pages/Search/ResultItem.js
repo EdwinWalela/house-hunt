@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ResultDetails from './ResultDetails';
 
@@ -6,14 +7,16 @@ function ResultItem(props) {
     let data = props.data;
     let index = props.index;
     return (
-        <div style={containerStyle} onClick={props.setActiveListing.bind(this,index)}>
-            <img style={imageStyle} src={data.thumb} />
-            <ResultDetails data={data}/>
-            <p style={textStyle}> {data.title}.</p>
-            {props.best == "1" ?
-             <div style={bestMatchStyle}>Best Match <i class="fas fa-star"></i></div>
-             : ''}
-        </div>
+        <NavLink to="/view">
+            <div style={containerStyle} onClick={props.setActiveListing.bind(this,index)}>
+                <img style={imageStyle} src={data.thumb} />
+                <ResultDetails data={data}/>
+                <p style={textStyle}> {data.title}.</p>
+                {props.best == "1" ?
+                <div style={bestMatchStyle}>Best Match <i class="fas fa-star"></i></div>
+                : ''}
+            </div>
+        </NavLink>
     )
 }
 

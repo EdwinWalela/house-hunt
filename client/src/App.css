@@ -25,6 +25,14 @@ span{
     -ms-user-select: none;      /* IE 10+ */
 }
 
+a,
+a:hover,
+a:focus,
+a:active{
+    color:inherit;
+    text-decoration: none;
+}
+
 i{
     transition:all ease-in-out .3s;
 }
