@@ -21,8 +21,8 @@ function InputBar(props) {
 }
 
 const containerStyle = {
-    border:"1px solid #29335C",
-    paddingBottom:"10px",
+    padding:"5px",
+    background:"#D3424E",
 }
 
 const inputGroupStyle = {
@@ -39,12 +39,13 @@ const inputStyle = {
     marding:"5px",
     width:"100%",
     textTransform:"capitalize",
-    letterSpacing:"1.1px"
+    letterSpacing:"1.1px",
+    border:"none"
 }
 
 const labelStyle = {
     fontSize:"0.8em",
-    color:"#29335C"
+    color:"#fff"
 }
 
 InputBar.propTypes = {
