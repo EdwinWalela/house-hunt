@@ -10,7 +10,9 @@ function Container(props) {
     return (
         <div style={containerStyle}>
             <NavSearch />
-            <Features />
+            <Features 
+                listing = {listing}
+            />
         </div>
     )
 }
