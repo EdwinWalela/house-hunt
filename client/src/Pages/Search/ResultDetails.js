@@ -19,7 +19,7 @@ function ResultDetails(props) {
             </div>
             <div style={DetailItemStyle}>
                 <i style={iconStyle} class="fas fa-road"></i>
-                <p style={DetailTextStyle}>{data.metric.duration}</p>
+                <p style={DetailTextStyle}>{/*data.metric.duration*/}0</p>
             </div>
             <p style={priceStyle}><i class="fas fa-tag"></i> Ksh.{data.price}</p>
             

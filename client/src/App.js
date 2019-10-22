@@ -4,6 +4,7 @@ import Axios from 'axios'
 
 import Landing from './Pages/Index/Landing';
 import SearchContainer from './Pages/Search/SearchContainer';
+import ListingView from './Pages/ListingView/Container';
 import baseAPI from './config';
 
 import './App.css';
@@ -13,6 +14,7 @@ class App extends Component {
         listings:[],
         loading:false,
         networkError:false,
+        activeListing:{}
     }
 
     updateSearchParams = (e) =>{
@@ -56,6 +58,12 @@ class App extends Component {
         })
     }
 
+    setActiveListing = (index) =>{
+        this.setState({
+            activeListing:this.state.listings[index]
+        })
+    }
+
     render(){
         return (
             <div className="App">
@@ -75,6 +83,12 @@ class App extends Component {
                             updateSearchParams={this.updateSearchParams}
                             listingSearch={this.listingSearch}
                             listings={this.state.listings}
+                            setActiveListing={this.setActiveListing}
+                        />
+                    }/>
+                    <Route path="/view" render={()=>
+                        <ListingView 
+                            listing={this.state.activeListing}
                         />
                     }/>
                 </Router>

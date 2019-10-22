@@ -4,8 +4,9 @@ import ResultDetails from './ResultDetails';
 
 function ResultItem(props) {
     let data = props.data;
+    let index = props.index;
     return (
-        <div style={containerStyle}>
+        <div style={containerStyle} onClick={props.setActiveListing.bind(this,index)}>
             <img style={imageStyle} src={data.thumb} />
             <ResultDetails data={data}/>
             <p style={textStyle}> {data.title}.</p>
@@ -29,9 +30,11 @@ const containerStyle = {
     overflow:"hidden",
     padding:"10px",
     width:"95%",
+    maxWidth:"450px",
     background:"#fff",
     margin:"20px auto",
     borderRadius:"5px",
+    textAlign:"center",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.2)",
 }
 

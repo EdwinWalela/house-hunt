@@ -11,7 +11,6 @@ function SearchContainer(props) {
     return (
         <React.Fragment>
             <div style={containerStyle}>
-
                 <SearchBar
                     location={props.location}
                     beds={props.beds}
@@ -19,15 +18,14 @@ function SearchContainer(props) {
                     updateSearchParams={props.updateSearchParams}
                     listingSearch={props.listingSearch}
                 />
-
                 {props.isLoading ? 
                     <LoadingScreen />
                 :
                     <SearchList 
                         listings={props.listings}
+                        setActiveListing={props.setActiveListing}
                     />
                 }
-               
                 <HelpModal 
                     src=""
                     desc=""

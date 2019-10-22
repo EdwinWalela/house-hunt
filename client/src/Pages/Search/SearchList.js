@@ -12,8 +12,12 @@ function SearchList(props) {
              :
                 <p style={countStyle}>Showing {listings.length} of {listings.length} results</p>
             }
-            {listings.map(listing=>(
-                <ResultItem data={listing}/>
+            {listings.map((listing,i)=>(
+                <ResultItem 
+                    index={i}
+                    data={listing}
+                    setActiveListing={props.setActiveListing}
+                />
             ))}
             {/* <PaginationBar currentPage="1" /> */}
         </div>
