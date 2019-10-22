@@ -25,6 +25,7 @@ function SearchList(props) {
 }
 
 const countStyle = {
+    marginTop:"20px",
     textAlign:"center",
     color:"#fff"
 }
