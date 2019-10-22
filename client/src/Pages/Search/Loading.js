@@ -16,7 +16,7 @@ const containerStyle = {
 }
 
 const spinnerStyle = {
-    color:"#fff",
+    color:"#D3424E",
     fontSize:"2em",
 }
 

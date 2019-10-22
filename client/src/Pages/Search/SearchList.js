@@ -10,7 +10,7 @@ function SearchList(props) {
             {listings.length === 0 ?
                 <p style={countStyleNF}>No Results Found</p>
              :
-                <p style={countStyle}>Showing {listings.length} of {listings.length} results</p>
+                <p style={countStyle}>Showing {listings.length} results</p>
             }
             {listings.map((listing,i)=>(
                 <ResultItem 
@@ -27,7 +27,7 @@ function SearchList(props) {
 const countStyle = {
     marginTop:"20px",
     textAlign:"center",
-    color:"#fff"
+    color:"#D3424E"
 }
 
 const countStyleNF = {

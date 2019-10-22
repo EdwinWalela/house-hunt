@@ -38,7 +38,7 @@ const containerStyle = {
     margin:"20px auto",
     borderRadius:"5px",
     textAlign:"center",
-    boxShadow:"0px 5px 5px rgba(0,0,0,0.2)",
+    boxShadow:"5px 5px 5px rgba(0,0,0,0.2)",
 }
 
 const imageStyle = {

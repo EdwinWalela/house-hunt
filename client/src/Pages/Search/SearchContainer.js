@@ -36,7 +36,7 @@ function SearchContainer(props) {
 }
 
 const containerStyle = {
-    background:"url('/images/landing5.jpg')",
+    background:"#fff",
     backgroundPosition:"center",
     backgroundRepeat:"none",
     backgroundSize:"cover",
