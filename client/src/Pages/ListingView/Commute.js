@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function Commute(props) {
     return (
         <div>
-            <h1 style={titleStyle}>Commute</h1>
+            {/* <h1 style={titleStyle}>Commute</h1> */}
         </div>
     )
 }

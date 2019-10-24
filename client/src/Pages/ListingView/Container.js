@@ -16,7 +16,9 @@ function Container(props) {
                 listing = {listing}
             />
             <Commute />
-            <Neighborhood />
+            <Neighborhood
+                shops={listing.places.shops}
+            />
         </div>
     )
 }

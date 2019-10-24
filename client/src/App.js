@@ -29,7 +29,7 @@ class App extends Component {
         let location = this.state.location;
         let reff = this.state.refference || "CBD"
         let gyms = this.state.gyms
-        let shopping = this.state.shopping
+        let shopping = true
         let medical = this.state.medical
         let restaurants = this.state.restaurants
         // Enter Loading State
