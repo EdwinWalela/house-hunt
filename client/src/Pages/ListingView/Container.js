@@ -15,7 +15,9 @@ function Container(props) {
             <Features 
                 listing = {listing}
             />
-            <Commute />
+            <Commute 
+                
+            />
             <Neighborhood
                 shops={listing.places.shops}
             />
