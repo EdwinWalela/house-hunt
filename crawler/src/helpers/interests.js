@@ -1,6 +1,6 @@
 const Axios = require("axios");
 const GG_API_KEY = process.env.GG_API_KEY;
-const BASE_URI = 'https://maps.googleapis.com/maps/api/place/textsearch/json?rankBy=distance&sensor=true&';
+const BASE_URI = 'https://maps.googleapis.com/maps/api/place/textsearch/json?rankBy=prominence&sensor=true&';
 
 const getAreasOfInterests = async (interests,listingLocation) =>{
     let results = { 
@@ -16,6 +16,8 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
+   
+            places = places.splice(0,5)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -39,6 +41,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
+            places = places.splice(0,5)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -62,6 +65,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
+            places = places.splice(0,5)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -85,6 +89,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
+            places = places.splice(0,5)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
