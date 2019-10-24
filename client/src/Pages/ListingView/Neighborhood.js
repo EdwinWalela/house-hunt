@@ -7,6 +7,7 @@ import {
     Marker,
     InfoWindow
   } from "react-google-maps"
+  
 import PropTypes from 'prop-types'
 
 const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {

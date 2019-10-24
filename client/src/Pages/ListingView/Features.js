@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 function Features(props) {
     let listing = props.listing
+    let price = props.listing.price || 0;
     return (
         <div style={containerStyle}>
             <img style={imageStyle} src={listing.thumb} />
@@ -19,7 +20,7 @@ function Features(props) {
                     </div>
                     <div style={featureGroupStyle}>
                         <i style={priceIcon} class="fas fa-money-bill-wave"></i>
-                        {/* <p style={featureTextStyle}>KES {listing.price.toLocaleString()}</p> */}
+                        <p style={featureTextStyle}>KES {price.toLocaleString()}</p>
                     </div>
                 </div>
             </div>
