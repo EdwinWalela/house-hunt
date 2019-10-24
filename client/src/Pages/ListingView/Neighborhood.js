@@ -53,13 +53,13 @@ class Neighborhood extends Component {
         <React.Fragment>
             <h1 style={titleStyle}>Neighborhood</h1>
             <MapWithAMarker
-            selectedMarker={this.state.selectedMarker}
-            markers={this.state.shelters}
-            onClick={this.handleClick}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `400px`, width:"90%", margin:"20px auto" }} />}
-            mapElement={<div style={{ height: `100%` }} />}
+                selectedMarker={this.state.selectedMarker}
+                markers={this.state.shelters}
+                onClick={this.handleClick}
+                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px`, width:"90%", margin:"20px auto" }} />}
+                mapElement={<div style={{ height: `100%` }} />}
             />
         </React.Fragment>
       )
