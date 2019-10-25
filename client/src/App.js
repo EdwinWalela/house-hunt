@@ -5,7 +5,7 @@ import Axios from 'axios'
 import Landing from './Pages/Index/Landing';
 import SearchContainer from './Pages/Search/SearchContainer';
 import ListingView from './Pages/ListingView/Container';
-import baseAPI from './config';
+import {crawlerBaseAPI} from './config';
 
 import './App.css';
 
@@ -40,7 +40,7 @@ class App extends Component {
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`${baseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}
+            res = await Axios.get(`${crawlerBaseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}
             `);
             listings = res.data.results
             console.log(listings)

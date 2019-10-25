@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import baseAPI from '../../../config';
+import { crawlerBaseAPI } from '../../../config';
 import ItemsCarousel from 'react-items-carousel'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -22,7 +22,7 @@ class SearchContainer extends Component {
     }
 
     async componentDidMount(){
-        let res = await Axios.get(`${baseAPI}/locations`);
+        let res = await Axios.get(`${crawlerBaseAPI}/locations`);
         this.setState({
             locations:res.data.locations
         })
