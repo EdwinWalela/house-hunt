@@ -137,6 +137,13 @@ router.get('/analytics/:area',async(req,res)=>{
         arr.push(obj)
     })
 
+    
+    if(arr.length == 0){
+        let obj = {}
+        obj[location] = 0
+        arr.push(obj);
+    }
+
     res.send({
         msg:"OK",
         hits:hits.length,

@@ -28,7 +28,7 @@ function Features(props) {
 const containerStyle = {
     width:"80%",
     margin:"20px",
-    maxWidth:"400px",
+    maxWidth:"300px",
     display:"inline-block"
 }
 
@@ -40,7 +40,6 @@ const featureContainer = {
     padding:"10px",
     borderRadius:"5px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
-    minHeight:"241px",
 }
 
 const featureTextStyle = {
@@ -52,7 +51,7 @@ const featureTextStyle = {
 }
 
 const featureGroupStyle = {
-    margin:"25px auto",
+    margin:"10px auto",
     borderBottom:"solid 1px rgba(0,0,0,0.2)",
 }
 
