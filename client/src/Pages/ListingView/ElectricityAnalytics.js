@@ -16,7 +16,8 @@ class ElectricityAnalyrics extends Component{
 
     async componentDidMount(){
         let res = await Axios.get(`${analyticsBaseAPI}/tweets/analytics`);
-        console.log(res.data)
+        let activeRes = await Axios.get(`${analyticsBaseAPI}/tweets/analytics/${this.state.location}`)
+        console.log(activeRes.data)
         let areas = res.data.areas
         let labels = areas.map((k,v)=>{
             return Object.keys(k)[0]
