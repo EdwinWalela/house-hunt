@@ -18,12 +18,16 @@ class ElectricityAnalyrics extends Component{
         let res = await Axios.get(`${analyticsBaseAPI}/tweets/analytics`);
         console.log(res.data)
         let areas = res.data.areas
-        let labels = Object.keys(areas)
-        let hits = Object.values(areas)
-        let start = Math.random();
-        // let end = ;
+        let labels = areas.map((k,v)=>{
+            return Object.keys(k)[0]
+        })
+        let hits = areas.map((k,v)=>{
+            return Object.values(k)[0]
+        })
         labels = labels.splice(0,5)
         hits = hits.splice(0,5)
+        console.log(labels)
+        console.log(hits)
         const data = {
             labels: [
                 this.state.location,
