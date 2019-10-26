@@ -78,7 +78,6 @@ router.get('/analytics',async(req,res)=>{
         msg:"OK",
         hits:hits.length,
         areas:arr,
-        hits
     })
 })
 
@@ -142,7 +141,6 @@ router.get('/analytics/:area',async(req,res)=>{
         msg:"OK",
         hits:hits.length,
         areas:arr,
-        hits
     })
 })
 
