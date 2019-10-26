@@ -33,7 +33,7 @@ class ElectricityAnalyrics extends Component{
 
         labels = labels.splice(0,5)
         hits = hits.splice(0,5)
-        
+
         const data = {
             labels: [
                 this.state.location,
@@ -64,7 +64,11 @@ class ElectricityAnalyrics extends Component{
                 <Loading/>
             :
                 <React.Fragment>  
-                    <Doughnut data={this.state.data} />
+                    <Doughnut
+                        data={this.state.data} 
+                        height={100}
+                        width={100}
+                    />
                     <p style={infoStyle}>Number of power outage reports via Twitter from 1/1/19 to 26/10/19</p>
                 </React.Fragment>  
             }
