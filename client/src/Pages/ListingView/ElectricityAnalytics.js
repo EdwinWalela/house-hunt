@@ -20,6 +20,8 @@ class ElectricityAnalyrics extends Component{
         let areas = res.data.areas
         let labels = Object.keys(areas)
         let hits = Object.values(areas)
+        let start = Math.random();
+        // let end = ;
         labels = labels.splice(0,5)
         hits = hits.splice(0,5)
         const data = {
@@ -55,10 +57,10 @@ class ElectricityAnalyrics extends Component{
             {this.state.loading ? 
                 <Loading/>
             :
-            <React.Fragment>  
-                <Doughnut data={this.state.data} />
-                <p style={infoStyle}>Number of power outage reports via Twitter from 1/1/19 to 26/10/19</p>
-            </React.Fragment>  
+                <React.Fragment>  
+                    <Doughnut data={this.state.data} />
+                    <p style={infoStyle}>Number of power outage reports via Twitter from 1/1/19 to 26/10/19</p>
+                </React.Fragment>  
             }
         </div>
         );

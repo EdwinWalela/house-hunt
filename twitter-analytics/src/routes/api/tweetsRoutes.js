@@ -62,15 +62,23 @@ router.get('/analytics',async(req,res)=>{
             })
         })
     });
-
-    
     for (var i = 0; i < hits.length; i++) {
         counts[hits[i]] = 1 + (counts[hits[i]] || 0);
     }
+
+    //Convert results to an object array
+    let arr = [];
+    Object.keys(counts).map(key=>{
+        let obj = {}
+        obj[key] = counts[key]
+        arr.push(obj)
+    })
+
     res.send({
         msg:"OK",
         hits:hits.length,
-        areas:counts
+        areas:arr,
+        hits
     })
 })
 
