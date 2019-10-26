@@ -18,6 +18,11 @@ class ElectricityAnalyrics extends Component{
         let res = await Axios.get(`${analyticsBaseAPI}/tweets/analytics`);
         let activeRes = await Axios.get(`${analyticsBaseAPI}/tweets/analytics/${this.state.location}`)
         console.log(activeRes.data)
+        let activeArea = activeRes.data.areas[0];
+        let activeLocation = Object.keys(activeArea)[0]
+        let activeHits = activeArea[activeLocation];
+        console.log(activeLocation)
+        console.log(activeHits)
         let areas = res.data.areas
         let labels = areas.map((k,v)=>{
             return Object.keys(k)[0]
@@ -36,16 +41,12 @@ class ElectricityAnalyrics extends Component{
             ],
 
             datasets: [{
-                data: hits,
+                data: [activeHits,...hits],
                 backgroundColor: [
                 '#FF6384',
-                '#36A2EB',
-                '#FFCE56'
                 ],
                 hoverBackgroundColor: [
                 '#FF6384',
-                '#36A2EB',
-                '#FFCE56'
                 ]
             }]
         };
