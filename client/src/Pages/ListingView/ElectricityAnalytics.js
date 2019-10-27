@@ -66,7 +66,7 @@ class ElectricityAnalyrics extends Component{
                 <React.Fragment>  
                     <Doughnut
                         data={this.state.data} 
-                        height={100}
+                        height={60}
                         width={100}
                     />
                     <p style={infoStyle}>Number of power outage reports via Twitter from 1/1/19 to 26/10/19</p>
@@ -80,7 +80,7 @@ class ElectricityAnalyrics extends Component{
 const containerStyle = {
     margin:"20px",
     width:"80%",
-    maxWidth:"400px",
+    maxWidth:"600px",
     minHeight:"241px",
     display:"inline-block",
     verticalAlign:"top",

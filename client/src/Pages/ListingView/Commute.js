@@ -23,7 +23,7 @@ class Commute extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        shelters: this.props.shops,
+        shelters: [],
         selectedMarker: false
       }
     }
@@ -53,6 +53,10 @@ const titleStyle = {
 Commute.propTypes = {
 
 }
+
+Commute.defaultProps = {
+    shelters: [],
+};
 
 export default Commute
 

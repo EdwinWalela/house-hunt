@@ -19,14 +19,21 @@ function Container(props) {
             <Features 
                 listing={listing}
             />
+            <br/>
+            {/* <Commute     
+            /> */}
+            <Neighborhood
+                title="Neighborhood"
+                shops={[]}
+            />
+            <Neighborhood
+                title="Commute"
+                shops={[]}
+            />
+            
             <ElecAnalytics 
                 location={location}
             />
-            {/* <Commute     
-            /> */}
-            {/* <Neighborhood
-                shops={listing.places.shops}
-            /> */}
         </div>
     )
 }

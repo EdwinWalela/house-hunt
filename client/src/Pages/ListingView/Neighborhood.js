@@ -50,21 +50,36 @@ class Neighborhood extends Component {
     }
     render() {
       return (
-        <React.Fragment>
-            <h1 style={titleStyle}>Neighborhood</h1>
+            <div style={containerStyle}>
+            <h1 style={titleStyle}>{this.props.title}</h1>
             <MapWithAMarker
                 selectedMarker={this.state.selectedMarker}
                 markers={this.state.shelters}
                 onClick={this.handleClick}
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px`, width:"90%", margin:"20px auto" }} />}
+                containerElement={<div style={mapStyle} />}
                 mapElement={<div style={{ height: `100%` }} />}
             />
-        </React.Fragment>
+            </div>
       )
     }
   }
+
+  const containerStyle = {
+      verticalAlign:"top",
+    margin:"20px 30px 40px 20px",
+    width:"90%",
+    maxWidth:"400px",
+    display:"inline-block",
+    borderRadius:"10px",
+    padding:"10px",
+    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+  }
+
+  const mapStyle ={
+    height: `300px`,
+ }
 
   const titleStyle = {
       fontSize:"1.2em"
