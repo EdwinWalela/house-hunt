@@ -12,7 +12,8 @@ import PropTypes from 'prop-types'
 
 const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
     return (
-      <GoogleMap defaultZoom={11} defaultCenter={{ lat: -1.28, lng: 36.81 }}>
+        
+      <GoogleMap defaultZoom={12} defaultCenter={props.center}>
         {props.markers.map(marker => {
           const onClick = props.onClick.bind(this, marker)
           return (
@@ -51,16 +52,17 @@ class Neighborhood extends Component {
     render() {
       return (
             <div style={containerStyle}>
-            <h1 style={titleStyle}>{this.props.title}</h1>
-            <MapWithAMarker
-                selectedMarker={this.state.selectedMarker}
-                markers={this.state.shelters}
-                onClick={this.handleClick}
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAx5bVVPhoquI4sJHpJUb4NTpTuVout3EA&libraries=geometry,drawing,places"
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={mapStyle} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            />
+                <h1 style={titleStyle}>{this.props.title}</h1>
+                <MapWithAMarker
+                    center={this.props.center}
+                    selectedMarker={this.state.selectedMarker}
+                    markers={this.state.shelters}
+                    onClick={this.handleClick}
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAx5bVVPhoquI4sJHpJUb4NTpTuVout3EA&libraries=geometry,drawing,places"
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={mapStyle} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                />
             </div>
       )
     }

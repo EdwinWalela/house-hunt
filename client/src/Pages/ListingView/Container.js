@@ -30,6 +30,7 @@ function Container(props) {
             <Neighborhood
                 title="Neighborhood"
                 shops={listing.places[0].shops}
+                center={listing.coords}
             />
             {/* <Neighborhood
                 title="Commute"
@@ -57,6 +58,10 @@ Container.defaultProps = {
             "price": 45000,
             "thumb": "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg",
             "location": "langata",
+            "coords":{
+                "lat":-1.3641,
+                "lng":36.7476
+            },
             "url": "https://deals.jumia.co.ke/executive-2-bedroom-apartment-all-ensuite-to-let-pid4705907",
             "origin": "jumia",
             "beds": "2",
