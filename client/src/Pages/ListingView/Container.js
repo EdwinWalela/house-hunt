@@ -25,12 +25,14 @@ function Container(props) {
                 listing={listing}
             />
             <br/>
-            {/* <Commute     
-            /> */}
+            <Commute 
+                reffPoint={props.reffPoint}    
+            />
             <Neighborhood
                 title="Neighborhood"
                 shops={listing.places[0].shops}
                 center={listing.coords}
+                location={listing.location}
             />
             {/* <Neighborhood
                 title="Commute"
@@ -52,6 +54,10 @@ const containerStyle = {
 
 
 Container.defaultProps = {
+    reffPoint={
+        lat:-1.3641,
+        lng:36.7476
+    },
     listing:{
             "_id": "5d92f3d1e29bfc0d40f07846",
             "title": "executive 2 bedroom apartment all ensuite to let",

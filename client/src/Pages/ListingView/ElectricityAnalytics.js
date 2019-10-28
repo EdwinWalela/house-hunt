@@ -59,7 +59,7 @@ class ElectricityAnalyrics extends Component{
     render(){
         return (
         <div style={containerStyle}>
-            <h1 style={titleStyle}>Power Outage Analysis</h1>
+            <h1 style={titleStyle}>{this.props.location} Power Outage Comparison</h1>
             {this.state.loading ? 
                 <Loading/>
             :
@@ -90,7 +90,8 @@ const containerStyle = {
 }
 
 const titleStyle = {
-    fontSize:"1.2em"
+    fontSize:"1em",
+    textTransform:"capitalize"
 }
 
 const infoStyle = {
