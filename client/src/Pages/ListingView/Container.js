@@ -3,18 +3,23 @@ import PropTypes from 'prop-types'
 
 // Components
 import NavSearch from './SearchBar/Container'
+import Slideshow from './Slideshow'
 import Features from './Features'
 import Commute from './Commute'
 import Neighborhood from './Neighborhood'
 import ElecAnalytics from './ElectricityAnalytics'
 
+
 function Container(props) {
     let listing = props.listing
     let location = listing.location || "Langata"
+    let gallery = [listing.thumb]
     return (
         <div style={containerStyle}>
             <NavSearch />
-            <img style={imageStyle} src={listing.thumb} />
+            <Slideshow 
+                gallery={gallery}
+            />
             <br/>
             <Features 
                 listing={listing}
@@ -43,12 +48,6 @@ const containerStyle = {
     textAlign:"center",
 }
 
-const imageStyle = {
-    width:"90%",
-    maxWidth:"450px",
-    height:"350px",
-    margin:"20px auto 30px auto"
-}
 
 
 Container.defaultProps = {
