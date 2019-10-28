@@ -7,7 +7,7 @@ function Features(props) {
     return (
         <div style={containerStyle}>
             <div style={featureContainer}>
-                <h1 style={titleStyle}>Features</h1>
+                <h1 style={titleStyle}>Listing Details</h1>
                 <div style={featureGroupStyle}>
                     <i style={bedIcon} class="fas fa-bed"></i>
                     <p style={featureTextStyle}>{listing.beds} Bedroom</p>
@@ -27,19 +27,18 @@ function Features(props) {
 
 const containerStyle = {
     width:"80%",
-    margin:"20px",
-    maxWidth:"300px",
+    margin:"5px",
     display:"inline-block"
 }
 
 const titleStyle = {
-    fontSize:"1.3em"
+    fontSize:"1em"
 }
 
 const featureContainer = {
     padding:"10px",
     borderRadius:"5px",
-    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+    margin:"1rem 0",
 }
 
 const featureTextStyle = {
@@ -47,12 +46,17 @@ const featureTextStyle = {
     paddingLeft:"0px",
     textAlign:"center",
     width:"70%",
-    textTransform:"capitalize"
+    textTransform:"capitalize",
+    fontSize:"0.9em"
 }
 
 const featureGroupStyle = {
-    margin:"10px auto",
-    borderBottom:"solid 1px rgba(0,0,0,0.2)",
+    paddingTop:"10px",
+    margin:"5px auto",
+    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+    display:"inline-block",
+    width:"20%",
+    minWidth:"200px"
 }
 
 const bedIcon = {

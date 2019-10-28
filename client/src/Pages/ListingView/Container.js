@@ -45,7 +45,7 @@ const containerStyle = {
 
 const imageStyle = {
     width:"90%",
-    maxWidth:"400px",
+    maxWidth:"450px",
     height:"350px",
     margin:"20px auto 30px auto"
 }
