@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withScriptjs } from "react-google-maps";
 
 // Components
 import NavSearch from './SearchBar/Container'
@@ -8,12 +9,14 @@ import Features from './Features'
 import Commute from './Commute'
 import Neighborhood from './Neighborhood'
 import ElecAnalytics from './ElectricityAnalytics'
-
+import Map from './Commute'
 
 function Container(props) {
+    const Commute = withScriptjs(Map)
     let listing = props.listing
     let location = listing.location || "Langata"
     let gallery = [listing.thumb]
+    let reffPoint = props.reffPoint
     return (
         <div style={containerStyle}>
             <NavSearch />
@@ -25,20 +28,18 @@ function Container(props) {
                 listing={listing}
             />
             <br/>
-            <Commute 
-                reffPoint={props.reffPoint}    
+            <Commute
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
+                loadingElement={<div style={{ height: `100px` }} />}
+                reffPoint={reffPoint}
+                listingCoords={listing.coords}
             />
-            <Neighborhood
+            {/* <Neighborhood
                 title="Neighborhood"
                 shops={listing.places[0].shops}
                 center={listing.coords}
                 location={listing.location}
-            />
-            {/* <Neighborhood
-                title="Commute"
-                shops={[]}
             /> */}
-            
             <ElecAnalytics 
                 location={location}
             />
@@ -50,13 +51,12 @@ const containerStyle = {
     margin:"auto 0",
     textAlign:"center",
 }
-
-
+// /,36.8217003
 
 Container.defaultProps = {
-    reffPoint={
-        lat:-1.3641,
-        lng:36.7476
+    reffPoint:{
+        lat:-1.290149,
+        lng:36.8217003
     },
     listing:{
             "_id": "5d92f3d1e29bfc0d40f07846",

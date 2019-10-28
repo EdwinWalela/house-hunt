@@ -1,62 +1,82 @@
-import React,{ Component } from 'react'
+/*global google*/
+import React, { Component } from "react";
 import {
-    withScriptjs,
-    withGoogleMap,
-    GoogleMap,
-    Marker,
-    InfoWindow
-  } from "react-google-maps"
-  
-import { compose } from "recompose"
+  withGoogleMap,
+  withScriptjs,
+  GoogleMap,
+  DirectionsRenderer
+} from "react-google-maps";
 
-import PropTypes from 'prop-types'
+class Map extends Component {
+  state = {
+    directions: null
+  };
 
-const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
-    return (
-      <GoogleMap defaultZoom={11} defaultCenter={{ lat: -1.28, lng: 36.81 }}>
+  componentDidMount() {
+    const directionsService = new window.google.maps.DirectionsService();
 
-      </GoogleMap>
-    )
-})
-
-class Commute extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        shelters: [],
-        selectedMarker: false
+    const origin = this.props.listingCoords;
+    const destination = this.props.reffPoint;
+    console.log(origin)
+    directionsService.route(
+      {
+        origin: origin,
+        destination: destination,
+        travelMode: window.google.maps.TravelMode.DRIVING
+      },
+      (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          this.setState({
+            directions: result
+          });
+          console.error(`sucess fetching directions ${result}`);
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
       }
-    }
-    handleClick = (marker, event) => {
-      this.setState({ selectedMarker: marker })
-    }
-    render() {
-      return (
-        <React.Fragment>
-            <h1 style={titleStyle}>Commute</h1>
-            <MapWithAMarker
-                googleMapURL="https://www.google.com/maps/embed/v1/directions?key=YOUR_API_KEY&origin=nairobi+kenya&destination=kisumu+kenya&avoid=tolls|highways"
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px`, width:"90%", margin:"20px auto" }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            />
-        </React.Fragment>
-      )
-    }
+    );
   }
+
+  render() {
+    const GoogleMapExample = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter={this.props.listingCoords}
+        defaultZoom={13}
+      >
+        <DirectionsRenderer
+          directions={this.state.directions}
+        />
+      </GoogleMap>
+    ));
+
+    return (
+      <div>
+        <h1 style={titleStyle}>Commute</h1>
+        <GoogleMapExample
+          containerElement={<div style={mapContainerStyle} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
+    );
+  }
+}
+
+
+const mapContainerStyle = {
+    width:"90%",
+    maxWidth:"400px",
+    height:"400px",
+    display:"inline-block",
+    borderRadius:"10px",
+    padding:"10px",
+    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+}
 
 
 const titleStyle = {
-    fontSize:"1.3em"
+    fontSize:"1em"
 }
 
-Commute.propTypes = {
 
-}
-
-Commute.defaultProps = {
-    shelters: [],
-};
-
-export default Commute
+export default Map;
 
