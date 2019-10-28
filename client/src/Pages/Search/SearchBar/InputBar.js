@@ -5,15 +5,15 @@ function InputBar(props) {
     return (
         <div style={containerStyle}>
             <div style={inputGroupStyle}>
-                <label style={labelStyle}>Where</label>
+                <label style={labelStyle}>Where</label><br/>
                 <input style={inputStyle} type="text" name="location" placeholder="Nairobi" value={props.location} onChange={props.updateSearchParams}/>
             </div>
             <div style={inputGroupStyle}>
-                <label style={labelStyle}>Bedrooms</label>
+                <label style={labelStyle}>Bedrooms</label><br/>
                 <input style={inputStyle} type="number" name="beds" placeholder="3" value={props.beds} onChange={props.updateSearchParams}/>
             </div>
             <div style={inputGroupStyle}>
-                <label style={labelStyle}>Budget</label>
+                <label style={labelStyle}>Budget</label><br/>
                 <input style={inputStyle} type="number" name="budget" placeholder="18000" value={props.budget} onChange={props.updateSearchParams}/>
             </div>
         </div>
@@ -40,7 +40,8 @@ const inputStyle = {
     width:"100%",
     textTransform:"capitalize",
     letterSpacing:"1.1px",
-    border:"none"
+    border:"none",
+    maxWidth:"200px"
 }
 
 const labelStyle = {

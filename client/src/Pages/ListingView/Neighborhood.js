@@ -56,7 +56,7 @@ class Neighborhood extends Component {
                 selectedMarker={this.state.selectedMarker}
                 markers={this.state.shelters}
                 onClick={this.handleClick}
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAx5bVVPhoquI4sJHpJUb4NTpTuVout3EA&libraries=geometry,drawing,places"
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={mapStyle} />}
                 mapElement={<div style={{ height: `100%` }} />}

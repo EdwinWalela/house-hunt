@@ -46,6 +46,5 @@ const containerStyle = {
 SearchContainer.propTypes = {
 
 }
-
 export default SearchContainer
 

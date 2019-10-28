@@ -25,7 +25,9 @@ class Container extends PureComponent {
 
 const containerStyle = {
     padding:"0",
-    background:"#fff"
+    background:"#fff",
+    
+    textAlign:"center"
 }
 
 export default Container

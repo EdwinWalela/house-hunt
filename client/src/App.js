@@ -88,7 +88,7 @@ class App extends Component {
                     }/>
                     <Route path="/view" render={()=>
                         <ListingView 
-                            listing={this.state.activeListing}
+                            // listing={this.state.activeListing}
                         />
                     }/>
                 </Router>
