@@ -16,18 +16,19 @@ const jumia = async(query,depth,offset) =>{
       return [];
     }
     let $ = cheerio.load(dom.data);
-
-    $('div#search-results>article').map((i,el)=>{
+    $('div#search-results>article').map(async (i,el)=>{
       let data = $(el).attr('data-event');
       let location = $(el).find('span.address').text();
       let url = $(el).find('a.post-link').attr('href');
-      let thumb1 = $(el).find('img').attr('data-src');
-      let thumb = [thumb1];
       let coords = {
           lat:0,
           lng:0
       }
       url = `https://deals.jumia.co.ke${url}`;
+
+      // Second Depth
+      let thumb = await secondDepth(url);
+      
       data = JSON.parse(data);
       location = location.replace(/ /g, '').split(',')[1].trim();
       data = {
@@ -62,4 +63,22 @@ const jumia = async(query,depth,offset) =>{
   return results;
 }
 
+
+const secondDepth = async(url)=>{
+    let gallery = [];
+    let dom;
+    try{
+        dom = await Axios.get(url);
+    }catch(err){
+        console.log(err)
+        return []
+    }
+    let $ = cheerio.load(dom.data);
+    $('ul.pagination>li').map((i,el)=>{
+        let img = $(el).find('img').attr('src')
+        img = img.replace("desktop-small","desktop-gallery-large")
+        gallery.push(img)
+    })
+    return gallery;
+}
 module.exports = jumia;

@@ -62,16 +62,15 @@ router.get('/crawl-jumia',async(req,res)=>{
     delete listing.category
     listing.location = listing.location.toLowerCase();
     listing.origin = 'jumia'
-    listing.beds = 1;
+    listing.beds = 3;
     return listing;
   })
 
-  console.log(results)
 
   results.map(async listing=>{
     await new Listing({
       ...listing,
-      baths:1
+      baths:2
     }).save();
   })
 
