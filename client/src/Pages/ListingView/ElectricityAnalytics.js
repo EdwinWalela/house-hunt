@@ -111,8 +111,8 @@ class ElectricityAnalyrics extends Component{
     render(){
         return (
         <div style={containerStyle}>
-            <h1 style={titleStyle}>{this.props.location} Power Outage Comparison</h1>
-            <button onClick={this.refreshAreas}>refresh</button>
+            <h1 style={titleStyle}>{this.props.location} Power Outage Comparison  <i style={refreshBtnStyle} onClick={this.refreshAreas} className="fas fa-sync"></i></h1>
+           
             {this.state.loading ? 
                 <Loading/>
             :
@@ -145,6 +145,11 @@ const containerStyle = {
 const titleStyle = {
     fontSize:"1em",
     textTransform:"capitalize"
+}
+
+const refreshBtnStyle ={
+    marginLeft:"20px",
+    marginTop:"5px",
 }
 
 const infoStyle = {

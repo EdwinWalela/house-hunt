@@ -35,12 +35,12 @@ function Container(props) {
                 reffPoint={reffPoint}
                 listingCoords={listing.coords}
             />
-            {/* <Neighborhood
+            <Neighborhood
                 title="Neighborhood"
                 shops={listing.places[0].shops}
                 center={listing.coords}
                 location={listing.location}
-            /> */}
+            />
             <ElecAnalytics 
                 location={location}
             />
