@@ -67,13 +67,14 @@ const titleStyle = {
 
 const inputGrpContainer = {
     width:"90%",
+    maxwidth:"300px",
     margin:"10px auto",
 }
 
 const inputGroupStyle = {
     display:"inline-block",
     width:"50%",
-    
+    maxWidth:"200px"
 }
 
 const labelStyle = {
