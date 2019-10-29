@@ -39,14 +39,24 @@ class Map extends Component {
 
   render() {
     const GoogleMapExample = withGoogleMap(props => (
-      <GoogleMap
-        defaultCenter={this.props.listingCoords}
-        defaultZoom={13}
-      >
-        <DirectionsRenderer
-          directions={this.state.directions}
-        />
-      </GoogleMap>
+        <React.Fragment>
+        <GoogleMap
+            defaultCenter={this.props.listingCoords}
+            defaultZoom={13}
+        >
+            <DirectionsRenderer
+            directions={this.state.directions}
+            />
+        </GoogleMap>
+        {this.state.directions ?
+            <React.Fragment>
+                <p>{this.state.directions.routes[0].legs[0].distance.text}</p>
+                <p>{this.state.directions.routes[0].legs[0].duration.text}</p>
+            </React.Fragment>
+        :
+            <p>Calculating commute...</p>
+        }
+      </React.Fragment>
     ));
 
     return (
@@ -54,7 +64,7 @@ class Map extends Component {
         <h1 style={titleStyle}>Commute</h1>
         <GoogleMapExample
           containerElement={<div style={mapContainerStyle} />}
-          mapElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: "400px" }} />}
         />
       </div>
     );
@@ -65,7 +75,7 @@ class Map extends Component {
 const mapContainerStyle = {
     width:"90%",
     maxWidth:"400px",
-    height:"400px",
+    height:"500px",
     display:"inline-block",
     borderRadius:"10px",
     padding:"10px",

@@ -28,18 +28,18 @@ function Container(props) {
                 listing={listing}
             />
             <br/>
-            {/* <Commute
+            <Commute
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
                 loadingElement={<div style={{ height: `100px` }} />}
                 reffPoint={reffPoint}
                 listingCoords={listing.coords}
-            /> */}
-            <Neighborhood
+            />
+            {/* <Neighborhood
                 title="Neighborhood"
                 shops={listing.places[0].shops}
                 center={listing.coords}
                 location={listing.location}
-            />
+            /> */}
             <ElecAnalytics 
                 location={location}
             />
