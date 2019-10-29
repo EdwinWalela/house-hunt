@@ -63,7 +63,6 @@ const jumia = async(query,depth,offset) =>{
   return results;
 }
 
-
 const secondDepth = async(url)=>{
     let gallery = [];
     let dom;

@@ -9,7 +9,7 @@ function ResultItem(props) {
     return (
         <NavLink to="/view">
             <div style={containerStyle} onClick={props.setActiveListing.bind(this,index)}>
-                <img style={imageStyle} src={data.thumb} />
+                <img style={imageStyle} src={data.thumb[0]} />
                 <ResultDetails data={data}/>
                 <p style={textStyle}> {data.title}.</p>
                 {props.best == "1" ?
