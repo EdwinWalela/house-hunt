@@ -11,7 +11,15 @@ class ElectricityAnalyrics extends Component{
     state = {
         data:{},
         location:this.props.location,
-        loading:true
+        loading:true,
+        areas:[]
+    }
+
+    generateRandom = () =>{
+        let min = 0;
+        let max = 19;
+
+        return Math.floor(Math.random()* ( max - min + 1)) + min;
     }
 
     async componentDidMount(){
@@ -19,10 +27,18 @@ class ElectricityAnalyrics extends Component{
         let activeRes = await Axios.get(`${analyticsBaseAPI}/tweets/analytics/${this.state.location}`)
 
         let areas = res.data.areas
+        this.setState({
+            areas
+        })
         let activeArea = activeRes.data.areas[0];
         let activeLocation = Object.keys(activeArea)[0]
         
         let activeHits = activeArea[activeLocation];
+
+        this.setState({
+            activeArea,
+            activeHits
+        })
 
         let labels = areas.map((k,v)=>{
             return Object.keys(k)[0]
@@ -31,8 +47,10 @@ class ElectricityAnalyrics extends Component{
             return Object.values(k)[0]
         })
 
-        labels = labels.splice(0,5)
-        hits = hits.splice(0,5)
+        let min = this.generateRandom()
+
+        labels = labels.splice(min,4)
+        hits = hits.splice(min,4)
 
         const data = {
             labels: [
@@ -56,10 +74,45 @@ class ElectricityAnalyrics extends Component{
         })
     }
 
+    refreshAreas = () =>{
+        let labels = this.state.areas.map((k,v)=>{
+            return Object.keys(k)[0]
+        })
+        let hits = this.state.areas.map((k,v)=>{
+            return Object.values(k)[0]
+        })
+
+        let min = this.generateRandom()
+
+        labels = labels.splice(min,4)
+        hits = hits.splice(min,4)
+
+        const data = {
+            labels: [
+                this.state.location,
+                ...labels
+            ],
+
+            datasets: [{
+                data: [this.state.activeHits,...hits],
+                backgroundColor: [
+                '#FF6384',
+                ],
+                hoverBackgroundColor: [
+                '#FF6384',
+                ]
+            }]
+        };
+        this.setState({
+            data,
+        })
+    }
+
     render(){
         return (
         <div style={containerStyle}>
             <h1 style={titleStyle}>{this.props.location} Power Outage Comparison</h1>
+            <button onClick={this.refreshAreas}>refresh</button>
             {this.state.loading ? 
                 <Loading/>
             :
