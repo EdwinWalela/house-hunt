@@ -18,7 +18,7 @@ app.use('/public',express.static('public'));
 app.use("/listings",listingRoutes);
 
 app.get('/',async(req,res)=>{
-    let result = await Axios.get(`${CRAWLER_URI}/listings`);
+    let result = await Axios.get(`${CRAWLER_URI}/listings?beds=undefined`);
     let count = result.data.count;
     res.render('index',{count});
 });

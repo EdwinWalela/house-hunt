@@ -6,7 +6,11 @@ router.get('/',async(req,res)=>{
     let data;
     let beds = req.query.beds;
     try{
-         data = await Axios.get(`${CRAWLER_URI}/listings?beds=${beds}`);
+        if(typeof beds === undefined){
+            data = await Axios.get(`${CRAWLER_URI}/listings`);
+        }else{
+            data = await Axios.get(`${CRAWLER_URI}/listings?beds=${beds}`);
+        }
     }catch(err){
         console.log(err);
         res.redirect('/?status=error');
