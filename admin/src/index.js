@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
+const Axios = require("axios");
+const CRAWLER_URI = process.env.CRAWLER_URI
 
 const listingRoutes = require("./routes/listingRoutes");
 
@@ -16,7 +18,9 @@ app.use('/public',express.static('public'));
 app.use("/listings",listingRoutes);
 
 app.get('/',async(req,res)=>{
-    res.render('index');
+    let result = await Axios.get(`${CRAWLER_URI}/listings`);
+    let count = result.data.count;
+    res.render('index',{count});
 });
 
 app.listen(PORT,()=>{

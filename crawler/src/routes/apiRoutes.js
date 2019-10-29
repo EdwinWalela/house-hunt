@@ -88,6 +88,7 @@ router.get('/listings',async(req,res)=>{
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
+  let src = req.query.source;
 
   let interests = {
       shoppingMalls:req.query.shopping === 'true' ? true : false,
@@ -137,9 +138,13 @@ router.get('/listings',async(req,res)=>{
 
   if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
-        let places = await placesHelper(interests,results[i].location);
-        let placesWeights = placesWeighter(places);
-        // let metric = await metricsHelper(results[i].location,refferencePoint);
+        let places,placesWeights,metric;
+        if(src !== "admin"){
+            places = await placesHelper(interests,results[i].location);
+            placesWeights = placesWeighter(places);
+            // metric = await metricsHelper(results[i].location,refferencePoint);
+        }
+    
         results[i] = {
             ...results[i]._doc,
             // metric,
