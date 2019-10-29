@@ -28,9 +28,11 @@
         <label for="title">Price</label>
         <input type="number" name="price" placeholder="Price" value="<%=listing.price%>"/><br>
         <label for="title">Beds</label>
-        <input type="number" name="beds" placeholder="Beds" value="<%=listing.beds%>"/><br>
-        <label for="title">Baths</label>
-        <input type="number" name="baths" placeholder="Baths" value="<%=listing.baths%>"/><br>
+        <input type="number" name="beds" placeholder="beds" value="<%=listing.beds%>"/><br>
+        <label for="title">Latitude</label>
+        <input type="text" name="lat" placeholder="Latitude" value="<%=listing.coords.lat%>"/><br>
+        <label for="title">Longitude</label>
+        <input type="text" name="lng" placeholder="Longitude" value="<%=listing.coords.lng%>"/><br>
         <button>Update</button>
     </form>
     <a href="<%=listing.url%>" target="_blank"><p id="listing-source" >View Source</p></a>

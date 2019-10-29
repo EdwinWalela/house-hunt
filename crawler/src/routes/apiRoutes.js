@@ -62,14 +62,16 @@ router.get('/crawl-jumia',async(req,res)=>{
     delete listing.category
     listing.location = listing.location.toLowerCase();
     listing.origin = 'jumia'
-    listing.beds = 3;
+    listing.beds = 1;
     return listing;
   })
+
+  console.log(results)
 
   results.map(async listing=>{
     await new Listing({
       ...listing,
-      baths:0
+      baths:1
     }).save();
   })
 
@@ -136,7 +138,6 @@ router.get('/listings',async(req,res)=>{
   if(typeof refferencePoint !== "undefined"){
     for(let i = 0; i < results.length; i++){
         let places = await placesHelper(interests,results[i].location);
-        // console.log(places);
         let placesWeights = placesWeighter(places);
         // let metric = await metricsHelper(results[i].location,refferencePoint);
         results[i] = {
@@ -185,6 +186,10 @@ router.put('/listings/:id',async(req,res)=>{
       location:listing.location,
       beds:Number(listing.beds),
       baths:Number(listing.baths),
+      coords:{
+          lat:Number(listing.lat),
+          lng:Number(listing.lng)
+      }
     })
   }catch(err){
     console.log(err)

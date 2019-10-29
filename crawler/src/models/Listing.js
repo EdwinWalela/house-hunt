@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const ListingSchema = new Schema({
     title:String,
     price:Number,
-    thumb:String,
+    thumb:[String],
+    coords:{
+        lat:Number,
+        lng:Number
+    },
     location:String,
     url:String,
     beds:String,

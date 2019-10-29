@@ -21,13 +21,19 @@ const jumia = async(query,depth,offset) =>{
       let data = $(el).attr('data-event');
       let location = $(el).find('span.address').text();
       let url = $(el).find('a.post-link').attr('href');
-      let thumb = $(el).find('img').attr('data-src');
+      let thumb1 = $(el).find('img').attr('data-src');
+      let thumb = [thumb1];
+      let coords = {
+          lat:0,
+          lng:0
+      }
       url = `https://deals.jumia.co.ke${url}`;
       data = JSON.parse(data);
       location = location.replace(/ /g, '').split(',')[1].trim();
       data = {
         ...data,
         thumb,
+        coords,
         location,
         url
       }
