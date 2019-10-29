@@ -51,8 +51,8 @@ class Map extends Component {
         </GoogleMap>
         {this.state.directions ?
             <div style={commuteInfoContainerStyle}>
-                <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(0,0,0,0.6)"}}>km</span></p>
-                <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(0,0,0,0.6)"}}>{duration[1]}</span></p>
+                <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>km</span></p>
+                <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>{duration[1]}</span></p>
             </div>
         :
             <p>Calculating commute...</p>
@@ -98,6 +98,7 @@ const commuteInfoContainerStyle = {
 }
 
 const commuteInfoTextStyle = {
+    fontSize:"1.1em",
     display:"inline-block",
     width:"45%",
 }
