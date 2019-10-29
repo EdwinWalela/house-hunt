@@ -38,6 +38,7 @@ class Map extends Component {
   }
 
   render() {
+    let duration = this.state.directions ? this.state.directions.routes[0].legs[0].duration.text.split(' ') : []
     const GoogleMapExample = withGoogleMap(props => (
         <React.Fragment>
         <GoogleMap
@@ -49,10 +50,10 @@ class Map extends Component {
             />
         </GoogleMap>
         {this.state.directions ?
-            <React.Fragment>
-                <p>{this.state.directions.routes[0].legs[0].distance.text}</p>
-                <p>{this.state.directions.routes[0].legs[0].duration.text}</p>
-            </React.Fragment>
+            <div style={commuteInfoContainerStyle}>
+                <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(0,0,0,0.6)"}}>km</span></p>
+                <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(0,0,0,0.6)"}}>{duration[1]}</span></p>
+            </div>
         :
             <p>Calculating commute...</p>
         }
@@ -75,17 +76,37 @@ class Map extends Component {
 const mapContainerStyle = {
     width:"90%",
     maxWidth:"400px",
-    height:"500px",
+    height:"490px",
     display:"inline-block",
     borderRadius:"10px",
     padding:"10px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
 }
 
-
 const titleStyle = {
     fontSize:"1em"
 }
+
+const infoTitleStyle = {
+    margin:"10px 0"
+}
+
+const commuteInfoContainerStyle = {
+    margin:"15px 0",
+    textVerticalAlign:"center",
+    height:"30px",
+}
+
+const commuteInfoTextStyle = {
+    display:"inline-block",
+    width:"45%",
+}
+
+const infoRightBorderStyle = {
+    ...commuteInfoTextStyle,
+    borderRight:"solid 2px #D3424E"
+}
+
 
 
 export default Map;
