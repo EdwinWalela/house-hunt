@@ -14,8 +14,8 @@ import Map from './Commute'
 function Container(props) {
     const Commute = withScriptjs(Map)
     let listing = props.listing
-    let location = listing.location || "Langata"
-    let gallery = [listing.thumb]
+    let location = listing.location
+    let gallery = listing.thumb
     let reffPoint = props.reffPoint
     return (
         <div style={containerStyle}>
@@ -30,14 +30,14 @@ function Container(props) {
             <br/>
             <Commute
             // AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key="
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
                 loadingElement={<div style={{ height: `100px` }} />}
                 reffPoint={reffPoint}
                 listingCoords={listing.coords}
             />
             <Neighborhood
                 title="Neighborhood"
-                shops={listing.places[0].shops}
+                shops={listing.places.shops}
                 center={listing.coords}
                 location={listing.location}
             />

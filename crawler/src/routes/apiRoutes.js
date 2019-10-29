@@ -85,6 +85,7 @@ router.get('/listings',async(req,res)=>{
   // Search Parameters
   let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
   let location = req.query.location || '';
+  location = location.toLowerCase()
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
   let src = req.query.source;

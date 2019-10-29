@@ -88,8 +88,8 @@ class App extends Component {
                     }/>
                     <Route path="/view" render={()=>
                         <ListingView 
-                            // listing={this.state.activeListing}
-                            // reffPoint={this.state.reffPoint}
+                            listing={this.state.activeListing}
+                            reffPoint={this.state.reffPoint}
                         />
                     }/>
                 </Router>
