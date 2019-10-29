@@ -84,7 +84,7 @@ router.get('/crawl-jumia',async(req,res)=>{
 
 router.get('/listings',async(req,res)=>{
   // Search Parameters
-  let beds = req.query.beds !=="undefined" ? Number(req.query.beds) : '';
+  let beds = req.query.beds !==undefined ? Number(req.query.beds) : '';
   let location = req.query.location || '';
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
@@ -99,7 +99,7 @@ router.get('/listings',async(req,res)=>{
   
   let results = [];
   let xtraResults = [];
-
+  
   try {
     // Beds and Location Specified
     if(beds !== '' && location !== ''){
@@ -117,10 +117,11 @@ router.get('/listings',async(req,res)=>{
         }).limit(limit);
      }
 
-    // Only Beds specified
+    // Only beds specified
     }else if(beds!==''){
+        console.log(beds)
         results = await Listing.find({ beds }).limit(limit);
-    }else if(location!==''){
+    }else if(location!==''){ 
         results = await Listing.find({ location }).limit(limit);
     }else{
       results = await Listing.find({ }).limit(limit);
