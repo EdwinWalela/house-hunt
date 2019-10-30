@@ -5,24 +5,8 @@ function ResultDetails(props) {
     let data = props.data
     return (
         <div style={DetailsContainerStyle}>
-            <div style={DetailItemStyle}>
-                <i style={iconStyle} class="fas fa-bed"></i>
-                <p style={DetailTextStyle}>{data.beds}</p>
-            </div>
-            <div style={DetailItemStyle}>
-                <i style={iconStyle} class="fas fa-bath"></i>
-                <p style={DetailTextStyle}>{data.baths}</p>
-            </div>
-            <div style={DetailItemStyle}>
-                <i style={iconStyle} class="fas fa-shopping-cart"></i>
-                <p style={DetailTextStyle}>n/a</p>
-            </div>
-            <div style={DetailItemStyle}>
-                <i style={iconStyle} class="fas fa-road"></i>
-                <p style={DetailTextStyle}>{/*data.metric.duration*/}0</p>
-            </div>
             <p style={priceStyle}><i class="fas fa-tag"></i> Ksh.{data.price}</p>
-            
+            <p style={priceStyle}><i class="fas fa-bed"></i> {data.beds} Bedroom</p>
             <p style={locationStyle}><i class="fas fa-map-marker-alt"></i> {data.location}</p>
          </div>
     )
@@ -33,8 +17,7 @@ const metaStyle = {
     padding:"5px",
     textTransform:"capitalize",
     margin:"5px auto",
-    display:"inline-block",
-    textAlign:"center",
+    textAlign:"left",
     fontSize:"0.8em"
 }
 
@@ -48,10 +31,11 @@ const locationStyle = {
 }
 
 const DetailsContainerStyle = {
-    textAlign:"center",
+    float:"right",
     margin:"10px 5px 5px 5px",
     paddingLeft:"10px",
     verticalAlign:"middle",
+
     width:"60%",
     display:"inline-block"
 }

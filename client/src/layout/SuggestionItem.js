@@ -6,8 +6,8 @@ function SuggestionItem(props) {
     return (
         <div style={containerStyle}>
             <img style={imgStyle} src={listing.thumb[0]}/>
-            <p style={textStyle}>{listing.location}</p>
-            <p style={textStyle}>Ksh.{listing.price.toLocaleString()}</p>
+            <p style={textStyle}><i style={iconStyle} class="fas fa-map-marker-alt" />{" "}{listing.location}</p>
+            <p style={textStyle}><i style={iconStyle} class="fas fa-tag"/>{" "}Ksh.{listing.price.toLocaleString()}</p>
         </div>
     )
 }
@@ -20,13 +20,18 @@ const containerStyle = {
     display:"inline-block",
     width:"130px",
     margin:"10px 0px",
-    textAlign:"center"
+    textAlign:"center",
+}
+
+const iconStyle = {
+    color:"rgba(0,0,0,0.5)"
 }
 
 const textStyle = {
-    fontSize:"0.8em",
-    margin:"10px 0",
-    textTransform:"capitalize"
+    fontSize:"0.75em",
+    margin:"10px 5px",
+    textTransform:"capitalize",
+    textAlign:"left"
 }
 
 const imgStyle = {

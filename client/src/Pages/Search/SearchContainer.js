@@ -27,8 +27,8 @@ function SearchContainer(props) {
                     />
                 }
                 <HelpModal 
-                    src=""
-                    desc=""
+                    src="https://cdn.dribbble.com/users/261567/screenshots/1372220/map2.gif"
+                    desc="We will aggregate your areas of interest and use them to rank your results"
                 />
             </div>
         </React.Fragment>

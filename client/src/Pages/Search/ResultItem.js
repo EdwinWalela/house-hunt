@@ -11,7 +11,7 @@ function ResultItem(props) {
             <div style={containerStyle} onClick={props.setActiveListing.bind(this,index)}>
                 <img style={imageStyle} src={data.thumb[0]} />
                 <ResultDetails data={data}/>
-                <p style={textStyle}> {data.title}.</p>
+                <p style={textStyle}> {data.title.toLowerCase()}.</p>
                 {props.best == "1" ?
                 <div style={bestMatchStyle}>Best Match <i class="fas fa-star"></i></div>
                 : ''}
@@ -31,14 +31,13 @@ const bestMatchStyle = {
 
 const containerStyle = {
     overflow:"hidden",
-    padding:"10px",
+    padding:"5px",
     width:"95%",
     maxWidth:"450px",
     background:"#fff",
-    margin:"20px auto",
-    borderRadius:"5px",
+    margin:"5px auto",
     textAlign:"center",
-    boxShadow:"5px 5px 5px rgba(0,0,0,0.2)",
+    borderBottom:"solid 3px #2D936C"
 }
 
 const imageStyle = {
@@ -51,8 +50,9 @@ const imageStyle = {
 const textStyle = {
     textTransform:"capitalize",
     fontSize:"0.9em",
-    margin:"10px auto",
+    margin:"5px auto",
     width:"99%",
+    textAlign:"left"
 
 }
 

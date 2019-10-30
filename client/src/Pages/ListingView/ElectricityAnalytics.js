@@ -10,7 +10,7 @@ class ElectricityAnalyrics extends Component{
 
     state = {
         data:{},
-        location:this.props.location,
+        location:this.props.location.replace(this.props.location[0],this.props.location[0].toUpperCase()),
         loading:true,
         areas:[]
     }
@@ -41,7 +41,9 @@ class ElectricityAnalyrics extends Component{
         })
 
         let labels = areas.map((k,v)=>{
-            return Object.keys(k)[0]
+            let label = Object.keys(k)[0];
+            label = label.replace(label[0],label[0].toUpperCase())
+            return label
         })
         let hits = areas.map((k,v)=>{
             return Object.values(k)[0]
@@ -62,9 +64,17 @@ class ElectricityAnalyrics extends Component{
                 data: [activeHits,...hits],
                 backgroundColor: [
                 '#FF6384',
+                '#AFA2FF',
+                '#E3D7FF',
+                '#7A89C2',
+                '#6699CC'
                 ],
                 hoverBackgroundColor: [
                 '#FF6384',
+                '#AFA2FF',
+                '#E3D7FF',
+                '#7A89C2',
+                '#6699CC'
                 ]
             }]
         };
@@ -76,8 +86,11 @@ class ElectricityAnalyrics extends Component{
 
     refreshAreas = () =>{
         let labels = this.state.areas.map((k,v)=>{
-            return Object.keys(k)[0]
+            let label = Object.keys(k)[0];
+            label = label.replace(label[0],label[0].toUpperCase())
+            return label
         })
+        
         let hits = this.state.areas.map((k,v)=>{
             return Object.values(k)[0]
         })
@@ -97,9 +110,17 @@ class ElectricityAnalyrics extends Component{
                 data: [this.state.activeHits,...hits],
                 backgroundColor: [
                 '#FF6384',
+                '#AFA2FF',
+                '#E3D7FF',
+                '#72788D',
+                '#6699CC'
                 ],
                 hoverBackgroundColor: [
                 '#FF6384',
+                '#AFA2FF',
+                '#E3D7FF',
+                '#72788D',
+                '#6699CC'
                 ]
             }]
         };

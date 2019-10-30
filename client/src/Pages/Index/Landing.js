@@ -19,7 +19,7 @@ class Landing extends Component {
                         description="We will show you how far the commute is to the places you got to the most"
                     />
                     <Suggestions 
-                        title={"Browser Through Hundreds Of Listings"}
+                        title={"Browse Through Hundreds Of Listings"}
                     />
             </div>
         )
