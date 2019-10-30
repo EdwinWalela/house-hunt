@@ -61,26 +61,31 @@ class Map extends Component {
     ));
 
     return (
-      <div>
+      <div style={containerStyle}>
         <h1 style={titleStyle}>Commute</h1>
         <GoogleMapExample
           containerElement={<div style={mapContainerStyle} />}
-          mapElement={<div style={{ height: "400px" }} />}
+          mapElement={<div style={{ height: "300px" }} />}
         />
       </div>
     );
   }
 }
 
-
-const mapContainerStyle = {
+const containerStyle = {
+    textAlign:"center",
     width:"90%",
     maxWidth:"400px",
-    height:"490px",
     display:"inline-block",
+    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+}
+
+const mapContainerStyle = {
+    width:"100%",
+    height:"400px",
     borderRadius:"10px",
     padding:"10px",
-    boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+    
 }
 
 const titleStyle = {
