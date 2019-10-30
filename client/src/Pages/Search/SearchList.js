@@ -32,7 +32,7 @@ function SearchList(props) {
 }
 
 const containerStyle = {
-    minHeight:"40vh",
+    minHeight:"50vh",
 }
 
 const countStyle = {
