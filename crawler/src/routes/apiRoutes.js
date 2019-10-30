@@ -88,6 +88,8 @@ router.get('/listings',async(req,res)=>{
   location = location.toLowerCase()
   let refferencePoint = req.query.reff;
   let limit = Number(req.query.limit) || 400;
+  let clientLimit = 15;
+  let suggestionLimit = 5;
   let src = req.query.source;
 
   let interests = {
@@ -99,6 +101,7 @@ router.get('/listings',async(req,res)=>{
   
   let results = [];
   let xtraResults = [];
+  let suggestions = [];
   
   try {
     // Beds and Location Specified
@@ -114,7 +117,7 @@ router.get('/listings',async(req,res)=>{
     if(results.length < 3){
         xtraResults = await Listing.find({
             location:location
-        }).limit(limit);
+        }).limit(clientLimit);
      }
 
     // Only beds specified
@@ -125,6 +128,16 @@ router.get('/listings',async(req,res)=>{
     }else{
       results = await Listing.find({ }).limit(limit);
     }
+    let randomSkip = Math.floor(Math.random() * ( 20 - 0 + 1)) + 0;
+
+    // Load Suggestions
+    suggestions = await Listing.find({
+        $or:[
+            {location},
+            {beds}
+        ]
+    }).skip(randomSkip).limit(suggestionLimit);
+
   } catch (err) {
     console.log(err)
     res.status(500).send({
@@ -157,7 +170,8 @@ router.get('/listings',async(req,res)=>{
   res.send({
     msg:"OK",
     count:results.length,
-    results
+    results,
+    suggestions
   })
 });
 
