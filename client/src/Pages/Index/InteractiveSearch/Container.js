@@ -101,8 +101,8 @@ const newAccountStyle = {
 
 const containerStyle = {
     margin:"00px auto 0px auto",
-    height:"110vh",
-    minHeight:"600px",
+    height:"60vh",
+    minHeight:"500px",
     background:"url(/images/landing5.jpg)",
     backgroundPosition:"bottom",
     backgroundRepeat:"none",

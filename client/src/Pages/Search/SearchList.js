@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ResultItem from './ResultItem';
-import Suggestions from './Suggestions'
+import Suggestions from '../../layout/Suggestions'
 
 function SearchList(props) {
     let listings = props.listings;

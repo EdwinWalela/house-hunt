@@ -14,6 +14,7 @@ function SuggestionItem(props) {
 
 const containerStyle = {
     boxShadow:"0px 5px 2px rgba(255,255,255,0.3)",
+    cursor:"pointer",
     background:"#fff",
     padding:"10px",
     display:"inline-block",
@@ -34,7 +35,7 @@ const imgStyle = {
 }
 
 SuggestionItem.propTypes = {
-
+    
 }
 
 export default SuggestionItem
