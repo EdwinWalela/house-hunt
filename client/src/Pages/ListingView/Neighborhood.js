@@ -80,7 +80,7 @@ class Neighborhood extends Component {
   }
 
   const mapStyle ={
-    height: `300px`,
+    height: `360px`,
  }
 
   const titleStyle = {

@@ -77,6 +77,7 @@ const containerStyle = {
     width:"90%",
     maxWidth:"400px",
     display:"inline-block",
+    marginRight:"60px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
 }
 
