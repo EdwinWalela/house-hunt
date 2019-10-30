@@ -17,7 +17,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let res = await Axios.get(URI);
             let places = res.data.results;
    
-            places = places.splice(0,5)
+            places = places.splice(0,3)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -41,7 +41,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
-            places = places.splice(0,5)
+            places = places.splice(0,3)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -65,7 +65,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
-            places = places.splice(0,5)
+            places = places.splice(0,3)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
@@ -89,7 +89,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
-            places = places.splice(0,5)
+            places = places.splice(0,3)
             for(let i = 0; i < places.length; i++){
                 let obj = {
                     name:places[i].name,
