@@ -18,13 +18,13 @@ const containerStyle = {
     padding:"15px",
     width:"100%",
     textAlign:"center",
-    background:"#E6E6EA",
+    background:"#232528",
 }
 
 const titleStyle = {
+    color:"#fff",
     padding:"5px",
     fontSize:"1.2em",
-    color:"rgba(0,0,0,0.75)"
 }
 
 Suggestions.propTypes = {
