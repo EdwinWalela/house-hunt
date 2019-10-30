@@ -15,7 +15,7 @@ function Suggestions(props) {
 }
 
 const containerStyle = {
-    padding:"15px",
+    padding:"25px 15px",
     width:"100%",
     textAlign:"center",
     background:"#232528",

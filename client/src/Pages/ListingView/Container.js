@@ -9,6 +9,7 @@ import Features from './Features'
 import Commute from './Commute'
 import Neighborhood from './Neighborhood'
 import ElecAnalytics from './ElectricityAnalytics'
+import Suggestions from '../../layout/Suggestions'
 import Map from './Commute'
 
 function Container(props) {
@@ -30,7 +31,7 @@ function Container(props) {
             <br/>
             <Commute
             // AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key="
                 loadingElement={<div style={{ height: `100px` }} />}
                 reffPoint={reffPoint}
                 listingCoords={listing.coords}
@@ -44,6 +45,7 @@ function Container(props) {
             <ElecAnalytics 
                 location={location}
             />
+            <Suggestions />
         </div>
     )
 }
@@ -73,8 +75,8 @@ Container.defaultProps = {
             "origin": "jumia",
             "beds": "2",
             "baths": "0",
-            "places": [
-                {
+            "places": {
+                
                     "shops": [
                         {
                             "name": "Galleria Mall",
@@ -122,8 +124,8 @@ Container.defaultProps = {
                             }
                         }
                     ]
-                }
-            ]
+                
+            }
         }, 
 }
 
