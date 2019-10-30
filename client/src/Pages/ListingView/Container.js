@@ -63,7 +63,7 @@ Container.defaultProps = {
             "_id": "5d92f3d1e29bfc0d40f07846",
             "title": "executive 2 bedroom apartment all ensuite to let",
             "price": 45000,
-            "thumb": "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg",
+            "thumb": ["https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg"],
             "location": "langata",
             "coords":{
                 "lat":-1.3641,
