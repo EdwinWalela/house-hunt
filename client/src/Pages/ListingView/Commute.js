@@ -54,9 +54,25 @@ class Map extends Component {
             <div style={commuteInfoContainerStyle}>
                 <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>km</span></p>
                 <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>{duration[1]}</span></p>
+                <p><span>From:</span> Langata <span>To: Strathmore University</span></p>
             </div>
         :
-            <p>Calculating commute...</p>
+            <React.Fragment>
+                {/* <p>Calculating commute...</p> */}
+                <p style={infoRightBorderStyle}> 10 <br/><span  style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>km</span></p>
+                <p style={commuteInfoTextStyle}> 24 <br/><span style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>min</span></p>
+                <br/>
+                <div style={originStyle}>
+                    <i class="fas fa-map-marker-alt"/><br/>
+                    <span style={pointsStyle}>From</span>
+                    <p style={tripStyle}>Langata</p>
+                </div>
+                <div style={originStyle}>
+                    <i class="fas fa-map-marker-alt"/><br/>
+                    <span style={pointsStyle}>To</span>
+                    <p style={tripStyle}>Strathmore University</p>
+                </div>
+            </React.Fragment>
         }
       </React.Fragment>
     ));
@@ -84,7 +100,7 @@ const containerStyle = {
 
 const mapContainerStyle = {
     width:"100%",
-    height:"400px",
+    height:"480px",
     borderRadius:"10px",
     padding:"10px",
     
@@ -93,9 +109,23 @@ const mapContainerStyle = {
 const titleStyle = {
     fontSize:"1em"
 }
+const tripStyle = {
+    fontSize:"0.8em",
+    margin:"5px"
+}
 
-const infoTitleStyle = {
-    margin:"10px 0"
+const pointsStyle = {
+    color:"rgba(0,0,0,0.7)",
+    fontSize:"0.7em"
+}
+
+const originStyle = {
+    display:"inline-block",
+    width:"40%",
+    margin:"5px",
+    borderRadius:"5px",
+    padding:"3px",
+    border:"solid 2px #D3424E"
 }
 
 const commuteInfoContainerStyle = {
@@ -107,12 +137,16 @@ const commuteInfoContainerStyle = {
 const commuteInfoTextStyle = {
     fontSize:"1.1em",
     display:"inline-block",
-    width:"45%",
+    background:"#D3424E",
+    color:"#fff",
+    width:"20%",
+    borderRadius:"5px",
+    margin:"10px 5px"
 }
 
 const infoRightBorderStyle = {
     ...commuteInfoTextStyle,
-    borderRight:"solid 2px #D3424E"
+    // borderRight:"solid 2px #D3424E"
 }
 
 
