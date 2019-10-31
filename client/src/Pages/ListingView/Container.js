@@ -76,7 +76,6 @@ Container.defaultProps = {
             "beds": "2",
             "baths": "0",
             "places": {
-                
                     "shops": [
                         {
                             "name": "Galleria Mall",

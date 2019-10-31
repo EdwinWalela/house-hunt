@@ -17,7 +17,7 @@ class Map extends Component {
 
     const origin = this.props.listingCoords;
     const destination = this.props.reffPoint;
-    console.log(origin)
+
     directionsService.route(
       {
         origin: origin,
@@ -39,6 +39,7 @@ class Map extends Component {
 
   render() {
     let duration = this.state.directions ? this.state.directions.routes[0].legs[0].duration.text.split(' ') : []
+    
     const GoogleMapExample = withGoogleMap(props => (
         <React.Fragment>
         <GoogleMap
