@@ -36,26 +36,41 @@ class App extends Component {
         this.setState({
             loading:true
         })
+
+        // Convert reff-point to Geo-Coordinates ( Default to CBD )
+        let coords;
+
+        try{
+            coords = await Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${reff},nairobi,kenya&key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4`);
+            coords = coords.data.results.geometry.location;
+        }catch(err){
+            console.log(err);
+        }
+    
         let res;
         let listings = [];
         // Fetch Data
         try{
-            res = await Axios.get(`${crawlerBaseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}
-            `);
-            listings = res.data.results
-            console.log(listings)
+            res = await Axios.get(`${crawlerBaseAPI}/listings?beds=${beds}&location=${location}&reff=${reff} &gyms=${gyms}&medical=${medical}&restaurants=${restaurants}&shopping=${shopping}`);
+            listings = res.data.results;
+
+            this.setState({
+                listings,
+                reff:coords,
+                loading:!this.state.loading
+            })
         }catch(err){
             this.setState({
                 listings,
                 loading:!this.state.loading,
+                reff:{
+                    lat:-1.290149,
+                    lng:36.8217003
+                },
                 networkError:true,
             })
             return;
         } 
-        this.setState({
-            listings,
-            loading:!this.state.loading
-        })
     }
 
     setActiveListing = (index) =>{
@@ -88,8 +103,8 @@ class App extends Component {
                     }/>
                     <Route path="/view" render={()=>
                         <ListingView 
-                            listing={this.state.activeListing}
-                            reffPoint={this.state.reffPoint}
+                            // listing={this.state.activeListing}
+                            // reffPoint={this.state.reffPoint}
                         />
                     }/>
                 </Router>
