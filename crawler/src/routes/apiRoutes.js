@@ -155,12 +155,12 @@ router.get('/listings',async(req,res)=>{
         if(src !== "admin"){
             places = await placesHelper(interests,results[i].location);
             placesWeights = placesWeighter(places);
-            metric = await metricsHelper(results[i].location,refferencePoint);
+            // metric = await metricsHelper(results[i].location,refferencePoint);
         }
     
         results[i] = {
             ...results[i]._doc,
-            metric,
+            // metric,
             placesWeights,
             places
         }

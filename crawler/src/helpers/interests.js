@@ -14,6 +14,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
             let place = "shopping malls"
             let query = `${place} in ${listingLocation}`;
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
+            console.log(URI)
             let res = await Axios.get(URI);
             let places = res.data.results;
    
