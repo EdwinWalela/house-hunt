@@ -12,7 +12,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
         if(interests["shoppingMalls"]){
             let shops = [];
             let place = "shopping malls"
-            let query = `${place} in ${listingLocation}`;
+            let query = `${place} in ${listingLocation},kenya`;
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             console.log(URI)
             let res = await Axios.get(URI);
@@ -38,7 +38,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
         if(interests["medics"]){
             let medics = [];
             let place = "hospitals"
-            let query = `${place} in ${listingLocation}`;
+            let query = `${place} in ${listingLocation},kenya`;
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
@@ -62,7 +62,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
         if(interests["restaurants"]){
             let restaurants = [];
             let place = "restaurants"
-            let query = `${place} in ${listingLocation}`;
+            let query = `${place} in ${listingLocation},kenya`;
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
@@ -86,7 +86,7 @@ const getAreasOfInterests = async (interests,listingLocation) =>{
         if(interests["gyms"]){
             let gyms = [];
             let place = "gyms"
-            let query = `${place} in ${listingLocation}`;
+            let query = `${place} in ${listingLocation},kenya`;
             let URI = `${BASE_URI}query=${query}&key=${GG_API_KEY}`;
             let res = await Axios.get(URI);
             let places = res.data.results;
