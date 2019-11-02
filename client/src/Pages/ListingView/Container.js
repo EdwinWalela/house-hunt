@@ -31,7 +31,7 @@ function Container(props) {
             <br/>
             <Commute
             // AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key="
                 loadingElement={<div style={{ height: `100px` }} />}
                 
                 reffPoint={props.reffPoint}

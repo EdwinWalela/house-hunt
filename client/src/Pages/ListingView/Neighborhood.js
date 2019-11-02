@@ -7,7 +7,7 @@ import {
     Marker,
     InfoWindow
   } from "react-google-maps"
-
+import AreaCards from './AreaCards'
 import PropTypes from 'prop-types'
 
 const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
@@ -67,6 +67,9 @@ class Neighborhood extends Component {
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={mapStyle} />}
                     mapElement={<div style={{ height: `100%` }} />}
+                />
+                <AreaCards 
+                    areas={this.state.shelters.splice(0,3)}
                 />
             </div>
       )
