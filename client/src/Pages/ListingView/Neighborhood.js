@@ -42,6 +42,12 @@ class Neighborhood extends Component {
     constructor(props) {
       super(props)
       this.state = {
+        areas : [
+            ...this.props.shops,
+            ...this.props.medics,
+            ...this.props.restaurants,
+            ...this.props.gyms
+        ],
         shelters: [
             ...this.props.shops,
             ...this.props.medics,
@@ -55,6 +61,7 @@ class Neighborhood extends Component {
       this.setState({ selectedMarker: marker })
     }
     render() {
+    let areas = this.state.areas;
       return (
             <div style={containerStyle}>
                 <h1 style={titleStyle}>Areas of Interest Around {this.props.location}</h1>
@@ -69,7 +76,7 @@ class Neighborhood extends Component {
                     mapElement={<div style={{ height: `100%` }} />}
                 />
                 <AreaCards 
-                    areas={this.state.shelters.splice(0,3)}
+                    areas={areas}
                 />
             </div>
       )

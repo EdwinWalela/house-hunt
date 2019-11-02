@@ -5,13 +5,15 @@ function AreaCards(props) {
     let areas = props.areas
     return (
         <div style={containerStyle}>
-            {areas.map(area=>(
+            {areas.map((area,i)=>{
+                if(i<3){
+                return(
                  <div style={cardStyle}>
                     <p style={textStyle}>{area.name}</p>
                     <p style={openedBadge}>Opened</p>
                     {/* <p style={catStyle}>Shopping Center<i class="fas fa-shopping-cart"></i></p> */}
                 </div>
-            ))}
+            )}})}
         </div>
     )
 }

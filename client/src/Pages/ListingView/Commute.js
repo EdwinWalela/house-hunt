@@ -64,7 +64,10 @@ class Map extends Component {
                 <br/>
                 <div style={originStyle}>
                     <i class="fas fa-map-marker-alt"/><br/>
-                    <span style={pointsStyle}>From</span>
+                    <span style={{
+                        ...pointsStyle,
+                        marginRight:"15px",
+                    }}>From</span>
                     <p style={tripStyle}>{this.props.from}</p>
                 </div>
                 <div style={originStyle}>
@@ -108,12 +111,12 @@ const mapContainerStyle = {
     height:"500px",
     borderRadius:"10px",
     padding:"10px",
-    
 }
 
 const titleStyle = {
     fontSize:"1em"
 }
+
 const tripStyle = {
     fontSize:"0.8em",
     margin:"0px",
