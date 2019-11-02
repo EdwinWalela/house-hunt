@@ -41,6 +41,9 @@ function Container(props) {
             <Neighborhood
                 title="Neighborhood"
                 shops={listing.places.shops}
+                medics={listing.places.medics}
+                restaurants={listing.places.restaurants}
+                gyms={listing.places.gyms}
                 center={listing.coords}
                 location={listing.location}
             />
@@ -75,55 +78,67 @@ Container.defaultProps = {
             "beds": "2",
             "baths": "0",
             "places": {
-                    "shops": [
-                        {
-                            "name": "Galleria Mall",
-                            "rating": 4.3,
-                            "opened": false,
-                            "coords": {
-                                "lat": -1.3436978,
-                                "lng": 36.7656044
-                            }
-                        },
-                        {
-                            "name": "Hardy Post Shopping Mall",
-                            "rating": 4.2,
-                            "opened": true,
-                            "coords": {
-                                "lat": -1.364976,
-                                "lng": 36.7427638
-                            }
-                        },
-                        {
-                            "name": "The Waterfront Karen",
-                            "rating": 4.1,
-                            "opened": true,
-                            "coords": {
-                                "lat": -1.3297903,
-                                "lng": 36.7146885
-                            }
-                        },
-                        {
-                            "name": "Langata Mall",
-                            "rating": 3.7,
-                            "opened": false,
-                            "coords": {
-                                "lat": -1.3242122,
-                                "lng": 36.7830446
-                            }
-                        },
-                        {
-                            "name": "The Hub Karen",
-                            "rating": 4.6,
-                            "opened": true,
-                            "coords": {
-                                "lat": -1.3203671,
-                                "lng": 36.704134
-                            }
-                        }
-                    ]
-                
-            }
+                "shops": [
+                {
+                "name": "Quick Mart Ruaka",
+                "rating": 4.1,
+                "opened": true,
+                "coords": {
+                "lat": -1.2068367,
+                "lng": 36.7834295
+                }
+                },
+                {
+                "name": "Two Rivers Mall",
+                "rating": 4.5,
+                "opened": true,
+                "coords": {
+                "lat": -1.210846,
+                "lng": 36.7946976
+                }
+                },
+                {
+                "name": "ruaka business center",
+                "rating": 3.9,
+                "opened": "n/a",
+                "coords": {
+                "lat": -1.211165,
+                "lng": 36.785571
+                }
+                }
+                ],
+                "medics": [ ],
+                "restaurants": [
+                {
+                "name": "Valley Park Falls -Ruaka Bar, Lounge & Restaurant",
+                "rating": 4,
+                "opened": true,
+                "coords": {
+                "lat": -1.2067725,
+                "lng": 36.7885337
+                }
+                },
+                {
+                "name": "Mayweather Suites",
+                "rating": 4,
+                "opened": false,
+                "coords": {
+                "lat": -1.2058764,
+                "lng": 36.7775717
+                }
+                },
+                {
+                "name": "Pork Pit",
+                "rating": 4.4,
+                "opened": true,
+                "coords": {
+                "lat": -1.206473,
+                "lng": 36.7832519
+                }
+                }
+                ],
+                "gyms": [ ]
+                }
         }, 
 }
 

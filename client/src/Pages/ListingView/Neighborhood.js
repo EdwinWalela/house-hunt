@@ -42,7 +42,12 @@ class Neighborhood extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        shelters: this.props.shops,
+        shelters: [
+            ...this.props.shops,
+            ...this.props.medics,
+            ...this.props.restaurants,
+            ...this.props.gyms
+        ],
         selectedMarker: false
       }
     }

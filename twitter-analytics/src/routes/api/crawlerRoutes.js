@@ -5,11 +5,7 @@ const fs = require("fs");
 
 const wordChecker = (word) =>{
     word = word.toLowerCase();
-    if(
-        word.includes('tokens') ||
-        word.includes('hakuna') ||
-        word.includes('m-pesa') ||
-        word.includes('meter')){
+    if( word.includes('tokens') || word.includes('m-pesa') || word.includes('meter')){
             return false;
     }
     if(
@@ -44,12 +40,13 @@ router.get('/crawl',async(req,res)=>{
     let $ = cheerio.load(dom);
 
     let results = [];
-    $('li').map((i,el)=>{
-        let body = $(el).find('p.TweetTextSize.js-tweet-text.tweet-text').text().trim();
+    $('div').map((i,el)=>{
+        let body = $(el).find('span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0').text().trim();
         body = JSON.stringify(body);
+      
         if(body.length>4){
             // remove dirty tweets
-            if(wordChecker(body)){
+            if(true){
                 results.push(body);
             }
         }
