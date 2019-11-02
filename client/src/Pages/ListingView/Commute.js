@@ -17,7 +17,7 @@ class Map extends Component {
 
     const origin = this.props.listingCoords;
     const destination = this.props.reffPoint;
-
+    console.log(origin,destination)
     directionsService.route(
       {
         origin: origin,
@@ -25,6 +25,8 @@ class Map extends Component {
         travelMode: window.google.maps.TravelMode.DRIVING
       },
       (result, status) => {
+          
+        console.log("mid")
         if (status === window.google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result
@@ -33,8 +35,11 @@ class Map extends Component {
         } else {
           console.error(`error fetching directions ${result}`);
         }
+        console.log("HELLO")
       }
     );
+    
+    console.log("post")
   }
 
   render() {
@@ -42,36 +47,35 @@ class Map extends Component {
     
     const GoogleMapExample = withGoogleMap(props => (
         <React.Fragment>
+
         <GoogleMap
             defaultCenter={this.props.listingCoords}
             defaultZoom={13}
         >
             <DirectionsRenderer
-            directions={this.state.directions}
+                directions={this.state.directions}
             />
         </GoogleMap>
+
         {this.state.directions ?
             <div style={commuteInfoContainerStyle}>
-                <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>km</span></p>
-                <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(0,0,0,0.6)",fontSize:"0.9em"}}>{duration[1]}</span></p>
-                <p><span>From:</span> Langata <span>To: Strathmore University</span></p>
-            </div>
-        :
-            <React.Fragment>
-                {/* <p>Calculating commute...</p> */}
-                <p style={infoRightBorderStyle}> 10 <br/><span  style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>km</span></p>
-                <p style={commuteInfoTextStyle}> 24 <br/><span style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>min</span></p>
+                <p style={infoRightBorderStyle}>{Math.floor(this.state.directions.routes[0].legs[0].distance.value/1000)} <br/><span  style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>km</span></p>
+                <p style={commuteInfoTextStyle}>{duration[0]} <br/><span style={{color:"rgba(255,255,255,0.6)",fontSize:"0.9em"}}>{duration[1]}</span></p>
                 <br/>
                 <div style={originStyle}>
                     <i class="fas fa-map-marker-alt"/><br/>
                     <span style={pointsStyle}>From</span>
-                    <p style={tripStyle}>Langata</p>
+                    <p style={tripStyle}>{this.props.from}</p>
                 </div>
                 <div style={originStyle}>
                     <i class="fas fa-map-marker-alt"/><br/>
                     <span style={pointsStyle}>To</span>
-                    <p style={tripStyle}>Strathmore University</p>
+                    <p style={tripStyle}>{this.props.reffPoint}</p>
                 </div>
+            </div>
+        :
+            <React.Fragment>
+                <p>Calculating commute...</p>
             </React.Fragment>
         }
       </React.Fragment>
@@ -96,11 +100,12 @@ const containerStyle = {
     display:"inline-block",
     marginRight:"60px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
+    height:"500px",
 }
 
 const mapContainerStyle = {
     width:"100%",
-    height:"480px",
+    height:"500px",
     borderRadius:"10px",
     padding:"10px",
     
@@ -111,7 +116,8 @@ const titleStyle = {
 }
 const tripStyle = {
     fontSize:"0.8em",
-    margin:"5px"
+    margin:"0px",
+    textTransform:"capitalize"
 }
 
 const pointsStyle = {

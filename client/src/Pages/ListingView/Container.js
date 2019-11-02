@@ -16,7 +16,7 @@ function Container(props) {
     const Commute = withScriptjs(Map)
     let listing = props.listing
     let location = listing.location
-    let gallery = listing.thumb
+    let gallery = [listing.thumb[0]]
     let reffPoint = props.reffPoint
     return (
         <div style={containerStyle}>
@@ -31,9 +31,11 @@ function Container(props) {
             <br/>
             <Commute
             // AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key="
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
                 loadingElement={<div style={{ height: `100px` }} />}
-                reffPoint={reffPoint}
+                
+                reffPoint={props.reffPoint}
+                from={listing.location}
                 listingCoords={listing.coords}
             />
             <Neighborhood
@@ -57,10 +59,7 @@ const containerStyle = {
 // /,36.8217003
 
 Container.defaultProps = {
-    reffPoint:{
-        lat:-1.290149,
-        lng:36.8217003
-    },
+    reffPoint:"CBD",
     listing:{
             "_id": "5d92f3d1e29bfc0d40f07846",
             "title": "executive 2 bedroom apartment all ensuite to let",

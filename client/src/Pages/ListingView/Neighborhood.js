@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
     return (
         
-      <GoogleMap defaultZoom={11} defaultCenter={props.center}>
+      <GoogleMap defaultZoom={13} defaultCenter={props.center}>
         {props.markers.map(marker => {
           const onClick = props.onClick.bind(this, marker)
           return (
@@ -69,18 +69,19 @@ class Neighborhood extends Component {
   }
 
   const containerStyle = {
-    verticalAlign:"top",
-    margin:"20px 30px 40px 20px",
+ 
+    height:"500px",
+    textAlign:"center",
     width:"90%",
     maxWidth:"400px",
     display:"inline-block",
-    borderRadius:"10px",
-    padding:"10px",
+    marginRight:"60px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
   }
 
   const mapStyle ={
     height: `360px`,
+    padding:"10px",
  }
 
   const titleStyle = {

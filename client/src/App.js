@@ -44,6 +44,10 @@ class App extends Component {
             coords = await Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${reff},nairobi,kenya&key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4`);
             coords = coords.data.results.geometry.location;
         }catch(err){
+            coords = {
+                lat:-1.290149,
+                lng:36.8217003
+            }
             console.log(err);
         }
     
@@ -105,6 +109,7 @@ class App extends Component {
                         <ListingView 
                             // listing={this.state.activeListing}
                             // reffPoint={this.state.reffPoint}
+                            // reffCoords={this.state.reff}
                         />
                     }/>
                 </Router>
