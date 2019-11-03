@@ -29,6 +29,7 @@ function Container(props) {
                 listing={listing}
             />
             <br/>
+            <div style={{margin:"10px auto"}}>
             <Commute
             // AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD886ga_vi4Wxi4xWUDDp3h33AClSbZiW4"
@@ -47,6 +48,7 @@ function Container(props) {
                 center={listing.coords}
                 location={listing.location}
             />
+            </div>
             <ElecAnalytics 
                 location={location}
             />

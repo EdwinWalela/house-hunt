@@ -84,13 +84,13 @@ class Neighborhood extends Component {
   }
 
   const containerStyle = {
- 
-    height:"500px",
+    height:"520px",
     textAlign:"center",
     width:"90%",
     maxWidth:"400px",
     display:"inline-block",
     marginRight:"60px",
+    overflow:"hidden",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
   }
 

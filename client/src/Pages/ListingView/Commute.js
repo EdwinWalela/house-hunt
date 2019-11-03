@@ -75,6 +75,7 @@ class Map extends Component {
                     <span style={pointsStyle}>To</span>
                     <p style={tripStyle}>{this.props.reffPoint}</p>
                 </div>
+                <p style={infoStyle}>Traffic duration may differ.</p>
             </div>
         :
             <React.Fragment>
@@ -91,6 +92,7 @@ class Map extends Component {
           containerElement={<div style={mapContainerStyle} />}
           mapElement={<div style={{ height: "300px" }} />}
         />
+         <p style={infoStyle}>Number of power outage reports via Twitter from 1/1/19 to 26/10/19</p>
       </div>
     );
   }
@@ -103,7 +105,14 @@ const containerStyle = {
     display:"inline-block",
     marginRight:"60px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
-    height:"500px",
+    height:"520px",
+    overflow:"hidden"
+}
+
+const infoStyle = {
+    fontSize:"0.7em",
+    margin:"10px auto",
+    color:"rgba(0,0,0,0.5)"
 }
 
 const mapContainerStyle = {
