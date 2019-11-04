@@ -11,7 +11,7 @@ const zoomOutProperties = {
 }
 
 function Slideshow(props) {
-    let images = props.gallery.splice(0,3)
+    let images = props.gallery.slice(0,3)
     return (
         <div style={containerStyle}>
             {

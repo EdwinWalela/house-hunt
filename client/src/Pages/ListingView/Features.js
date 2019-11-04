@@ -7,7 +7,7 @@ function Features(props) {
     return (
         <div style={containerStyle}>
             <div style={featureContainer}>
-                <h1 style={titleStyle}>Listing Details</h1>
+                {/* <h1 style={titleStyle}>Listing Details</h1> */}
                 <div style={featureGroupStyle}>
                     <i style={bedIcon} class="fas fa-bed"></i>
                     <p style={featureTextStyle}>{listing.beds} Bedroom</p>
@@ -52,15 +52,18 @@ const featureTextStyle = {
 
 const featureGroupStyle = {
     paddingTop:"10px",
-    margin:"5px auto",
+    margin:"5px",
     boxShadow:"0px 5px 5px rgba(0,0,0,0.3)",
     display:"inline-block",
     width:"20%",
-    minWidth:"200px"
+    minWidth:"200px",
+    background:"#D3424E",
+    color:"#fff"
 }
 
 const bedIcon = {
-    color:"rgb(73, 48, 107)",
+    // color:"rgb(73, 48, 107)",
+    color:"#fff"
 }
 
 const locationIcon = {
@@ -69,7 +72,8 @@ const locationIcon = {
 
 
 const priceIcon = {
-    color:"rgb(45, 147, 108)",
+    // color:"rgb(45, 147, 108)",
+    color:"#fff"
 }
 
 Features.propTypes = {
