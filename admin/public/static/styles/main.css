@@ -5,6 +5,49 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+form{
+        border-radius:5px;
+        box-shadow:0px 20px 10px rgba(0,0,0,0.3);
+        padding:50px 10px;
+        width: 400px;
+        margin:20px auto 50px auto;
+        background:#4464AD;
+    }
+    form p{
+        font-size:0.9em;
+        color:#fff !important;
+    }
+    input{
+        font-size:0.8em;
+        padding:10px;
+        margin:10px 0;
+        width:160px;
+        
+    }
+    label{
+        width:50px;
+        font-size:1.2em;
+        color: #fff;
+        margin:10px 10px;
+    }
+    .orange-btn{
+        
+        margin:10px auto;
+        width:200px;
+        padding:15px;
+        border:none;
+        background:#4464AD;
+        color:#fff;
+        text-decoration:underline;
+        transition:all linear .3s .3s;
+    }
+    .orange-btn:hover{
+        transition:all linear .3s .1s;
+        background:#fff;
+        color:#4464AD;
+        text-decoration:none;
+    }
+
 ul{
     list-style-type: none;
 }

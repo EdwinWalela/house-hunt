@@ -17,6 +17,10 @@ app.use('/public',express.static('public'));
 // Routes
 app.use("/listings",listingRoutes);
 
+app.post("/login",(req,res)=>{
+    res.redirect('/listings')
+})
+
 app.get('/',async(req,res)=>{
     let result = await Axios.get(`${CRAWLER_URI}/listings?beds=undefined`);
     let count = result.data.count;

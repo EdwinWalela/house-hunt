@@ -13,37 +13,18 @@
             House Hunt Admin
         </div>
         <div class="nav-items">
-            <ul>
-                <li>Logout (Edwin)</li>
-            </ul>
         </div>
     </nav>
 
-    <div class="stats-container">
-        <a href="/listings">
-            <div class="stats-item">
-                <span>
-                    <%=count%>
-                </span>
-                <p>Listings</p>
-            </div>
-        </a>
-        <!-- <a href="/tweets">
-            <div class="stats-item">
-                <span>
-                    415
-                </span>
-                <p>Tweets</p>
-            </div>
-        </a> -->
-        <a href="/areas">
-            <div class="stats-item">
-                <span>
-                    121
-                </span>
-                <p>Areas</p>
-            </div>
-        </a>
-    </div>
+    <form action="/login" method="POST">
+		<label for="fname">Email</label>
+		<input type="text" name="fname" id="fname" required>
+		<br/>
+		<label for="pass">Password</label>
+		<input type="password" name="pass" id="pass" required>
+		<br/>
+		<button class="orange-btn" type="submit">Login</button>
+		<!-- <a href="register.php"><p id='new-acc-tip'>Create Account</p></a> -->
+    </form>
 </body>
 </html>
