@@ -16,7 +16,7 @@ function Container(props) {
     const Commute = withScriptjs(Map)
     let listing = props.listing
     let location = listing.location
-    let gallery = [listing.thumb[0]]
+    let gallery = listing.thumb || []
     let reffPoint = props.reffPoint
     return (
         <div style={containerStyle}>
@@ -24,7 +24,6 @@ function Container(props) {
             <Slideshow 
                 gallery={gallery}
             />
-            <br/>
             <Features 
                 listing={listing}
             />
@@ -69,7 +68,12 @@ Container.defaultProps = {
             "_id": "5d92f3d1e29bfc0d40f07846",
             "title": "executive 2 bedroom apartment all ensuite to let",
             "price": 45000,
-            "thumb": ["https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg"],
+            "thumb": [
+                "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg",
+                "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg",
+                "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg",
+                "https://media.jumiadeals.com/ke_live/ddf3008e525d868353183bc.desktop-gallery-large.jpg"
+            ],
             "location": "langata",
             "coords":{
                 "lat":-1.3641,

@@ -11,24 +11,25 @@ const zoomOutProperties = {
 }
 
 function Slideshow(props) {
-    let images = props.gallery
+    let images = props.gallery.splice(0,3)
     return (
-        <div className="slide-container">
-            <Zoom {...zoomOutProperties}>
+        <div style={containerStyle}>
             {
                 images.map((each, index) => <img key={index} style={imageStyle} src={each} />)
             }
-            </Zoom>
       </div>
     )
 }
 
+const containerStyle={
+    marginTop:"20px"
+}
 
 const imageStyle = {
-    width:"90%",
-    maxWidth:"450px",
-    height:"350px",
-    margin:"20px auto 30px auto"
+    width:"50%",
+    maxWidth:"300px",
+    height:"200px",
+    margin:"10px"
 }
 
 Slideshow.propTypes = {
