@@ -12,8 +12,9 @@ const wordChecker = (word) =>{
         word.includes('outage') ||
         word.includes('loss') ||
         word.includes('potea') ||
-        word.includes('no power') ||
-        word.includes('black out') ||
+        word.includes("power") ||
+        word.includes('no') ||
+        word.includes('black') ||
         word.includes('blackout') ||
         word.includes('darkness') ||
         word.includes('outage') 
@@ -40,13 +41,12 @@ router.get('/crawl',async(req,res)=>{
     let $ = cheerio.load(dom);
 
     let results = [];
-    $('div').map((i,el)=>{
-        let body = $(el).find('span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0').text().trim();
-        body = JSON.stringify(body);
-      
+    $('li').map((i,el)=>{
+        let body = $(el).find('p.TweetTextSize.js-tweet-text.tweet-text').text().trim();
         if(body.length>4){
             // remove dirty tweets
-            if(true){
+            // if(true){
+            if(wordChecker(body)){
                 results.push(body);
             }
         }
@@ -54,13 +54,14 @@ router.get('/crawl',async(req,res)=>{
     
     // Save crawled tweets to db
     results.map(async tweet=>{
-        // await new Tweet({
-        //     body:tweet
-        // }).save();
+        await new Tweet({
+            body:tweet
+        }).save();
     })
 
     res.send({
         msg:`${results.length} tweets saved to db`,
+        // results
     })
 })
 
