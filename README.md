@@ -22,4 +22,4 @@ Responsible for crawling twitter and determining power outage patterns in Nairob
 ### Client Service
 Responsible for providing users with an interface to search for listings
 
-[Demo](http://house-huntv2.surge.sh/)
+[Demo](http://house-hunt.surge.sh/)
